@@ -3,10 +3,10 @@
 Static site (plain HTML/CSS/JS, no build step) deployed on Vercel at **https://ctlyst-toolbox.vercel.app** (Vercel project `ctlyst-toolbox`). Unlisted: every page sends `noindex` (see `vercel.json`).
 Owner: Chandler Rust (independent life insurance agent; agency **CTLYST**, under the IMO **Everlife**).
 
-The recruiting intake form, opt-in page, privacy policy, terms and the `/api/lead` → Make webhook live in a **separate** site/project (scalewithsteelwater.com, Vercel project `steelwater-scaling`), not in this repo. Old `scalewithsteelwater.com/chans-toolbox/...` links redirect here.
+The recruiting intake form, opt-in page, privacy policy, terms and the `/api/lead` → Make webhook live in a **separate** site/project (scalewithsteelwater.com, Vercel project `steelwater-scaling`), not in this repo. Old `scalewithsteelwater.com/chans-toolbox/...` links show a "toolbox has moved" notice with a button to the matching page here.
 
 ## Deploying
-- Pushing to `main` on GitHub deploys to production (once the Vercel Git integration is connected).
+- Pushing to `main` on GitHub deploys to production via the GitHub Action in `.github/workflows/deploy.yml` (uses the `VERCEL_TOKEN` repo secret). Vercel's own Git auto-deploys are turned off in `vercel.json` (`git.deploymentEnabled: false`) so there are no double or blocked deploys.
 - Manual deploy from this folder: `vercel deploy --prod --yes`.
 - `vercel.json` sets `cleanUrls` (so `/pitch-flowchart` serves `pitch-flowchart.html`).
 - After deploying, check the live URL with a cache-busting query (e.g. `?v=123`); phones cache aggressively.
