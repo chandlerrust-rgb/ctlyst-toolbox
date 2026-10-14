@@ -1,7 +1,7 @@
 {
   "name": "CTLYST Toolbox",
   "short_name": "CTLYST",
-  "start_url": "/chans-toolbox",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#2B3B38",
