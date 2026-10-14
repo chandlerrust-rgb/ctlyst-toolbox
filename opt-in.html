@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Opt In | Steelwater Strategies</title>
+<meta name="description" content="Request information and opt in to calls and text messages from Steelwater Strategies.">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="canonical" href="https://www.scalewithsteelwater.com/opt-in">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap">
+<style>
+  :root { color-scheme: dark; --bg:#2B3B38; --card:#344743; --field:#2F423E; --line:#4C625E; --text:#F6F4F2; --muted:#B3C1BA; --sage:#B9CBC2; --sage-hi:#CFDBD4; --red:#F0A196; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { margin: 0; }
+  body { background: radial-gradient(120% 40% at 50% -5%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg); color: var(--text);
+         font: 400 16px/1.55 Manrope, "Helvetica Neue", Arial, sans-serif; padding-inline: 18px; }
+  main, header, footer { max-width: 520px; margin: 0 auto; }
+  header { padding-block: 28px 0; }
+  .brand { font-weight: 800; font-size: 1.05rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text); text-decoration: none; }
+  main { padding-block: 22px 32px; display: grid; gap: 18px; }
+  h1 { font-size: clamp(1.8rem, 6vw, 2.3rem); line-height: 1.15; margin: 0; }
+  .lede { margin: 0; color: var(--muted); }
+  form { display: grid; gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+  label.f { display: grid; gap: 6px; font-weight: 700; font-size: .92rem; }
+  label.f span { color: var(--muted); font-weight: 500; }
+  input[type=text], input[type=tel], input[type=email] { width: 100%; font: 500 1rem/1 Manrope, sans-serif; color: var(--text); background: var(--field);
+    border: 1px solid var(--line); border-radius: 10px; padding: 14px 14px; }
+  input:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 3px rgba(185,203,194,.2); }
+  input[aria-invalid="true"] { border-color: var(--red); }
+  .check { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; font-size: .86rem; line-height: 1.5; color: #E6EBE8;
+    background: var(--field); border: 1px solid var(--line); border-radius: 10px; padding: 12px; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: #B9CBC2; }
+  .check a { color: var(--sage); }
+  button { font: 800 1rem/1 Manrope, sans-serif; letter-spacing: .04em; text-transform: uppercase; color: #1C2826; cursor: pointer;
+    background: linear-gradient(180deg, var(--sage-hi), var(--sage)); border: 0; border-radius: 10px; padding: 18px; margin-top: 4px; }
+  button[disabled] { opacity: .7; cursor: wait; }
+  .err { margin: 0; min-height: 1.2em; color: var(--red); font-size: .9rem; text-align: center; }
+  .fine { margin: 0; font-size: .78rem; color: var(--muted); line-height: 1.5; }
+  .fine a { color: var(--sage); }
+  .done { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; text-align: center; }
+  .done h2 { margin: 0 0 6px; }
+  .done p { margin: 0; color: var(--muted); }
+  footer { border-top: 1px solid var(--line); padding-block: 18px 40px; color: var(--muted); font-size: .9rem; display: flex; gap: 18px; flex-wrap: wrap; }
+  footer a { color: var(--sage); }
+</style></head>
+<body>
+<header><a href="/" class="brand">Steelwater Strategies</a></header>
+<main>
+  <h1>Get information &amp; text updates</h1>
+  <p class="lede">Enter your info to hear about the independent insurance agent opportunity and to schedule a call with Chandler Rust.</p>
+
+  <form id="f" novalidate>
+    <label class="f" for="name">First name<input id="name" name="name" type="text" autocomplete="given-name" required></label>
+    <label class="f" for="phone">Mobile phone<input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></label>
+    <label class="f" for="email">Email <span>(optional)</span><input id="email" name="email" type="email" autocomplete="email"></label>
+    <div aria-hidden="true" style="position:absolute;left:-9999px"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+    <label class="check" for="sms"><input id="sms" type="checkbox"><span id="consent-text">I agree to receive recurring automated text messages from Steelwater Strategies at the mobile number provided about the agent opportunity, appointment scheduling and reminders. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See our <a href="/terms">Terms &amp; Conditions</a> and <a href="/privacy-policy">Privacy Policy</a>.</span></label>
+    <button type="submit" id="go">Submit</button>
+    <p class="err" id="err" aria-live="polite"></p>
+    <p class="fine">No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</p>
+  </form>
+
+  <div class="done" id="done" hidden aria-live="polite">
+    <h2>You're all set.</h2>
+    <p id="done-msg">Thanks! We'll be in touch shortly.</p>
+  </div>
+</main>
+<footer><span>&copy; 2026 Steelwater Strategies</span><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms &amp; Conditions</a></footer>
+<script>
+(function () {
+  const f = document.getElementById("f"), name = document.getElementById("name"), phone = document.getElementById("phone"),
+        email = document.getElementById("email"), sms = document.getElementById("sms"), err = document.getElementById("err"), go = document.getElementById("go");
+  phone.addEventListener("input", () => {
+    const d = phone.value.replace(/\D/g, "").replace(/^1/, "").slice(0, 10);
+    phone.value = d.length > 6 ? `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}` : d.length > 3 ? `(${d.slice(0,3)}) ${d.slice(3)}` : d;
+  });
+  f.addEventListener("submit", async e => {
+    e.preventDefault();
+    err.textContent = ""; [name, phone, email].forEach(x => x.removeAttribute("aria-invalid"));
+    const digits = phone.value.replace(/\D/g, "");
+    if (!name.value.trim()) { name.setAttribute("aria-invalid", "true"); err.textContent = "Add your first name."; return name.focus(); }
+    if (digits.length !== 10) { phone.setAttribute("aria-invalid", "true"); err.textContent = "Enter a 10-digit mobile number."; return phone.focus(); }
+    if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.setAttribute("aria-invalid", "true"); err.textContent = "Check your email address."; return email.focus(); }
+    go.disabled = true; go.textContent = "Sending…";
+    try {
+      const r = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.value.trim(), phone: digits, email: email.value.trim(), company: document.getElementById("company").value,
+          sms_consent: sms.checked, consent_text: sms.checked ? document.getElementById("consent-text").innerText : "", page: location.href, source: "opt-in-page" }) });
+      if (!r.ok) throw new Error();
+      f.hidden = true; document.getElementById("done").hidden = false;
+      if (sms.checked) document.getElementById("done-msg").textContent = "Thanks! You're opted in to text messages. Reply STOP anytime to opt out.";
+    } catch {
+      err.textContent = "That didn't go through. Check your connection and try again.";
+      go.disabled = false; go.textContent = "Submit";
+    }
+  });
+})();
+</script>
+</body></html>

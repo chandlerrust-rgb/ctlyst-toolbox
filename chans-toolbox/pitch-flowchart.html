@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Chan's Instant Decision Pitch</title>
+<meta property="og:image" content="https://www.scalewithsteelwater.com/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #2B3B38;
+    --card: #1F302B;
+    --card-2: #273D38;
+    --line: #3A4D48;
+    --text: #F6F4F2;
+    --muted: #B8C3C0;
+    --dim: #8B9A96;
+    --gold: #A3B3AB;
+    --gold-soft: rgba(163,179,171,.13);
+    --teal: #6CC4A6;
+    --teal-soft: rgba(108,196,166,.12);
+    --rose: #E89A8C;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px)); }
+  html, body { margin: 0; }
+  body {
+    background: radial-gradient(120% 40% at 50% -5%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg);
+    color: var(--text); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding-inline: 18px; }
+
+  /* nav */
+  nav.tabs { position: sticky; top: 0; z-index: 10; background: rgba(22,35,32,.94); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top, 0px); }
+  nav.tabs .wrap { display: flex; gap: 6px; overflow-x: auto; padding-block: 10px; scrollbar-width: none; }
+  nav.tabs .wrap::-webkit-scrollbar { display: none; }
+  nav.tabs a { flex: none; text-decoration: none; color: var(--muted); font-weight: 700; font-size: .82rem;
+    padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+  nav.tabs a.on { color: #1C2826; background: var(--gold); border-color: var(--gold); }
+
+  header.top { padding-block: 22px 8px; display: grid; gap: 12px; }
+  .back { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .88rem; }
+  .back:hover { color: var(--gold); }
+  h1 { font: 400 clamp(1.9rem, 7vw, 2.7rem)/1.06 var(--display); margin: 0; text-wrap: balance; }
+  h1 em { color: var(--gold); }
+  .carriers { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: .85rem; color: var(--muted); }
+  .carriers b { color: var(--text); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; margin-right: 4px; }
+  .carriers span { border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; color: var(--text); }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .78rem; color: var(--muted); }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+  /* sections */
+  section { padding-block: 34px 8px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+  .sec-head .n { font: 400 2.2rem/1 var(--display); color: var(--gold); }
+  h2 { font: 800 .8rem/1 var(--body); letter-spacing: .18em; text-transform: uppercase; margin: 0; }
+
+  /* flow */
+  .flow { display: grid; gap: 0; }
+  .step { position: relative; padding-left: 26px; padding-bottom: 18px; }
+  .step::before { content: ""; position: absolute; left: 7px; top: 20px; bottom: 0; width: 2px; background: var(--line); }
+  .step:last-child::before { display: none; }
+  .step::after { content: ""; position: absolute; left: 1px; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--gold); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .card p { margin: 0; }
+  .card p + p, .card ul + p, .card p + ul { margin-top: 10px; }
+  .card ul { margin: 0; padding-left: 18px; }
+  .card li + li { margin-top: 4px; }
+  .fill { color: var(--gold); font-weight: 700; }
+  .note { display: block; margin-top: 8px; font-size: .88rem; color: var(--teal); font-style: italic; }
+  .rep { background: var(--teal-soft); border-color: rgba(108,196,166,.35); color: var(--teal); font-weight: 600; }
+  .rep b { color: var(--text); }
+  .tag { display: inline-block; font-size: .66rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+  /* branches */
+  .branch { display: grid; gap: 10px; margin-top: 10px; }
+  .path { border-left: 2px dashed var(--line); padding-left: 12px; display: grid; gap: 8px; }
+  .cond { justify-self: start; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    color: #1C2826; background: var(--gold); border-radius: 6px; padding: 3px 8px; }
+  .cond.no { background: var(--line); color: var(--text); }
+  .then { font-size: .9rem; color: var(--muted); }
+  .then a { color: var(--gold); font-weight: 700; }
+  .carrier { display: grid; gap: 2px; background: var(--gold-soft); border: 1px solid rgba(163,179,171,.4); border-radius: 10px; padding: 10px 12px; }
+  .carrier b { color: var(--gold); }
+  .carrier small { color: var(--muted); font-size: .8rem; }
+  .carrier .skip { justify-self: start; margin-top: 6px; font-size: .74rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: #1C2826; background: var(--gold); border-radius: 6px; padding: 4px 8px; text-decoration: none; }
+  .carrier .skip:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+  details.ifyes { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; }
+  details.ifyes summary { cursor: pointer; list-style: none; font-weight: 700; font-size: .88rem; color: var(--gold); display: flex; align-items: center; gap: 8px; }
+  details.ifyes summary::-webkit-details-marker { display: none; }
+  details.ifyes summary::before { content: "+"; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--gold); font-size: .9rem; line-height: 1; }
+  details.ifyes[open] summary::before { content: "–"; }
+  details.ifyes .inner { display: grid; gap: 10px; margin-top: 10px; }
+  .ask { font-size: .92rem; color: var(--muted); }
+  .ask ul { margin: 4px 0 0; padding-left: 18px; color: var(--text); }
+  .nextline { margin-top: 8px; font-size: .8rem; font-weight: 700; color: var(--dim); letter-spacing: .04em; }
+
+
+  /* ===== flowchart: main path down the left, branches to the right ===== */
+  .fc { --g: 104px; --arrow: #7F928C; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: var(--g); font-size: .95rem; }
+  .fc .card { padding: 12px 14px; }
+  .main { grid-column: 1; display: flex; flex-direction: column; align-self: stretch; }
+  .main::after { content: ""; flex: 1; width: 2px; margin-inline: auto; background: var(--arrow); }
+  .main.end::after { display: none; }
+  .side { grid-column: 2; position: relative; display: grid; gap: 8px; align-content: start; }
+  .side::before { content: ""; position: absolute; left: calc(-1 * var(--g)); top: 24px; width: calc(var(--g) - 6px); height: 2px; background: var(--gold); }
+  .side::after { content: ""; position: absolute; left: -9px; top: 19px; border-left: 9px solid var(--gold); border-block: 6px solid transparent; }
+  .side .cond { margin-top: 12px; }
+  .side > .cond:first-child { position: absolute; z-index: 1; margin: 0; left: calc(-1 * var(--g) + 6px); top: 25px; transform: translateY(-50%); font-size: .6rem; letter-spacing: .03em; padding: 3px 6px; white-space: nowrap; }
+  .v { justify-self: center; width: 2px; height: 16px; background: var(--gold); position: relative; }
+  .v::after { content: ""; position: absolute; left: -5px; bottom: -2px; border-top: 7px solid var(--gold); border-inline: 6px solid transparent; }
+  .down { grid-column: 1; position: relative; height: 50px; display: grid; place-items: center; }
+  .down::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 6px; width: 2px; transform: translateX(-1px); background: var(--arrow); }
+  .down::after { content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-6px); border-top: 8px solid var(--arrow); border-inline: 6px solid transparent; }
+  .down span { position: relative; z-index: 1; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; background: var(--bg); color: var(--text); border: 1px solid var(--arrow); border-radius: 6px; padding: 2px 8px; }
+  .down.plain span { display: none; }
+  /* the answer that continues down (NO, UNDER 70…) sits right under its box */
+  .dlabel { align-self: center; position: relative; z-index: 1; margin-top: 14px; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; background: var(--bg); color: var(--text); border: 1px solid var(--arrow); border-radius: 6px; padding: 2px 8px; }
+  .dlabel::before { content: ""; position: absolute; left: 50%; top: -15px; height: 14px; width: 2px; transform: translateX(-1px); background: var(--arrow); }
+  .full { grid-column: 1 / -1; }
+  .pan { overflow-x: auto; margin-inline: -18px; padding: 4px 18px 10px; -webkit-overflow-scrolling: touch; }
+  .fc { min-width: 600px; }
+  .pan-hint { display: none; font-size: .75rem; font-weight: 700; color: var(--muted); margin: -6px 0 10px; }
+  .pan-hint.show { display: block; }
+  /* phones: every column is one screen wide; swipe (with snap) to the next column */
+  @media (max-width: 700px) {
+    .pan { scroll-snap-type: x mandatory; scroll-padding-inline: 12px; margin-inline: -12px; padding-inline: 12px; }
+    .pan .fc, .pan .fc.three { min-width: 0; width: max-content; --g: 94px; --col: calc(100vw - 128px); }
+    .pan .fc { grid-template-columns: repeat(2, var(--col)); }
+    .pan .fc.three { grid-template-columns: repeat(3, var(--col)); }
+    .pan .fc .main, .pan .fc .side, .pan .fc .out, .pan .fc .lane { scroll-snap-align: start; }
+  }
+  .fc { position: relative; }
+  svg.links { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; z-index: 2; }
+  .rejoin { font-size: .8rem; font-weight: 700; color: var(--muted); border: 1px dashed var(--line); border-radius: 8px; padding: 8px 10px; }
+  .rejoin b { color: var(--gold); }
+  .lanes { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; position: relative; padding-top: 34px; }
+  .lanes::before { content: ""; position: absolute; top: 0; left: 25%; right: 25%; height: 18px; border: 2px solid var(--arrow); border-bottom: 0; border-radius: 10px 10px 0 0; }
+  .lanes::after { content: ""; position: absolute; top: -18px; left: 25%; width: 2px; height: 20px; transform: translateX(-1px); background: var(--arrow); }
+  .lane { display: grid; gap: 0; align-content: start; }
+  .lane .cond { justify-self: center; margin-bottom: 10px; }
+  .lane .dn { justify-self: center; width: 2px; height: 22px; background: var(--arrow); position: relative; margin-block: 0 6px; }
+  .lane .dn::after { content: ""; position: absolute; left: -5px; bottom: -6px; border-top: 7px solid var(--arrow); border-inline: 6px solid transparent; }
+  .lane .dn-label { justify-self: center; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--arrow); border-radius: 6px; padding: 2px 8px; margin-bottom: 6px; }
+  .merge { grid-column: 1 / -1; display: grid; place-items: center; padding-block: 8px 0; }
+  .merge i { display: block; width: 50%; height: 20px; border: 2px solid var(--arrow); border-top: 0; border-radius: 0 0 10px 10px; }
+  .merge b { display: block; width: 2px; height: 20px; background: var(--arrow); position: relative; }
+  .merge b::after { content: ""; position: absolute; left: -5px; bottom: -6px; border-top: 7px solid var(--arrow); border-inline: 6px solid transparent; }
+  .sp { grid-column: 1 / -1; height: 12px; }
+
+
+  /* ===== three-column health chart: question | ask | condition -> carrier ===== */
+  .fc.three { grid-template-columns: minmax(0,1fr) minmax(0,.95fr) minmax(0,1.05fr); min-width: 820px; }
+  .fc.three .side { grid-column: 2; }
+  .fc.three .side.askcol { grid-column: 2; }
+  .out { grid-column: 3; position: relative; display: grid; align-content: start; padding-top: 14px; }
+  .out::before { content: ""; position: absolute; left: calc(-1 * var(--g)); top: 24px; width: calc(var(--g) / 2 + 1px); height: 2px; background: var(--gold); }
+  .opt { position: relative; display: grid; gap: 6px; padding-bottom: 12px; }
+  .opt:last-child { padding-bottom: 0; }
+  .opt::before { content: ""; position: absolute; left: calc(-1 * var(--g) / 2); top: 10px; width: calc(var(--g) / 2 - 8px); height: 2px; background: var(--gold); }
+  .opt .cond::before { content: ""; position: absolute; left: -9px; top: 50%; transform: translateY(-50%); border-left: 8px solid var(--gold); border-block: 5px solid transparent; }
+  .opt .cond { position: relative; white-space: normal; line-height: 1.25; }
+  .opt::after { content: ""; position: absolute; left: calc(-1 * var(--g) / 2 - 1px); top: 0; bottom: 0; width: 2px; background: var(--gold); }
+  .opt:first-child::after { top: 10px; }
+  .opt:last-child::after { bottom: auto; height: 12px; top: 0; }
+  .opt:only-child::after { display: none; }
+
+  /* pitches */
+  .pick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+  .pick button { font: 700 .92rem/1.25 var(--body); color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; cursor: pointer; text-align: left; }
+  .pick button small { display: block; color: var(--muted); font-weight: 500; font-size: .78rem; margin-top: 2px; }
+  .pick button[aria-pressed="true"] { border-color: var(--gold); background: var(--card-2); box-shadow: inset 0 0 0 1px var(--gold); }
+  .pick button:focus-visible, details summary:focus-visible, nav a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  table.opts { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  table.opts th, table.opts td { text-align: left; padding: 9px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  table.opts th { color: var(--muted); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; border-top: 0; }
+  table.opts td:first-child { font-weight: 800; white-space: nowrap; }
+  .g { color: var(--gold); } .s { color: #E6EAE9; } .b { color: #94A99F; }
+  .scroll { overflow-x: auto; }
+
+  footer { padding-block: 30px 60px; color: var(--dim); font-size: .8rem; text-align: center; }
+</style>
+</head>
+<body>
+
+<nav class="tabs" aria-label="Script sections">
+  <div class="wrap">
+    <a href="#intro">1 · Intro</a>
+    <a href="#health">2 · Health</a>
+    <a href="#why">3 · Build Why</a>
+    <a href="#pitch">4 · Pitch</a>
+    <a href="#pricing">5 · Pricing</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="top">
+    <a class="back" href="/chans-toolbox">&larr; CTLYST Toolbox</a>
+    <h1>Chan's Instant Decision <em>Highest Commission</em> Mortgage Protection Pitch</h1>
+    <div class="carriers"><b>Needed carriers</b><span>Aflac</span><span>Americo</span><span>Instabrain</span></div>
+    <div class="legend">
+      <span><i style="background:var(--card);border:1px solid var(--line)"></i>Say it</span>
+      <span><i style="background:var(--teal-soft);border:1px solid var(--teal)"></i>Rep note</span>
+      <span><i style="background:var(--gold-soft);border:1px solid var(--gold)"></i>Carrier to quote</span>
+      <span><span class="fill">(name)</span> Fill in</span>
+    </div>
+  </header>
+
+
+  <!-- 1 INTRO -->
+  <section id="intro">
+    <div class="sec-head"><span class="n">1</span><h2>Intro</h2></div>
+    <p class="pan-hint">Swipe sideways to follow the branches →</p><div class="pan"><div class="fc">
+      <div class="main"><div class="card"><p>Hey <span class="fill">(name)</span>? Hey <span class="fill">(name)</span>, this is Chandler, I do the mortgage protection. Were you looking into it for yourself or a spouse as well?</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>Got it, and just so you know who you're talking to, I'm Chandler, and I work with <b>every</b> A-rated carrier in the state, and it's my responsibility to find you the most coverage for the lowest cost. Does that sound good?</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>And, <span class="fill">(name)</span>, is mortgage protection something you've tried to qualify for before, or is this the first time?</p></div></div>
+      <div class="side"><span class="cond">Yes</span><div class="card "><p>"Got it. And what stopped you from moving forward?"</p><span class="note">Acknowledge. No selling yet. (That’s fair / that makes sense / got it / sure.)</span></div><div class="v"></div><div class="card " data-to="t-home"><p>"I understand, so it sounds like if <span class="fill">{the reasons they gave}</span> was solved, you would’ve moved forward. Does that sound about right?"</p></div></div>
+      <div class="down"><span>No</span></div>
+      <div class="main"><div class="card"><p>Got it, and what made you look into this now? Was there a recent change in your life or something that happened?</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card" id="t-home"><p><span class="fill">(name)</span>, do you mind if I ask you a few questions about the home?</p><ul style='margin-top:8px'><li>How much do you owe on the mortgage?</li><li>How many years do you have left?</li><li>Okay, and what's the payment?</li></ul></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>"You’re in the same boat as most of my clients."</p></div></div>
+      <div class="side"><span class="cond no">Rep</span><div class="card rep"><p>Get your phone out to get ready for the next step.</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>"Again, my name is Chandler, and I’m going to send you a text with my <b>personal information</b>. It has my name as well as my federal license number."</p><p>"Did that text come through? Okay, great."</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main end"><div class="card"><p>Now what we'll do today is go through some health questions with you to see which risk class you fall under, since these are all state-regulated programs based on your age and health. Then I'll be able to show you a couple options from there.</p><p>Once we find an option that's comfortable, affordable, and makes sense, we'll see if we can get you approved and get you on your way.</p></div></div>
+    </div></div>
+  </section>
+
+
+  <!-- 2 HEALTH -->
+  <section id="health">
+    <div class="sec-head"><span class="n">2</span><h2>Medical Inventory &amp; Knockouts</h2></div>
+    <p class="pan-hint">Swipe sideways to follow the branches →</p><div class="pan"><div class="fc three">
+      <div class="main"><div class="card"><p>So to get started, can I grab your date of birth?</p></div></div>
+      <div class="side"><span class="cond">Over 75</span><div class="carrier"><b>Americo FEX</b><small>15% haircut</small><a class="skip" href="#why">Skip to Build Why →</a></div><div class="v"></div><div class="card rep" data-to="t-tobacco"><p>Continue the health inventory to see if you have to do guaranteed coverage.</p></div></div>
+      <div class="down"><span>Under 75</span></div>
+      <div class="main"><div class="card" id="t-tobacco"><p>So as far as your health goes… do you use tobacco or nicotine of any kind?</p></div></div>
+      <div class="side"><span class="cond no">No</span><div class="card " data-to="t-height"><p>Not planning on picking that up this weekend, are ya? Haha.</p></div></div>
+      <div class="down"><span>Yes</span></div>
+      <div class="main"><div class="card" id="t-height"><p>Now the carrier will ask for height and weight as well, of course, so <span class="fill">(name)</span>, how tall are ya?</p></div></div>
+      <div class="side"><span class="cond">Woman</span><div class="card "><p>And my mother taught me to never ask a woman her weight, and now it’s my career. How much do you weigh?</p><span class="note">Always gets a chuckle.</span></div><span class="cond">Overweight</span><div class="carrier"><b>Aflac Level FEX</b><small>17% haircut · Start FEX pitch</small><a class="skip" href="#why">Skip to Build Why →</a></div></div>
+      <div class="down"><span>Man</span></div>
+      <div class="main"><div class="card"><p>And about how much do you weigh?</p></div></div>
+      <div class="side"><span class="cond">Overweight</span><div class="carrier"><b>Aflac Level FEX</b><small>17% haircut · Start FEX pitch</small><a class="skip" href="#why">Skip to Build Why →</a></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card rep"><p><b>Rep:</b> for any of the following, if they say yes, ask <b>when they were diagnosed</b> and <b>what medications they’re taking</b>.</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>Now to help you find the best deal, they have me run through some basic health questions. <span class="fill">(name)</span>, any history of heart attacks or strokes?</p></div></div>
+      <div class="side askcol"><span class="cond">Yes</span><div class="card ask">Ask:<ul><li>When?</li><li>More than once?</li><li>Any surgeries, stents, or pacemakers?</li><li>Medications currently taking?</li></ul></div></div>
+      <div class="out"><div class="opt"><span class="cond">More than 2 yrs ago</span><div class="carrier"><b>Americo FEX</b><small>Level coverage</small><a class="skip" href="#why">Skip to Build Why →</a></div></div><div class="opt"><span class="cond">Less than 2 yrs ago</span><div class="carrier"><b>Instabrain GIWL</b><small>25% haircut</small><a class="skip" href="#why">Skip to Build Why →</a></div></div></div>
+      <div class="down"><span>No</span></div>
+      <div class="main"><div class="card"><p>Alright, next one: any history of cancer?</p></div></div>
+      <div class="side askcol"><span class="cond">Yes</span><div class="card ask">Ask:<ul><li>When?</li><li>Past stage 1?</li><li>Cleared now?</li><li>Had cancer more than once?</li><li>Medications?</li><li>More than two types of cancer?</li></ul></div></div>
+      <div class="out"><div class="opt"><span class="cond">2+ cancers, active, or &lt;2 yrs ago</span><div class="carrier"><b>Instabrain GIWL</b><small>25% haircut · Start FEX graded pitch</small><a class="skip" href="#why">Skip to Build Why →</a></div></div><div class="opt"><span class="cond">1 cured cancer</span><div class="carrier"><b>Americo</b><small>10% haircut</small><a class="skip" href="#why">Skip to Build Why →</a></div></div></div>
+      <div class="down"><span>No</span></div>
+      <div class="main"><div class="card"><p>Alright, we’re cruising through this. Any history of COPD or asthma?</p></div></div>
+      <div class="side askcol"><span class="cond">Yes</span><div class="card ask"><p><b>Oxygen use?</b></p></div></div>
+      <div class="out"><div class="opt"><span class="cond">Oxygen: yes</span><div class="carrier"><b>Instabrain GIWL</b><small>25% haircut</small><a class="skip" href="#why">Skip to Build Why →</a></div></div><div class="opt"><span class="cond no">Oxygen: no</span><div class="carrier"><b>Americo</b><small>15% haircut</small><a class="skip" href="#why">Skip to Build Why →</a></div></div></div>
+      <div class="down"><span>No</span></div>
+      <div class="main"><div class="card"><p>Okay, how about diabetes?</p></div></div>
+      <div class="side askcol"><span class="cond">Yes</span><div class="card ask">Ask:<ul><li>Insulin?</li><li>Controlled?</li><li>When diagnosed?</li><li>Neuropathy? (tingling in feet)</li><li>Metformin or Mounjaro?</li><li>Last A1c rating?</li></ul></div></div>
+      <div class="out"><div class="opt"><span class="cond">No insulin &amp; diagnosed after 45</span><div class="carrier"><b>Americo T125</b><small>No haircut · or Americo FEX (5% haircut)</small><a class="skip" href="#why">Skip to Build Why →</a></div></div><div class="opt"><span class="cond">Insulin, no complications</span><div class="carrier"><b>Americo FEX</b><small>10% haircut</small><a class="skip" href="#why">Skip to Build Why →</a></div></div><div class="opt"><span class="cond">Insulin w/ complications</span><div class="carrier"><b>Instabrain GIWL</b><small>25% haircut</small><a class="skip" href="#why">Skip to Build Why →</a></div></div></div>
+      <div class="down"><span>No</span></div>
+      <div class="main"><div class="card"><p>Any prescription medications for anything else at all? Anything else?</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>Any history with HIV?</p></div></div>
+      <div class="side"><span class="cond">Yes</span><div class="carrier"><b>Instabrain GIWL</b><small>25% haircut</small><a class="skip" href="#why">Skip to Build Why →</a></div></div>
+      <div class="down"><span>No</span></div>
+      <div class="main end"><div class="card rep"><p><b>All clear, no health issues.</b> Recommend the best rate, then move on to Build Why.</p></div></div><div class="side"><span class="cond">Recommend</span><div class="carrier"><b>Americo T125</b><small>No haircut · best option</small><a class="skip" href="#why">Skip to Build Why →</a></div><span class="cond no">Cheaper option</span><div class="carrier"><b>Americo T100</b><small>15% haircut</small><a class="skip" href="#why">Skip to Build Why →</a></div><span class="cond">Over $450K · under 65</span><div class="carrier"><b>Ethos Term</b><small>25% haircut · must be younger than 65</small><a class="skip" href="#why">Skip to Build Why →</a></div><span class="cond">Wants cash value</span><div class="carrier"><b>Americo Instant IUL</b><small>Builds cash value</small><a class="skip" href="#why">Skip to Build Why →</a></div></div>
+    </div></div>
+  </section>
+
+  <!-- 3 BUILD WHY -->
+  <section id="why">
+    <div class="sec-head"><span class="n">3</span><h2>Build Why</h2></div>
+    <p class="pan-hint">Swipe sideways to follow the branches →</p><div class="pan"><div class="fc">
+      <div class="main"><div class="card"><p>Okay <span class="fill">[name]</span>, the more I understand about your situation, the easier it is for me to keep this affordable for you, okay?</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>Who are we putting down as your beneficiary if something were to happen to you, heaven forbid?</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>Do you have any other big savings accounts or life insurance policies you're planning on leaving to <span class="fill">(name)</span>?</p></div></div>
+      <div class="side"><span class="cond">Yes</span><div class="card " data-to="t-least"><p>They'd spend their savings on the funeral, tombstone, casket, and paying off other loans. Make room for a mortgage protection plan.</p></div></div>
+      <div class="down"><span>No</span></div>
+      <div class="main end"><div class="card" id="t-least"><p>My least favorite question to ask, but let's say you don't make it home from the grocery store today because someone ran a red light. For <span class="fill">[beneficiary]</span> to maintain their lifestyle, would it be easy, difficult, or impossible for them?</p></div></div>
+      <div class="full lanes">
+        <div class="lane">
+          <span class="cond">Difficult / Impossible</span>
+          <div class="card "><p>How many months could they take care of the bills on their own without your income?</p></div>
+          <div class="dn"></div>
+          <div class="card "><p>Would <span class="fill">[beneficiary]</span> need to downsize or move in with friends or family? Really, what I’m asking is what would happen to <span class="fill">[beneficiary]</span> if we didn’t put a plan in place?</p><span class="note">Dig deep. Paint the pain picture.</span></div>
+          <div class="dn"></div>
+          <div class="card "><p>So at this point, what’s the main reason you don’t already have something in place to protect <span class="fill">[beneficiary]</span> from <span class="fill">[pain point]</span>? Life got too busy?</p><span class="note">Agree with them.</span></div>
+        </div>
+        <div class="lane">
+          <span class="cond no">Easy</span>
+          <div class="card "><p>So you're like many of my clients, where their family will be okay financially, but they don't want the mortgage left behind to be a burden. Does that sound right?</p></div>
+          <div class="dn"></div>
+          <span class="dn-label">No</span>
+          <div class="card "><p>So tell me more about what you're hoping to accomplish and what you're trying to do for <span class="fill">[beneficiary]</span> today?</p></div>
+        </div>
+      </div>
+      <div class="merge"><i></i><b></b></div>
+      <div class="sp"></div>
+      <div class="main"><div class="card"><p>I'm not sure if you realize this, but they're lucky to have someone like you that's actually responsible enough to be on this call. Let me ask you, have you ever been the one responsible for picking up the pieces after a loss? How much coverage did they have?</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>Now it makes sense why this is important to you. Sounds like we're clear on what we don't want to happen to <span class="fill">[beneficiary]</span>.</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>Let's do this: grab a pen and paper real quick and I'll have you write a few things down. Let me know when you're ready.</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main end"><a class="card rep" href="#pitch" style="display:block;text-decoration:none"><p><b>Next →</b> Go to <b>4 · Pitch</b></p></a></div>
+    </div></div>
+  </section>
+
+  <!-- 4 PITCH -->
+  <section id="pitch">
+    <div class="sec-head"><span class="n">4</span><h2>Pitch</h2></div>
+    <div class="pick" role="group" aria-label="Choose pitch">
+      <button type="button" data-p="term" aria-pressed="true">Full MoPro Term<small>Healthy · Americo Continuation Term (10% bonus)</small></button>
+      <button type="button" data-p="fex" aria-pressed="false">FEX Pitch<small>Health issues or older</small></button>
+    </div>
+
+    <div class="flow" data-panel="term">
+      <div class="step"><div class="card"><p>So if you pass away, this coverage will pay off the home with a <b>tax-free check</b> sent directly to <span class="fill">(beneficiary)</span> within 14 days, regardless of how much is left on the loan. And if you move, the coverage moves with you. Okay?… Great.</p></div></div>
+      <div class="step"><div class="card">
+        <span class="tag">Healthy person's window</span>
+        <p>"<span class="fill">(Name)</span>, the good news is, you're still in what we call the 'healthy person's window.' Have you ever heard of that before?… That's okay. It's all based on mortality rates. Do you know the average life expectancy for an American (male/female)?</p>
+        <p>It's 78 for a female and 77 for a male. Every year you get closer to <span class="fill">(77/78)</span>, coverage becomes exponentially more expensive, and the likelihood of you having cancer, a heart attack, or a stroke also increases.</p>
+        <p>If something like that ever happened to you, it would be like a bankruptcy on your medical record, and I wouldn't be able to get you the coverage we're applying for today.</p>
+        <p>However, if the carrier approves you today and you go to the hospital in a week, they can't take your coverage away from you, and your rate and benefits are secured. Does that make sense?…</p>
+        <p>So what I'll do, with your permission, is get aggressive with the insurance carriers and try to get you approved for something usually reserved for younger applicants, okay?</p>
+        <p>Alright, hang tight while I get numbers back from all 20 of those carriers."</p>
+      </div></div>
+    </div>
+
+    <div class="flow" data-panel="fex" hidden>
+      <div class="step"><div class="card">
+        <p>Now just so you know, there are two ways to go about mortgage protection. Paying off the whole balance, which almost nobody does because it's more expensive and can be tougher to qualify for.</p>
+        <p>Most people go with the payment protection program, where if something were to happen to you, your family would have that mortgage payment covered for a good while. I want to make sure we're on the same page here: if we got you a plan that paid the mortgage payments for <span class="fill">(beneficiary)</span> so the bank can't take the home, and we can give them stress-free time to put the pieces of life back together, that would be helpful, right?</p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 5 PRICING -->
+  <section id="pricing">
+    <div class="sec-head"><span class="n">5</span><h2>Pricing Rollout</h2></div>
+    <div class="flow">
+      <div class="step"><div class="card"><p>Alright, so just a reminder: I get numbers back from all the carriers in your state. These are going to be the most coverage for the lowest cost.</p></div></div>
+      <div class="step"><div class="card rep">
+        <span class="tag" style="color:var(--teal)">Rep · Build three options</span>
+        <div class="scroll"><table class="opts">
+          <thead><tr><th></th><th>MoPro</th><th>FEX</th></tr></thead>
+          <tbody>
+            <tr><td class="g">Gold</td><td>Mortgage + a large gift to <span class="fill">[beneficiary]</span>. Should bounce them off the ceiling.</td><td>2 years of mortgage payments, maybe max the policy at $50K</td></tr>
+            <tr><td class="s">Silver</td><td>Cover the mortgage. Should cover the pain point from earlier.</td><td>1 year of mortgage payments</td></tr>
+            <tr><td class="b">Bronze</td><td>Cover half the mortgage</td><td>6 months of mortgage payments</td></tr>
+          </tbody>
+        </table></div>
+      </div></div>
+      <div class="step"><div class="card"><span class="tag g">Gold</span><p>So the Gold option is going to cover <span class="fill">(% of mortgage or # of payments)</span>. What this is going to do for you is make sure that <span class="fill">(revisit pain point and make it sound really good)</span>. Now this one is <span class="fill">($)</span> a month, and personally, I think it's a bit more than you need. That being said, my job isn't to just go over what I think is best for you, it's to go over everything with you.</p></div></div>
+      <div class="step"><div class="card"><span class="tag s">Silver</span><p>Now the Silver option, which is what most of our clients choose, is going to cover <span class="fill">(% of mortgage or # of payments)</span>. What this is going to do for you is make sure that <span class="fill">(revisit pain point)</span>, while making sure it won't take any food off the table. Now this one is <u>just</u> <span class="fill">($)</span> a month, so it's a bit more budget-friendly than the Gold option.</p></div></div>
+      <div class="step"><div class="card"><span class="tag b">Bronze</span><p>Lastly, the Bronze option, which is our most budget-friendly option, is going to cover <span class="fill">(% of mortgage or # of payments)</span>. Our clients like this one when they want to make sure they can secure their medical approval while they're still in the healthy person's window, all while giving themselves and their families enough security and peace of mind. So this one is <u>just</u> <span class="fill">($)</span> a month.</p></div></div>
+      <div class="step"><div class="card"><p>Now, <span class="fill">(Name)</span>, of those options, which one gives <span class="fill">(beneficiary name)</span> the coverage they need and is affordable every single month?</p></div></div>
+      <div class="step"><div class="card"><p>Alright, let's see if we can get you approved really quick. This will only take a couple seconds.</p></div></div>
+    </div>
+  </section>
+</main>
+
+<footer>Chan's Instant Decision Pitch · CTLYST Toolbox</footer>
+
+<script>
+  // pitch toggle
+  document.querySelectorAll(".pick button").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll(".pick button").forEach(b => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+    document.querySelectorAll("[data-panel]").forEach(p => p.hidden = p.dataset.panel !== btn.dataset.p);
+  }));
+  // draw arrows from "rejoin" boxes back into the main path
+  // move each "down" answer label up so it sits directly under the box it comes from
+  document.querySelectorAll(".fc > .down:not(.plain)").forEach(d => {
+    let m = d.previousElementSibling;
+    while (m && !m.classList.contains("main")) m = m.previousElementSibling;
+    if (!m) return;
+    const lab = document.createElement("span");
+    lab.className = "dlabel"; lab.textContent = d.querySelector("span").textContent;
+    m.appendChild(lab);
+    d.classList.add("plain");
+  });
+  const NS = "http://www.w3.org/2000/svg";
+  function drawLinks() {
+    document.querySelectorAll(".fc").forEach((fc, n) => {
+      let svg = fc.querySelector(":scope > svg.links");
+      if (!svg) { svg = document.createElementNS(NS, "svg"); svg.setAttribute("class", "links"); svg.setAttribute("aria-hidden", "true"); fc.prepend(svg); }
+      const r = fc.getBoundingClientRect();
+      svg.setAttribute("width", r.width); svg.setAttribute("height", r.height);
+      const col = getComputedStyle(fc).getPropertyValue("--arrow").trim() || "#7F928C";
+      let html = `<defs><marker id="ah${n}" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="${col}"/></marker></defs>`;
+      fc.querySelectorAll("[data-to]").forEach(el => {
+        const t = document.getElementById(el.dataset.to); if (!t) return;
+        const a = el.getBoundingClientRect(), b = t.getBoundingClientRect();
+        // leave from the bottom of the branch box (its top-left is where the gold arrow comes in)
+        const x1 = a.left - r.left + 22, y1 = a.bottom - r.top;
+        // come in through the TOP of the target box (near its right corner), well clear of the
+        // gold branch arrow that leaves from the box's right side
+        const bx = b.right - r.left, by = b.top - r.top;
+        const xm = bx + (a.left - r.left - bx) / 2, xin = bx - 28;
+        html += `<path d="M${x1} ${y1} V${y1 + 14} H${xm} V${by - 16} H${xin} V${by - 1}" fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah${n})"/>`;
+      });
+      svg.innerHTML = html;
+    });
+  }
+  function hints() {
+    document.querySelectorAll(".pan").forEach(p => {
+      const on = p.scrollWidth > p.clientWidth + 4;
+      p.previousElementSibling.classList.toggle("show", on);
+      p.classList.toggle("scrolls", on);
+    });
+  }
+
+  drawLinks(); hints();
+  window.addEventListener("resize", () => { drawLinks(); hints(); });
+  window.addEventListener("load", drawLinks);
+  if (document.fonts) document.fonts.ready.then(drawLinks);
+  if (window.ResizeObserver) document.querySelectorAll(".fc").forEach(fc => new ResizeObserver(drawLinks).observe(fc));
+
+  // highlight current section in nav
+  const links = [...document.querySelectorAll("nav.tabs a")];
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => {
+        const on = a.getAttribute("href") === "#" + e.target.id;
+        a.classList.toggle("on", on);
+        if (on) { const bar = a.parentElement; bar.scrollLeft = a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2; }
+      });
+    });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("main section").forEach(s => obs.observe(s));
+</script>
+</body>
+</html>

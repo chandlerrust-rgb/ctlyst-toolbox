@@ -1,0 +1,6 @@
+# Vercel link and local env files (never commit)
+.vercel
+.env*
+# Mac junk
+.DS_Store
+node_modules

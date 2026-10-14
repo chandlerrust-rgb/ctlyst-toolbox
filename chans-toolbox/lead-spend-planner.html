@@ -1,0 +1,536 @@
+<!doctype html><html><head><meta charset=utf8><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png"><link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Lead Spend Planner</title>
+<meta property="og:image" content="https://www.scalewithsteelwater.com/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: input rail on the left, results stacked on the right.
+   The dollars-per-hour ruler is the one bold element; everything else stays quiet. */
+:root{
+  --bg:#edf0f5; --surface:#ffffff; --surface-2:#f3f5f9; --line:#d8dee8;
+  --fg:#121c2b; --muted:#566478; --ink:#121c2b; --on-ink:#ffffff;
+  --accent:#c8480a; --on-accent:#ffffff;
+  --good:#0b7a4b; --bad:#b42318; --warn-bg:#fff3e0; --warn-fg:#7a3d00;
+  --c-google:#2457b8; --c-wingman:#0b7d63; --c-meta:#6b46c1; --c-aged:#7a6a58;
+  --seg-text:#ffffff;
+  --f-ui:'Archivo',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f-num:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1320; --surface:#131c2c; --surface-2:#192335; --line:#27344a;
+    --fg:#e8edf5; --muted:#9aa8bd; --ink:#e8edf5; --on-ink:#0c1320;
+    --accent:#ff8a4c; --on-accent:#1a0d04;
+    --good:#4fd38f; --bad:#ff8a80; --warn-bg:#2b2012; --warn-fg:#f3c58a;
+    --c-google:#7aa7ff; --c-wingman:#3fd1a8; --c-meta:#b59bff; --c-aged:#c9b79f;
+    --seg-text:#0c1320; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1320; --surface:#131c2c; --surface-2:#192335; --line:#27344a;
+  --fg:#e8edf5; --muted:#9aa8bd; --ink:#e8edf5; --on-ink:#0c1320;
+  --accent:#ff8a4c; --on-accent:#1a0d04;
+  --good:#4fd38f; --bad:#ff8a80; --warn-bg:#2b2012; --warn-fg:#f3c58a;
+  --c-google:#7aa7ff; --c-wingman:#3fd1a8; --c-meta:#b59bff; --c-aged:#c9b79f;
+  --seg-text:#0c1320; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 14px/1.5 var(--f-ui);margin:0;padding-inline:16px;padding-block:20px 44px}
+.wrap{max-width:1180px;margin:0 auto}
+h1{font:700 22px/1.2 var(--f-ui);letter-spacing:-.01em;margin:0;text-wrap:balance}
+h2{font:700 16px/1.3 var(--f-ui);margin:0;text-wrap:balance}
+p{margin:0}
+.top{display:grid;gap:8px;justify-items:start;margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.top .eyebrow{font:700 11px/1 var(--f-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.top h1{font:800 clamp(28px,6vw,40px)/1.05 var(--f-ui);letter-spacing:-.02em}
+.top .leads-link{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:10px 14px;border-radius:10px;border:1px solid var(--accent);color:var(--accent);font-weight:700;text-decoration:none}
+.top .leads-link:hover{background:var(--accent);color:var(--on-accent)}
+@media (min-width:620px){.top{grid-template-columns:minmax(0,1fr) auto;column-gap:28px;align-items:center}.top h1,.top p{grid-column:1}.top .leads-link{grid-column:2;grid-row:1/span 2;margin-top:0;justify-self:end;white-space:nowrap}}
+.top p{color:var(--muted);max-width:52ch;font-size:16px;line-height:1.5;margin:0;text-wrap:pretty}
+
+.grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+.rail{display:grid;gap:14px;min-width:0}
+@media (min-width:861px) and (min-height:860px){.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}}
+#results{display:grid;gap:16px;min-width:0}
+main{min-width:0;display:grid;gap:16px}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;min-width:0}
+.sec-head{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.sub{color:var(--muted);font-size:13px}
+.pill{font:600 11px/1 var(--f-ui);letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);padding:5px 8px;border-radius:999px;white-space:nowrap}
+
+/* inputs */
+.fields{display:grid;gap:12px;margin-top:12px}
+.field{display:grid;gap:5px;min-width:0}
+.lbl{font:600 11px/1.2 var(--f-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ctl{display:flex;align-items:center;border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding-inline:10px;min-width:0}
+.ctl:focus-within{outline:2px solid var(--accent);outline-offset:1px}
+.ctl .aff{color:var(--muted);font:500 13px var(--f-num)}
+.ctl input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:500 16px var(--f-num);padding:9px 6px;outline:none;-moz-appearance:textfield;appearance:textfield}
+.ctl input::-webkit-outer-spin-button,.ctl input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.readout{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.readout .big{font:700 52px/1 var(--f-ui);letter-spacing:-.02em;margin-top:4px;font-variant-numeric:tabular-nums}
+.readout .big small{font-size:24px;font-weight:600;color:var(--muted);letter-spacing:0}
+.readout .rsub{font:400 13px var(--f-num);color:var(--muted);margin-top:6px}
+
+fieldset{border:0;padding:0;margin:0;min-width:0;position:relative}
+legend{padding:0;margin-bottom:5px}
+.seg-ctl{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:8px;padding:3px;background:var(--surface-2);gap:3px}
+.seg-ctl.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.seg-ctl.three label{font-size:12px;padding-inline:3px}
+.seg-ctl input{position:absolute;opacity:0;pointer-events:none}
+.seg-ctl label{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px 6px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;color:var(--muted);line-height:1.25}
+.seg-ctl label small{display:block;font-weight:500;font-size:11px;opacity:.85}
+.seg-ctl input:checked + label{background:var(--ink);color:var(--on-ink)}
+.seg-ctl input:focus-visible + label{outline:2px solid var(--accent);outline-offset:2px}
+.toggles{display:grid;gap:12px;margin-top:16px}
+.fine{font-size:12px;color:var(--muted);margin-top:12px}
+
+details.panel > summary{cursor:pointer;font:700 14px var(--f-ui);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+details.panel > summary::-webkit-details-marker{display:none}
+details.panel > summary::after{content:'+';font:500 18px var(--f-num);color:var(--muted)}
+details.panel[open] > summary::after{content:'\2212'}
+details.panel > summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+.a-body{display:grid;gap:14px;margin-top:14px}
+.a-tbl{width:100%;border-collapse:collapse}
+.a-tbl th{font:600 11px var(--f-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 6px 6px 0}
+.a-tbl td{padding:4px 6px 4px 0}
+.a-tbl td:first-child{font-weight:600;font-size:13px;white-space:nowrap}
+.a-tbl .ctl input{font-size:14px;padding:6px 4px}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer}
+.chk input{margin-top:3px;accent-color:var(--accent)}
+.btn{font:600 13px var(--f-ui);border:1px solid var(--line);background:var(--surface-2);color:var(--fg);padding:8px 12px;border-radius:6px;cursor:pointer;justify-self:start}
+.btn:hover{border-color:var(--muted)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* tier ruler */
+.lede{color:var(--muted);margin-bottom:6px}
+.track-wrap{position:relative;margin-top:34px}
+.track{display:flex;height:42px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.band{flex:1;display:flex;align-items:center;justify-content:center;font:600 12px var(--f-ui);color:var(--fg);background:color-mix(in srgb,var(--cc) 14%,var(--surface));text-align:center;padding-inline:4px}
+.band + .band{border-left:1px solid var(--line)}
+.band.on{background:color-mix(in srgb,var(--cc) 34%,var(--surface))}
+.marker{position:absolute;top:-8px;height:58px;width:3px;margin-left:-1.5px;background:var(--accent);border-radius:2px;transition:left .25s ease}
+.marker .tag{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:3px;background:var(--accent);color:var(--on-accent);font:600 12px var(--f-num);padding:2px 7px;border-radius:4px;white-space:nowrap}
+.marker.l .tag{left:-1.5px;transform:none}
+.marker.r .tag{left:auto;right:-1.5px;transform:none}
+.ticks{position:relative;height:18px;margin-top:6px}
+.ticks span{position:absolute;font:500 11px var(--f-num);color:var(--muted);transform:translateX(-50%)}
+.ticks span:first-child{transform:none}
+.ticks span:last-child{transform:translateX(-100%)}
+.hint{margin-top:10px;font-size:13px;color:var(--muted)}
+.warn{margin-top:10px;font-size:13px;background:var(--warn-bg);color:var(--warn-fg);padding:9px 11px;border-radius:6px}
+
+/* stacked bars */
+.bar{display:flex;gap:2px;height:24px;border-radius:5px;overflow:hidden;background:var(--surface-2)}
+.sg{display:flex;align-items:center;justify-content:center;min-width:0;overflow:hidden;white-space:nowrap;padding:0 4px;color:var(--seg-text);font:600 11px var(--f-num)}
+.bar.lg{height:30px;margin-bottom:12px}
+.bar.empty{height:24px}
+
+/* tables */
+.scroll{overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
+.tbl thead th{font:600 11px var(--f-ui);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;vertical-align:bottom}
+.tbl th:first-child,.tbl td:first-child{text-align:left;padding-left:0}
+.tbl th:last-child,.tbl td:last-child{padding-right:0}
+.tbl tbody th{font-weight:600}
+.tbl tbody th small{display:block;font:400 12px var(--f-ui);color:var(--muted);margin-top:1px}
+.tbl td{font:500 13px var(--f-num)}
+.tbl tfoot th,.tbl tfoot td{border-bottom:0;font-weight:700}
+.tbl tfoot th{font-family:var(--f-ui)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:baseline}
+tr.off th,tr.off td{color:var(--muted)}
+tr.off .dot{opacity:.35}
+tr.off th{font-weight:500}
+
+/* funnel */
+.fl{container-type:inline-size}
+.flow{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:26px;margin-bottom:18px}
+@container (max-width:720px){.flow{grid-template-columns:minmax(0,1fr);gap:26px}}
+.step{position:relative;min-width:0}
+.step:not(:last-child)::after{content:'\203A';position:absolute;right:-20px;top:34px;font:400 26px/1 var(--f-ui);color:var(--muted)}
+@container (max-width:720px){.step:not(:last-child)::after{content:'\2193';right:auto;left:0;top:auto;bottom:-24px;font-size:18px}}
+.step .k{font:600 11px var(--f-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.step .v{font:600 24px/1.15 var(--f-num);margin:3px 0 2px;letter-spacing:-.02em;overflow-wrap:anywhere}
+.step .s{font-size:12px;color:var(--muted);margin-bottom:8px;min-height:18px}
+
+/* returns */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.kpi{background:var(--surface-2);border-radius:8px;padding:12px}
+.kpi .k{font:600 11px var(--f-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font:600 26px/1.15 var(--f-num);margin:4px 0 2px;letter-spacing:-.02em;overflow-wrap:anywhere}
+.kpi .s{font-size:12px;color:var(--muted)}
+.pos{color:var(--good)} .neg{color:var(--bad)}
+.ledger tbody th{font-weight:500}
+.kpi .roi{font:600 13px var(--f-num);margin-top:6px}
+.ledger tr.net th,.ledger tr.net td{font-weight:700;border-bottom:0;border-top:2px solid var(--fg)}
+.ledger tr.net th{font-weight:700}
+
+.how ul{margin:12px 0 0;padding-left:18px;display:grid;gap:7px}
+.how p{margin-top:12px;color:var(--muted);font-size:13px}
+.empty-note p{color:var(--muted);margin-top:6px}
+
+/* simple view */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.tile{background:var(--surface-2);border-radius:10px;padding:16px;min-width:0}
+.tile .k{font:600 11px/1.3 var(--f-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tile .v{font:700 34px/1.1 var(--f-ui);letter-spacing:-.02em;margin:8px 0 4px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.tile .s{font-size:13px;color:var(--muted)}
+.tile.hero{background:var(--ink);color:var(--on-ink)}
+.tile.hero .k,.tile.hero .s{color:var(--on-ink);opacity:.8}
+.say{font-size:15px;margin-top:16px}
+.buy{list-style:none;margin:0;padding:0}
+.buy li{display:grid;grid-template-columns:minmax(0,1fr) auto 72px 66px;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.buy li:last-child{border-bottom:0}
+.buy .nm{font-weight:600;font-size:15px}
+.buy .nm small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-left:18px}
+.buy .ct{font:600 20px var(--f-num);text-align:right;font-variant-numeric:tabular-nums}
+.buy .ct small{display:block;font:400 12px var(--f-ui);color:var(--muted)}
+.buy .sp{font:500 14px var(--f-num);text-align:right}
+.buy .sp small{display:block;font:400 12px var(--f-ui);color:var(--muted);white-space:nowrap}
+@media (max-width:520px){.buy li{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 10px}.buy .nm{grid-column:1/-1}.buy .ct{text-align:left}}
+details.more>summary{cursor:pointer;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font:700 14px var(--f-ui);display:flex;align-items:baseline;gap:10px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary span{flex:1;min-width:0;font-weight:400;color:var(--muted);font-size:13px}
+details.more>summary::after{content:'+';margin-left:auto;font:500 18px var(--f-num);color:var(--muted)}
+details.more[open]>summary::after{content:'\2212'}
+details.more>summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.stack{display:grid;gap:16px;margin-top:16px}
+.stack .stack{margin-top:0}
+.tbl tfoot th small{display:block;font:400 12px var(--f-ui);color:var(--muted);margin-top:1px}
+@media (prefers-reduced-motion:reduce){.marker{transition:none}}
+</style>
+
+<div class="wrap">
+  <a href="/chans-toolbox#axe" style="display:inline-block;margin-bottom:12px;font:600 13px/1.2 system-ui,sans-serif;color:inherit;opacity:.7;text-decoration:none">&larr; CTLYST Toolbox</a>
+  <header class="top">
+    <h1>Lead Spend Planner</h1>
+    <p>Enter your weekly lead budget and the hours you'll work. See which leads to buy and what they should pay back.</p>
+    <a class="leads-link" href="/chans-toolbox#leads">How do I get my leads set up? <span aria-hidden="true">&rarr;</span></a>
+  </header>
+
+  <div class="grid">
+    <aside class="rail" aria-label="Inputs">
+      <section class="panel">
+        <h2>Your week</h2>
+        <div class="fields">
+          <label class="field" for="budget"><span class="lbl">Weekly lead budget</span>
+            <span class="ctl"><span class="aff">$</span><input id="budget" type="number" inputmode="decimal" min="0" step="50" value="3400"></span></label>
+          <div class="two">
+            <label class="field" for="hours"><span class="lbl">Hours per week</span>
+              <span class="ctl"><input id="hours" type="number" inputmode="decimal" min="0" step="1" value="40"><span class="aff">hrs</span></span></label>
+            <label class="field" for="comm"><span class="lbl">Commission rate</span>
+              <span class="ctl"><input id="comm" type="number" inputmode="decimal" min="0" step="5" value="80"><span class="aff">% of AP</span></span></label>
+          </div>
+        </div>
+
+        <div class="readout" aria-live="polite">
+          <div class="lbl">Spend per hour</div>
+          <div class="big" id="ro-big">$85<small>.00</small></div>
+          <div class="rsub" id="ro-sub">$3,400 / 40 hrs</div>
+        </div>
+
+        <div class="toggles">
+          <fieldset>
+            <legend class="lbl">Closer level</legend>
+            <div class="seg-ctl">
+              <input type="radio" name="closer" id="closer-avg" value="avg" checked><label for="closer-avg">Average</label>
+              <input type="radio" name="closer" id="closer-elite" value="elite"><label for="closer-elite">Elite<small id="elite-pts">+5 pts close rate</small></label>
+            </div>
+          </fieldset>
+        </div>
+        <p class="fine">Example numbers. Replace them with the agent's own. Commission is advanced at 75%.</p>
+      </section>
+
+      <details class="panel assump">
+        <summary>More settings</summary>
+        <div class="a-body">
+          <table class="a-tbl">
+            <thead><tr><th>Source</th><th>Cost per lead</th><th>Close rate</th></tr></thead>
+            <tbody id="a-rows"></tbody>
+          </table>
+          <div class="two">
+            <label class="field" for="prem"><span class="lbl">AP per deal</span>
+              <span class="ctl"><span class="aff">$</span><input id="prem" type="number" inputmode="decimal" min="0" step="50" value="1500"></span></label>
+            <label class="field" for="days"><span class="lbl">Days per week</span>
+              <span class="ctl"><input id="days" type="number" inputmode="decimal" min="1" max="7" step="1" value="5"><span class="aff">days</span></span></label>
+          </div>
+          <label class="field" for="boost"><span class="lbl">Elite boost (not aged leads)</span>
+            <span class="ctl"><span class="aff">+</span><input id="boost" type="number" inputmode="decimal" min="0" step="1" value="5"><span class="aff">pts</span></span></label>
+          <label class="field" for="agedHr"><span class="lbl">Max aged leads you can dial per hour</span>
+            <span class="ctl"><input id="agedHr" type="number" inputmode="decimal" min="1" step="5" value="30"><span class="aff">per hr</span></span></label>
+          <button type="button" class="btn" id="reset">Reset to defaults</button>
+        </div>
+      </details>
+    </aside>
+
+    <main>
+      <div id="results"></div>
+      <details class="more" id="more">
+        <summary>Full breakdown<span>by source, what it pays, spend tiers</span></summary>
+        <div class="stack">
+          <fieldset class="period">
+            <legend class="lbl">View</legend>
+            <div class="seg-ctl three">
+              <input type="radio" name="period" id="per-day" value="day"><label for="per-day">Daily</label>
+              <input type="radio" name="period" id="per-week" value="week" checked><label for="per-week">Weekly</label>
+              <input type="radio" name="period" id="per-month" value="month"><label for="per-month">Monthly</label>
+            </div>
+          </fieldset>
+          <div id="breakdown" class="stack"></div>
+        </div>
+      </details>
+      <details class="panel how">
+        <summary>How the budget is split</summary>
+        <ul>
+          <li><strong>Under $30 an hour.</strong> Every dollar goes to aged leads at $1 each, up to the leads you can dial per hour.</li>
+          <li><strong>$30 to $64.</strong> One Inbound Mortgage Protection lead per hour. Aged leads fill the gap.</li>
+          <li><strong>$65 to $84.</strong> One Inbound Mortgage Protection and one Inbound Final Expense lead per hour. Aged leads fill the gap.</li>
+          <li><strong>$85 and up.</strong> One Inbound Mortgage Protection, one Inbound Final Expense and one Meta Ad Pool lead per hour. Aged leads fill the gap.</li>
+        </ul>
+        <p>Spend per hour is the weekly budget divided by weekly hours. Each paid channel switches on at one per hour once the hour can pay for it and everything before it, so the cutoffs follow the lead costs in Assumptions. Daily numbers are the weekly numbers divided by days worked. Closes are leads times the close rate. AP is closes times AP per deal. Commission is AP times the commission rate. The advance is the share of that commission paid up front; the rest is paid as it is earned.</p>
+      </details>
+    </main>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+/*CALC_START*/
+var KEYS=['google','wingman','meta','aged'];
+function calc(st){
+  var H=st.hours,B=st.budget,D=Math.max(st.days,1);
+  if(!(H>0&&B>0)) return {valid:false};
+  var S=B/H,c=st.ch;
+  var th={google:c.google.cost,wingman:c.google.cost+c.wingman.cost,meta:c.google.cost+c.wingman.cost+c.meta.cost};
+  var tier=S<th.google?1:S<th.wingman?2:S<th.meta?3:4;
+  var per={google:tier>=2?1:0,wingman:tier>=3?1:0,meta:tier>=4?1:0};
+  var paid=per.google*c.google.cost+per.meta*c.meta.cost+per.wingman*c.wingman.cost;
+  var agedAfford=(S-paid)*H/c.aged.cost, agedMax=(st.agedHr||30)*H;
+  var agedLeads=Math.min(agedAfford,agedMax);
+  var unspent=Math.max(0,(agedAfford-agedLeads)*c.aged.cost), spent=B-unspent;
+  var leads={google:per.google*H,wingman:per.wingman*H,meta:per.meta*H,aged:agedLeads};
+  var rows=KEYS.map(function(k){
+    var bump=(st.elite&&k!=='aged')?st.boost/100:0;
+    var rate=c[k].rate/100+bump;
+    var l=leads[k],sp=l*c[k].cost,cl=l*rate;
+    return {k:k,leads:l,spend:sp,rate:rate,closes:cl,premium:cl*st.premium,perHr:l/H,active:l>0.0000001};
+  });
+  var T={leads:0,closes:0,premium:0};
+  rows.forEach(function(x){T.leads+=x.leads;T.closes+=x.closes;T.premium+=x.premium;});
+  var comm=T.premium*st.commPct/100,adv=comm*st.advPct/100;
+  var bases=[['ap','AP',T.premium],['comm','Commission',comm],['adv','Advance',adv]].map(function(a){
+    return {key:a[0],name:a[1],rev:a[2],roas:spent>0?a[2]/spent:0,roi:spent>0?(a[2]-spent)/spent:0,net:a[2]-spent,netHr:(a[2]-spent)/H};
+  });
+  return {valid:true,S:S,tier:tier,th:th,scaled:false,capped:S>100,D:D,rows:rows,T:T,comm:comm,adv:adv,bases:bases,spent:spent,unspent:unspent,agedMax:agedMax,
+    cpc:T.closes>0?spent/T.closes:null,blend:T.leads>0?T.closes/T.leads:0};
+}
+/*CALC_END*/
+
+var DEF={budget:3400,hours:40,days:5,premium:1500,commPct:80,advPct:75,boost:5,agedHr:30,
+  ch:{
+    google:{name:'Inbound Mortgage Protection',cost:30,rate:15,unlock:25,color:'--c-google'},
+    wingman:{name:'Inbound Final Expense',cost:35,rate:20,unlock:50,color:'--c-wingman'},
+    meta:{name:'Meta Ad Pool',cost:20,rate:8,unlock:75,color:'--c-meta'},
+    aged:{name:'Aged lead dialing',cost:1,rate:1,unlock:0,color:'--c-aged'}
+  }};
+var period='week';
+var TIER_TEXT={1:'Aged leads only',2:'Inbound Mortgage Protection plus aged leads',3:'Inbound Mortgage Protection and Inbound Final Expense plus aged leads',4:'Inbound Mortgage Protection, Inbound Final Expense and Meta Ad Pool plus aged leads'};
+
+function $(id){return document.getElementById(id);}
+function num(id){var v=parseFloat($(id).value);return (isFinite(v)&&v>0)?v:0;}
+
+var nf0=new Intl.NumberFormat('en-US',{maximumFractionDigits:0});
+function usd(x,dec){
+  dec=dec||0;
+  if(dec===0&&Math.abs(x)<0.5)x=0;
+  var s='$'+Math.abs(x).toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+  return x<0?'−'+s:s;
+}
+function cost(x){return usd(x,x%1?2:0);}
+function cnt(x){if(x<=0)return '0';return x>=10?nf0.format(x):x.toFixed(1);}
+function cls(x){if(x<=0)return '0';return x<1?x.toFixed(2):x.toFixed(1);}
+function pct(x,d){return (x*100).toFixed(d||0)+'%';}
+function sgn(x,s){return (x>0?'+':x<0?'−':'')+s;}
+
+function readState(){
+  var st={budget:num('budget'),hours:num('hours'),days:Math.max(num('days'),1),premium:num('prem'),
+    commPct:num('comm'),advPct:75,boost:num('boost'),agedHr:num('agedHr')||30,
+    elite:$('closer-elite').checked,ch:{}};
+  KEYS.forEach(function(k){
+    var d=DEF.ch[k];
+    st.ch[k]={name:d.name,unlock:d.unlock,color:d.color,cost:Math.max(num('cost-'+k),0.01),rate:num('rate-'+k)};
+  });
+  return st;
+}
+
+function bar(vals,st,big){
+  var tot=0;KEYS.forEach(function(k){tot+=vals[k];});
+  if(tot<=0)return '<div class="bar empty"></div>';
+  var inner=KEYS.map(function(k){
+    if(vals[k]<=0)return '';
+    var p=vals[k]/tot*100;
+    var pc=Math.round(p)+'%',short={google:'Mortgage',meta:'Meta Pool',wingman:'Final Exp.',aged:'Aged'}[k]||st.ch[k].name;
+    return '<span class="sg" style="flex:'+vals[k]+' 1 0;background:var('+st.ch[k].color+')" title="'+st.ch[k].name+': '+pc+'" data-fit="'+[st.ch[k].name+' '+pc,short+' '+pc,short,pc].join('|')+'">'+pc+'</span>';
+  }).join('');
+  return '<div class="bar'+(big?' lg':'')+'" role="img" aria-label="Share by source">'+inner+'</div>';
+}
+// show as much of each label as fits in its slice: full name, short name, then just the %
+function fitBars(){
+  document.querySelectorAll('.sg[data-fit]').forEach(function(sg){
+    if(!sg.clientWidth)return;
+    var opts=sg.getAttribute('data-fit').split('|').concat(['']);
+    for(var i=0;i<opts.length;i++){sg.textContent=opts[i];if(sg.scrollWidth<=sg.clientWidth)break;}
+  });
+}
+window.addEventListener('resize',fitBars);
+document.addEventListener('toggle',function(){setTimeout(fitBars,0);},true);
+document.addEventListener('click',function(){setTimeout(fitBars,350);});
+function dot(st,k){return '<span class="dot" style="background:var('+st.ch[k].color+')"></span>';}
+
+function nextNote(S,H,th){
+  var steps=[[th.google,'Inbound Mortgage Protection opens at one lead per hour'],[th.wingman,'Inbound Final Expense opens at one lead per hour'],[th.meta,'Meta Ad Pool opens at one lead per hour']];
+  for(var i=0;i<steps.length;i++){
+    if(S<steps[i][0])return 'Next step at '+usd(steps[i][0])+' an hour: '+steps[i][1]+'. That takes '+usd((steps[i][0]-S)*H)+' more per week at your hours.';
+  }
+  return 'Every paid channel is at one per hour. Anything above '+usd(th.meta)+' an hour goes to aged leads.';
+}
+
+function renderRail(st,r){
+  var S=r.valid?r.S:0;
+  var whole=Math.floor(S),cents=Math.round((S-whole)*100);
+  if(cents===100){whole+=1;cents=0;}
+  $('ro-big').innerHTML=usd(whole)+'<small>.'+(cents<10?'0':'')+cents+'</small>';
+  $('ro-sub').textContent=usd(st.budget)+' / '+(st.hours%1?st.hours.toFixed(1):nf0.format(st.hours))+' hrs';
+  $('elite-pts').textContent='+'+(st.boost%1?st.boost.toFixed(1):st.boost)+' pts close rate';
+}
+
+function renderResults(st,r){
+  var el=$('results');
+  if(!r.valid){
+    el.innerHTML='<section class="panel empty-note"><h2>Enter a budget and weekly hours</h2><p>The split, the daily funnel and the return appear once both are above zero.</p></section>';
+    $('breakdown').innerHTML='';
+    return;
+  }
+  var B=st.budget,H=st.hours,D=r.D,S=r.S,T=r.T,rows=r.rows;
+  var spendVals={},leadVals={},closeVals={};
+  rows.forEach(function(x){spendVals[x.k]=x.spend;leadVals[x.k]=x.leads;closeVals[x.k]=x.closes;});
+
+  var eliteWarn='';
+  var capWarn=r.unspent>0.5?'<p class="warn">You can only dial about '+nf0.format(r.agedMax)+' aged leads in '+nf0.format(H)+' hours ('+nf0.format(st.agedHr)+' per hour), so <strong>'+usd(r.unspent)+'</strong> of your '+usd(B)+' weekly budget goes unused. Add hours or lower the budget.</p>':'';
+
+  /* 1. ruler */
+  var cc=['--c-aged','--c-google','--c-wingman','--c-meta'],bn=['Aged only','+ Mortgage','+ Final Exp.','+ Meta Pool'];
+  var M=Math.max(100,r.th.meta);
+  var edges=[0,r.th.google,r.th.wingman,r.th.meta,M];
+  var bands=bn.map(function(t,i){return '<div class="band'+(r.tier===i+1?' on':'')+'" style="--cc:var('+cc[i]+');flex:'+(edges[i+1]-edges[i])+' 1 0;min-width:0">'+t+'</div>';}).join('');
+  var pos=Math.min(S,M)/M*100;
+  var mcls=pos<9?' l':pos>91?' r':'';
+  var sTxt=S.toFixed(2).replace(/\.00$/,'');
+  var ruler='<section class="panel" aria-labelledby="h-tier">'+
+    '<div class="sec-head"><h2 id="h-tier">Where your spend per hour lands</h2><span class="pill">Tier '+r.tier+'</span></div>'+
+    '<p class="lede">'+TIER_TEXT[r.tier]+'.</p>'+
+    '<div class="track-wrap"><div class="track">'+bands+'</div>'+
+    '<div class="marker'+mcls+'" style="left:'+pos+'%"><span class="tag">$'+sTxt+'/hr</span></div></div>'+
+    '<div class="ticks">'+edges.map(function(e){return '<span style="left:'+(e/M*100)+'%">'+usd(e)+'</span>';}).join('')+'</div>'+
+    '<p class="hint">'+nextNote(S,H,r.th)+'</p>'+
+    (r.scaled?'<p class="warn">The costs you entered are higher than the spend per hour allows, so paid channels were scaled down to fit the budget.</p>':'')+
+    '</section>';
+
+  /* 2. full breakdown, scaled to the chosen period */
+  var mult=period==='day'?1/D:period==='month'?52/12:1;
+  var pl=period==='day'?'per day':period==='month'?'per month':'per week';
+  var pnote=period==='day'?'weekly numbers divided by '+nf0.format(D)+' working days':period==='month'?'weekly numbers times 4.33 weeks':'one week of your plan';
+  var p2=function(x){return x%1?x.toFixed(1):x;};
+  var nm2={google:'Inbound Mortgage Protection leads',meta:'Meta Ad Pool leads',wingman:'Inbound Final Expense leads',aged:'Aged leads to dial'};
+  var l2dRows=rows.filter(function(x){return x.active;}).map(function(x){
+    return '<tr><th scope="row">'+dot(st,x.k)+nm2[x.k]+'<small>'+pct(x.rate,x.rate*100%1?1:0)+' close rate</small></th><td>'+usd(x.spend*mult)+'</td><td>'+cnt(x.leads*mult)+'</td><td>'+cls(x.closes*mult)+'</td><td>'+usd(x.premium*mult)+'</td></tr>';
+  }).join('');
+  var l2d='<section class="panel" aria-labelledby="h-l2d">'+
+    '<div class="sec-head"><h2 id="h-l2d">Leads to deals</h2><span class="sub">'+pl+' \u00b7 '+pnote+'</span></div>'+
+    '<div class="scroll"><table class="tbl"><thead><tr><th>Source</th><th>Spend</th><th>Leads</th><th>Deals</th><th>AP</th></tr></thead><tbody>'+l2dRows+'</tbody>'+
+    '<tfoot><tr><th scope="row">Total<small>'+pct(r.blend,1)+' blended close rate'+(st.elite?' \u00b7 elite closer':'')+'</small></th><td>'+usd(r.spent*mult)+'</td><td>'+cnt(T.leads*mult)+'</td><td>'+cls(T.closes*mult)+'</td><td>'+usd(T.premium*mult)+'</td></tr></tfoot></table></div></section>';
+  function prow(label,fn,net){
+    return '<tr class="'+(net?'net':'')+'"><th scope="row">'+label+'</th>'+r.bases.map(function(b){
+      return '<td class="'+(net?(b.net>=0?'pos':'neg'):'')+'">'+fn(b)+'</td>';
+    }).join('')+'</tr>';
+  }
+  var pays='<section class="panel" aria-labelledby="h-pay">'+
+    '<div class="sec-head"><h2 id="h-pay">What it pays</h2><span class="sub">'+pl+'</span></div>'+
+    '<div class="scroll"><table class="tbl ledger"><thead><tr><th></th><th>AP</th><th>Commission</th><th>Advanced</th></tr></thead><tbody>'+
+    prow('Brought in',function(b){return usd(b.rev*mult);})+
+    prow('Lead spend',function(){return usd(-r.spent*mult);})+
+    prow('Left after lead spend',function(b){return usd(b.net*mult);},true)+
+    prow('Back per $1 spent (ROAS)',function(b){return usd(b.roas,2);})+
+    prow('Return on spend (ROI)',function(b){return sgn(b.roi,nf0.format(Math.abs(b.roi*100)))+'%';})+
+    prow('Left per hour worked',function(b){return usd(b.netHr);})+
+    '</tbody></table></div>'+
+    '<p class="hint">Commission is '+p2(st.commPct)+'% of AP. '+p2(st.advPct)+'% of it is advanced. The other '+p2(100-st.advPct)+'%, '+usd((r.comm-r.adv)*mult)+' '+pl+', is paid as it is earned.</p></section>';
+
+  /* simple view */
+  var Wk=52/12,ad=r.bases[2],cm=r.bases[1];
+  var ptx=function(x){return x%1?x.toFixed(1):x;};
+  var tiles='<div class="tiles">'+
+    '<div class="tile"><div class="k">Deals closed per week</div><div class="v">'+nf0.format(Math.round(T.closes))+'</div><div class="s">about '+nf0.format(Math.round(T.closes/D))+' per day</div></div>'+
+    '<div class="tile"><div class="k">AP per week</div><div class="v">'+usd(T.premium)+'</div><div class="s">at '+usd(st.premium)+' per deal</div></div>'+
+    '<div class="tile"><div class="k">Commission per week</div><div class="v">'+usd(r.comm)+'</div><div class="s">at '+ptx(st.commPct)+'% of AP</div></div>'+
+    '<div class="tile hero"><div class="k">Commission advanced per week</div><div class="v">'+usd(r.adv)+'</div><div class="s">'+usd(ad.net)+' after lead spend</div></div>'+
+    '</div>';
+  var top='<section class="panel" aria-labelledby="h-top">'+
+    '<div class="sec-head"><h2 id="h-top">What this week brings</h2><span class="sub">'+(st.elite?'Elite closer':'Average closer')+'</span></div>'+
+    tiles+
+    '<p class="say">Every $1 you spend on leads brings back <strong>'+usd(ad.roas,2)+'</strong> in advanced commission and <strong>'+usd(cm.roas,2)+'</strong> in total commission.</p>'+
+    '<p class="fine">Per month: about '+nf0.format(Math.round(T.closes*Wk))+' deals, '+usd(r.comm*Wk)+' commission, '+usd(r.adv*Wk)+' commission advanced.</p>'+
+    eliteWarn+capWarn+'</section>';
+  var names={google:'Inbound Mortgage Protection leads',meta:'Meta Ad Pool leads',wingman:'Inbound Final Expense leads',aged:'Aged leads to dial'};
+  var items=rows.filter(function(x){return x.active;}).map(function(x){
+    return '<li><div class="nm">'+dot(st,x.k)+names[x.k]+'<small>'+cost(st.ch[x.k].cost)+' each</small></div>'+
+      '<div class="ct">'+cnt(x.leads)+'<small>'+cnt(x.leads/D)+' per day</small></div><div class="sp">'+usd(x.spend)+'<small>weekly spend</small></div><div class="sp">'+usd(x.spend/D)+'<small>daily spend</small></div></li>';
+  }).join('');
+  var buy='<section class="panel" aria-labelledby="h-buy">'+
+    '<div class="sec-head"><h2 id="h-buy">What to buy this week</h2><span class="sub">'+usd(r.spent)+' over '+nf0.format(H)+' hours</span></div>'+
+    bar(spendVals,st,true)+'<ul class="buy">'+items+'</ul><p class="hint">'+nextNote(S,H,r.th)+'</p>'+capWarn+'</section>';
+  $('breakdown').innerHTML=l2d+pays+ruler;
+  el.innerHTML=top+buy;
+  fitBars();
+}
+
+function render(){
+  var st=readState(),r=calc(st);
+  renderRail(st,r);
+  renderResults(st,r);
+}
+
+function buildAssumptions(){
+  $('a-rows').innerHTML=KEYS.map(function(k){
+    var d=DEF.ch[k];
+    return '<tr><td>'+d.name+'</td>'+
+      '<td><span class="ctl"><span class="aff">$</span><input id="cost-'+k+'" type="number" inputmode="decimal" min="0" step="1" value="'+d.cost+'" aria-label="'+d.name+' cost per lead"></span></td>'+
+      '<td><span class="ctl"><input id="rate-'+k+'" type="number" inputmode="decimal" min="0" step="0.5" value="'+d.rate+'" aria-label="'+d.name+' close rate percent"><span class="aff">%</span></span></td></tr>';
+  }).join('');
+}
+function resetAll(){
+  $('budget').value=DEF.budget;$('hours').value=DEF.hours;$('days').value=DEF.days;
+  $('prem').value=DEF.premium;$('comm').value=DEF.commPct;$('boost').value=DEF.boost;$('agedHr').value=DEF.agedHr;
+  $('closer-avg').checked=true;
+  KEYS.forEach(function(k){$('cost-'+k).value=DEF.ch[k].cost;$('rate-'+k).value=DEF.ch[k].rate;});
+  render();
+}
+
+buildAssumptions();
+document.addEventListener('change',function(e){if(e.target&&e.target.name==='period')period=e.target.value;});
+document.addEventListener('input',render);
+document.addEventListener('change',render);
+$('reset').addEventListener('click',resetAll);
+render();
+})();
+</script>
+
+</body></html>

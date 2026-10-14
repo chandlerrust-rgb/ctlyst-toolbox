@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lifetime Income Opportunity</title>
+<meta name="description" content="The insurance industry is going virtual. Earn high upfront commissions with life and build long-term residuals with health.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.scalewithsteelwater.com/">
+<meta property="og:title" content="The greatest income opportunity of our lifetime is starting.">
+<meta property="og:description" content="Virtual closing and AI are disrupting insurance. Earn high upfront commissions with life and build residuals with health.">
+<meta property="og:image" content="https://www.scalewithsteelwater.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.scalewithsteelwater.com/og.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  /* Deliberate single dark look: deep navy, warm gold, serif headline. */
+  :root {
+    color-scheme: dark;
+    --bg: #0A1622;
+    --bg-2: #0F2030;
+    --field: #0D1C2A;
+    --line: #26394D;
+    --text: #F2EEE6;
+    --muted: #9AABBB;
+    --gold: #D9B26A;
+    --gold-hi: #E8C98A;
+    --gold-deep: #A9843F;
+    --red: #F08A7E;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    background:
+      radial-gradient(120% 60% at 50% -10%, #1A3550 0%, rgba(26,53,80,0) 60%),
+      var(--bg);
+    color: var(--text);
+    font: 400 17px/1.55 var(--body);
+    -webkit-font-smoothing: antialiased;
+    padding-inline: 20px;
+  }
+
+  main { max-width: 500px; margin: 0 auto; padding-block: 36px 48px; display: grid; gap: 32px; }
+
+
+  h1 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(2.5rem, 10vw, 3.5rem); line-height: 1.02; letter-spacing: -.01em;
+    text-align: center; text-wrap: balance; margin: 0;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+
+  ul { list-style: none; margin: 0; padding: 22px 0; display: grid; gap: 16px;
+    border-block: 1px solid var(--line); }
+  li { display: grid; grid-template-columns: 22px 1fr; gap: 14px; align-items: start; font-size: 1.02rem; color: var(--muted); }
+  li b { color: var(--text); font-weight: 700; }
+  li svg { width: 18px; height: 18px; margin-top: 4px; }
+
+  form { display: grid; gap: 12px; }
+  label.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  input {
+    width: 100%; font: 500 1.05rem/1 var(--body); color: var(--text);
+    padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--field);
+  }
+  input::placeholder { color: #6F8397; }
+  input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(217,178,106,.18); }
+  input[aria-invalid="true"] { border-color: var(--red); }
+  button, .btn {
+    display: block; width: 100%; text-align: center; text-decoration: none; cursor: pointer;
+    background: linear-gradient(180deg, var(--gold-hi), var(--gold)); color: #1A1308; border: 0; border-radius: 12px;
+    font: 800 1.05rem/1 var(--body); letter-spacing: .04em; text-transform: uppercase;
+    padding: 21px; margin-top: 4px;
+    box-shadow: 0 10px 30px -10px rgba(217,178,106,.55), inset 0 -2px 0 var(--gold-deep);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  button:hover, .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 34px -10px rgba(217,178,106,.7), inset 0 -2px 0 var(--gold-deep); }
+  button:active, .btn:active { transform: translateY(1px); }
+  button:focus-visible, .btn:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+  button[disabled] { opacity: .7; cursor: wait; }
+  .err { color: var(--red); font-size: .9rem; text-align: center; margin: 0; min-height: 1.2em; }
+  .consent { font-size: .7rem; line-height: 1.55; color: #6F8397; text-align: center; margin: 0; }
+
+  .done { text-align: center; display: grid; gap: 16px; padding: 30px 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg-2); }
+  .done h2 { font: 400 2.2rem/1 var(--display); margin: 0; }
+  .done h2 em { color: var(--gold); }
+  .done p { margin: 0; color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<script>
+  // ===== EDIT THESE =====
+  // Leads post to /api/lead, which forwards them to the Make webhook.
+  window.FORM_ENDPOINT = "/api/lead";
+  // Your booking link, shown after they submit. Leave as-is to hide the button.
+  window.BOOKING_URL = "https://calendly.com/YOUR-LINK/30min";
+</script>
+
+<main>
+  <h1>The greatest income opportunity <em>of our lifetime</em> is starting.</h1>
+
+  <ul>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>The insurance industry is being disrupted by <b>virtual closing and AI efficiencies</b></span></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Earn <b>high upfront commissions</b> with life. Build <b>long-term residuals</b> with health.</span></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Make your career switch</b>, or <b>start your career here</b></span></li>
+  </ul>
+
+  <form id="lead" novalidate>
+    <label class="sr" for="name">Name</label>
+    <input id="name" name="name" type="text" placeholder="First name" autocomplete="given-name" required>
+    <label class="sr" for="phone">Phone number</label>
+    <input id="phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel" inputmode="tel" required>
+    <div aria-hidden="true" style="position:absolute;left:-9999px"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+    <button type="submit" id="go">Send Me More Info</button>
+    <p class="err" id="err" aria-live="polite"></p>
+    <p class="consent">By submitting, you agree to receive calls and text messages from Steelwater Strategies at the number provided about this opportunity, including by automated means. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent isn't a condition of purchase. See our <a href="/terms" style="color:inherit">Terms</a> and <a href="/privacy-policy" style="color:inherit">Privacy Policy</a>.</p>
+  </form>
+
+  <div class="done" id="done" hidden aria-live="polite">
+    <h2>Got it<em>.</em></h2>
+    <p>I'll reach out shortly. Want to skip the wait? Grab a time to talk.</p>
+    <a class="btn" id="book" target="_blank" rel="noopener" href="#">Pick My Call Time</a>
+  </div>
+</main>
+
+<script>
+(function () {
+  const form = document.getElementById("lead");
+  const name = document.getElementById("name");
+  const phone = document.getElementById("phone");
+  const err = document.getElementById("err");
+  const go = document.getElementById("go");
+  const book = document.getElementById("book");
+  if (!window.BOOKING_URL || window.BOOKING_URL.includes("YOUR-LINK")) {
+    book.hidden = true;
+    document.querySelector("#done p").textContent = "I'll reach out shortly. Keep your phone close.";
+  } else book.href = window.BOOKING_URL;
+
+  phone.addEventListener("input", () => {
+    const d = phone.value.replace(/\D/g, "").replace(/^1/, "").slice(0, 10);
+    phone.value = d.length > 6 ? `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`
+      : d.length > 3 ? `(${d.slice(0,3)}) ${d.slice(3)}` : d;
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    err.textContent = "";
+    name.removeAttribute("aria-invalid"); phone.removeAttribute("aria-invalid");
+    const digits = phone.value.replace(/\D/g, "");
+    if (!name.value.trim()) { name.setAttribute("aria-invalid", "true"); err.textContent = "Add your first name."; name.focus(); return; }
+    if (digits.length !== 10) { phone.setAttribute("aria-invalid", "true"); err.textContent = "Enter a 10-digit phone number."; phone.focus(); return; }
+
+    go.disabled = true; go.textContent = "Sending…";
+    try {
+      if (window.FORM_ENDPOINT) {
+        const res = await fetch(window.FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ name: name.value.trim(), phone: digits, company: document.getElementById("company").value, source: "instagram-bio" })
+        });
+        if (!res.ok) throw new Error();
+      }
+      form.hidden = true;
+      document.getElementById("done").hidden = false;
+    } catch {
+      err.textContent = "That didn't go through. Check your connection and try again.";
+      go.disabled = false; go.textContent = "Send Me More Info";
+    }
+  });
+})();
+</script>
+
+</html>

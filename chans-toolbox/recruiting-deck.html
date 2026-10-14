@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Chan's Recruiting Deck</title>
+<meta property="og:image" content="https://www.scalewithsteelwater.com/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..700&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; background: #1C2826; color: #F6F4F2; font-family: Inter, Arial, sans-serif; overflow: hidden; }
+  .bar { position: fixed; left: 0; right: 0; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+         padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 10px; font-size: 14px; }
+  .bar a { color: #C2CDC8; text-decoration: none; font-weight: 600; }
+  .bar a:hover { color: #B9CBC2; }
+  .count { color: #A9B8B2; font-variant-numeric: tabular-nums; }
+  .stage { position: fixed; overflow: hidden; left: env(safe-area-inset-left, 0px); right: env(safe-area-inset-right, 0px);
+           top: calc(44px + env(safe-area-inset-top, 0px)); bottom: calc(36px + env(safe-area-inset-bottom, 0px)); }
+  /* phone held sideways: slim chrome so the slide fills the screen */
+  @media (orientation: landscape) and (max-height: 500px) {
+    .bar { padding: calc(4px + env(safe-area-inset-top, 0px)) calc(12px + env(safe-area-inset-right, 0px)) 4px calc(12px + env(safe-area-inset-left, 0px)); font-size: 12px; background: linear-gradient(#1C2826cc, #1C282600); }
+    .stage { top: calc(22px + env(safe-area-inset-top, 0px)); bottom: env(safe-area-inset-bottom, 0px); }
+    .hint { display: none; }
+  }
+  .frame { width: 1920px; height: 1080px; position: absolute; left: 50%; top: 50%; transform-origin: center center; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  .slide { position: absolute; inset: 0; width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden; opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s; }
+  .slide.on { opacity: 1; visibility: visible; }
+  .slide * { margin: 0; box-sizing: border-box; }
+  .slide h1 { font-size: 96px; font-weight: 600; line-height: 1.1; }
+  .slide h2 { font-size: 64px; font-weight: 600; line-height: 1.15; }
+  .slide h3 { font-size: 44px; font-weight: 600; line-height: 1.2; }
+  .slide p { font-size: 32px; line-height: 1.4; }
+  .slide hr { border: 0; height: 0; }
+  .slide img { display: block; max-width: none; }
+  .xarrow { clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+  .nav { position: fixed; top: 50%; transform: translateY(-50%); z-index: 5; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(246,244,242,.3); background: rgba(11,19,14,.6); color: #F6F4F2; font-size: 22px; cursor: pointer; }
+  .nav:hover { border-color: #B9CBC2; color: #B9CBC2; }
+  .prev { left: 12px; } .next { right: 12px; }
+  .nav:disabled { opacity: .25; cursor: default; }
+  .hint { position: fixed; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); left: 0; right: 0; text-align: center; color: #7C8F88; font-size: 12px; }
+  @media (hover: none) { .nav { display: none; } }
+</style>
+</head>
+<body>
+<div class="bar"><a href="/chans-toolbox">&larr; CTLYST Toolbox</a><span class="count" id="count"></span></div>
+<button class="nav prev" id="prev" aria-label="Previous slide">&#8249;</button>
+<button class="nav next" id="next" aria-label="Next slide">&#8250;</button>
+<div class="stage" id="stage"><div class="frame" id="frame">
+<section class="slide" id="cover" data-transition="fade" style="background:radial-gradient(ellipse at 50% 35%, #4D6762 0%, #1F2B29 55%, #263532 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px">
+<img src="/brand/ctlyst-logo.png" alt="CTLYST" style="width:1040px;height:auto;margin:10px 0 18px">
+<p style="font-size:38px;font-weight:700;letter-spacing:6px;color:#B9CBC2;text-align:center">THE GREATEST INCOME OPPORTUNITY OF OUR LIFETIME</p>
+<hr style="width:120px;border-top:3px solid #B9CBC2">
+<p style="font-size:26px;font-weight:600;letter-spacing:8px;color:#C2CDC8">PRESENTED BY</p>
+<p style="font-size:56px;font-weight:400;color:#F6F4F2">Chandler Rust</p>
+
+</section>
+
+<section class="slide" id="why-now" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">THE OPPORTUNITY</p>
+<h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">Why Insurance and Why Now?</h2>
+</div>
+<div style="display:flex;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;background:rgba(255,255,255,0.05);border:1px solid rgba(246,244,242,0.2);border-radius:20px;padding:36px 48px">
+<h3 style="font-size:40px;font-weight:700;letter-spacing:10px;color:#A9B8B2;padding:0 0 24px">THEN</h3>
+<p style="font-size:36px;color:#C2CDC8;padding:24px 0;border-top:1px solid rgba(246,244,242,0.18)">Pestering friends &amp; family</p>
+<p style="font-size:36px;color:#C2CDC8;padding:24px 0;border-top:1px solid rgba(246,244,242,0.18)">Direct mail &amp; paper forms</p>
+<p style="font-size:36px;color:#C2CDC8;padding:24px 0 0;border-top:1px solid rgba(246,244,242,0.18)">Physicals &amp; nurse exams</p>
+</div>
+<div style="width:136px;display:flex;align-items:center;justify-content:center">
+<div class="xarrow" style="width:88px;height:56px;background:#B9CBC2"></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;background:#F6F4F2;border-top:10px solid #B9CBC2;border-radius:20px;padding:26px 48px 36px;box-shadow:0 24px 60px rgba(0,0,0,0.4)">
+<h3 style="font-size:40px;font-weight:700;letter-spacing:10px;color:#4F635D;padding:0 0 24px">NOW</h3>
+<p style="font-size:36px;font-weight:500;color:#1F2B29;padding:24px 0;border-top:1px solid rgba(31,43,41,0.2)">Social media &amp; online campaigns</p>
+<p style="font-size:36px;font-weight:500;color:#1F2B29;padding:24px 0;border-top:1px solid rgba(31,43,41,0.2)">E-signature &amp; e-application</p>
+<p style="font-size:36px;font-weight:500;color:#1F2B29;padding:24px 0 0;border-top:1px solid rgba(31,43,41,0.2)">Medical questionnaire only</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:40px;font-weight:400;color:#F6F4F2">A 100-year-old industry, disrupted by technology.</p>
+<p style="font-size:40px;font-weight:600;color:#B9CBC2">The single greatest income opportunity of our lifetime.</p>
+</div>
+<div style="position:absolute;left:128px;right:128px;bottom:64px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto">
+<p style="font-size:24px;color:#A9B8B2">Why Insurance and Why Now?</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">2</p>
+</div>
+
+</section>
+
+<section class="slide" id="who-we-are" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:100px 128px 140px;display:flex;align-items:center;justify-content:space-between;gap:40px"><div style="display:flex;flex-direction:column;gap:22px;max-width:640px"><p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">WHO WE ARE</p><h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">CTLYST is an agency under Everlife</h2><p style="font-size:34px;line-height:1.35;color:#C2CDC8"><b style="color:#F6F4F2">Authority</b> flows from the carrier through Everlife to CTLYST.</p><p style="font-size:34px;line-height:1.35;color:#C2CDC8"><b style="color:#B9CBC2">Compensation</b> comes straight from the carrier.</p></div><div style="position:relative;width:960px;height:760px;flex:none"><svg width="960" height="760" viewBox="0 0 960 760" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left:0;top:0"><defs><marker id="ha" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L14,7 L0,14 z" fill="#DCE3E0"/></marker><marker id="hc" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L14,7 L0,14 z" fill="#B9CBC2"/></marker></defs><path d="M360 152 V296" stroke="#DCE3E0" stroke-width="5" fill="none" marker-end="url(#ha)"/><path d="M360 452 V596" stroke="#DCE3E0" stroke-width="5" fill="none" marker-end="url(#ha)"/><path d="M622 75 H820 Q850 75 850 105 V645 Q850 675 820 675 H626" stroke="#B9CBC2" stroke-width="5" fill="none" stroke-dasharray="14 10" marker-end="url(#hc)"/></svg><div style="position:absolute;left:100px;top:0px;width:520px;height:150px;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(255,255,255,0.07);border:2px solid rgba(246,244,242,0.25);"><p style="font-size:22px;font-weight:700;letter-spacing:5px;color:#B9CBC2">THE CARRIER</p><h3 style="font-size:60px;font-weight:600;line-height:1;color:#F6F4F2">Carrier</h3></div><div style="position:absolute;left:100px;top:300px;width:520px;height:150px;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(255,255,255,0.07);border:2px solid rgba(246,244,242,0.25);"><p style="font-size:22px;font-weight:700;letter-spacing:5px;color:#B9CBC2">THE IMO</p><h3 style="font-size:60px;font-weight:600;line-height:1;color:#F6F4F2">Everlife</h3></div><div style="position:absolute;left:100px;top:600px;width:520px;height:150px;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#B9CBC2;"><p style="font-size:22px;font-weight:700;letter-spacing:5px;color:#1F2B29">THE AGENCY</p><h3 style="font-size:60px;font-weight:600;line-height:1;color:#1F2B29">CTLYST</h3></div><p style="position:absolute;left:360px;top:224px;transform:translate(-50%,-50%);white-space:nowrap;font-size:22px;font-weight:800;letter-spacing:4px;color:#1F2B29;background:#DCE3E0;border-radius:10px;padding:8px 16px">AUTHORITY</p><p style="position:absolute;left:360px;top:524px;transform:translate(-50%,-50%);white-space:nowrap;font-size:22px;font-weight:800;letter-spacing:4px;color:#1F2B29;background:#DCE3E0;border-radius:10px;padding:8px 16px">AUTHORITY</p><p style="position:absolute;left:850px;top:375px;transform:translate(-50%,-50%);white-space:nowrap;font-size:22px;font-weight:800;letter-spacing:4px;color:#1F2B29;background:#B9CBC2;border-radius:10px;padding:8px 16px">COMPENSATION</p></div><div style="position:absolute;left:128px;right:128px;bottom:56px;display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:14px"><img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto"><p style="font-size:24px;color:#A9B8B2">Who We Are</p></div><p style="font-size:24px;color:#A9B8B2">3</p></div></section>
+<section class="slide" id="why-everlife" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">TWO BIG REASONS</p>
+<h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">Why Everlife?</h2>
+</div>
+<div style="display:flex;gap:32px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:24px;padding:36px 40px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:80px;height:80px;color:#B9CBC2;flex:none" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+<h3 style="font-size:54px;font-weight:600;line-height:1.1;color:#F6F4F2">Door-to-door money, <span style="color:#B9CBC2">from home.</span></h3>
+<p style="font-size:30px;color:#C2CDC8">Sleep in your own bed.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#B9CBC2;border-radius:24px;padding:36px 40px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:80px;height:80px;color:#1F2B29;flex:none" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg>
+<h3 style="font-size:54px;font-weight:600;line-height:1.1;color:#1F2B29">Tag along on the Sandlot exit.</h3>
+<p style="font-size:30px;color:#1F2B29">Exit in 7 years. Roll your life + health books into the acquisition.</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;color:#A9B8B2">LEADERSHIP &amp; BACKING</p>
+<div style="display:flex;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;border-top:4px solid #B9CBC2;background:rgba(255,255,255,0.06);border-radius:12px;padding:16px 22px">
+<p style="font-size:30px;font-weight:600;color:#F6F4F2">J.R. Farr</p>
+<p style="font-size:24px;color:#C2CDC8">3 tech exits, one to Stripe</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;border-top:4px solid #B9CBC2;background:rgba(255,255,255,0.06);border-radius:12px;padding:16px 22px">
+<p style="font-size:30px;font-weight:600;color:#F6F4F2">Jordan Binning</p>
+<p style="font-size:24px;color:#C2CDC8">Nusun Power, 1,000 reps</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;border-top:4px solid #B9CBC2;background:rgba(255,255,255,0.06);border-radius:12px;padding:16px 22px">
+<p style="font-size:30px;font-weight:600;color:#F6F4F2">Chandler Rust</p>
+<p style="font-size:24px;color:#C2CDC8">MPWR Solar, 350 direct reps</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px;border-top:4px solid #B9CBC2;background:rgba(255,255,255,0.06);border-radius:12px;padding:16px 22px">
+<p style="font-size:30px;font-weight:600;color:#B9CBC2">Sandlot</p>
+<p style="font-size:24px;color:#C2CDC8">PE firm, $25M invested</p>
+</div>
+</div>
+</div>
+<div style="position:absolute;left:128px;right:128px;bottom:64px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto">
+<p style="font-size:24px;color:#A9B8B2">Why Everlife</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">4</p>
+</div>
+
+</section>
+
+<section class="slide" id="new-agent" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">THE OPPORTUNITY</p>
+<h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">The New Agent Pay Scale</h2>
+<p style="font-size:32px;font-style:italic;color:#C2CDC8">Start at 80%. Build to 100%.</p>
+</div>
+<div style="display:flex;gap:32px;align-items:stretch">
+<div style="width:560px;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:24px;padding:32px 36px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;color:#B9CBC2">AN AVERAGE MONTH</p>
+<p style="font-size:88px;font-weight:700;line-height:1.05;color:#F6F4F2">$20,000</p>
+<p style="font-size:28px;color:#C2CDC8">issued premium</p>
+<hr style="width:100%;border-top:1px solid rgba(246,244,242,0.25)">
+<p style="font-size:64px;font-weight:700;line-height:1.05;color:#B9CBC2;padding:8px 0 0">$17,000</p>
+<p style="font-size:28px;color:#C2CDC8">commission at 85% <span style="color:#A9B8B2">($15K+ tier)</span></p>
+<div style="display:flex;height:56px;margin-top:10px">
+<div style="flex:3;display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:12px 0 0 12px">
+<p style="font-size:26px;font-weight:700;color:#1F2B29">75% up front</p>
+</div>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;border:2px solid #B9CBC2;border-radius:0 12px 12px 0">
+<p style="font-size:26px;font-weight:600;color:#B9CBC2">25%</p>
+</div>
+</div>
+<p style="font-size:40px;font-weight:700;color:#F6F4F2;padding:6px 0 0">$12,750 paid up front</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div style="display:grid;grid-template-columns:150px repeat(5, 1fr);gap:8px">
+<div style="display:flex;align-items:center;padding:0 4px"><p style="font-size:24px;color:#A9B8B2">Monthly premium</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px"><p style="font-size:40px;font-weight:700;color:#B9CBC2">80%</p><p style="font-size:24px;color:#C2CDC8">New agent</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px"><p style="font-size:40px;font-weight:700;color:#B9CBC2">85%</p><p style="font-size:24px;color:#C2CDC8">$15K / mo</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px"><p style="font-size:40px;font-weight:700;color:#B9CBC2">90%</p><p style="font-size:24px;color:#C2CDC8">$25K / mo</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px"><p style="font-size:40px;font-weight:700;color:#B9CBC2">95%</p><p style="font-size:24px;color:#C2CDC8">$30K / mo</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px"><p style="font-size:40px;font-weight:700;color:#B9CBC2">100%</p><p style="font-size:24px;color:#C2CDC8">$40K / mo</p></div>
+<div style="display:flex;align-items:center;padding:0 4px"><p style="font-size:36px;font-weight:700;color:#F6F4F2">$15K</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$12,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:700;color:#1F2B29">$12,750</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$13,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$14,250</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$15,000</p></div>
+<div style="display:flex;align-items:center;padding:0 4px;border:2px solid #B9CBC2;border-radius:10px"><p style="font-size:36px;font-weight:700;color:#F6F4F2;padding:0 0 0 10px">$20K</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$16,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:700;color:#1F2B29">$17,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$18,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$19,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$20,000</p></div>
+<div style="display:flex;align-items:center;padding:0 4px"><p style="font-size:36px;font-weight:700;color:#F6F4F2">$25K</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$20,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$21,250</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:700;color:#1F2B29">$22,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$23,750</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$25,000</p></div>
+<div style="display:flex;align-items:center;padding:0 4px"><p style="font-size:36px;font-weight:700;color:#F6F4F2">$30K</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$24,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$25,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$27,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:700;color:#1F2B29">$28,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$30,000</p></div>
+<div style="display:flex;align-items:center;padding:0 4px"><p style="font-size:36px;font-weight:700;color:#F6F4F2">$40K</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$32,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$34,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$36,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:600;color:#DCE3E0">$38,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:10px;padding:14px 4px"><p style="font-size:34px;font-weight:700;color:#1F2B29">$40,000</p></div>
+</div>
+<p style="font-size:24px;color:#A9B8B2">Monthly commission = issued premium × pay rate. Highlighted = the rate you unlock at that production.</p>
+</div>
+</div>
+<div style="position:absolute;left:128px;right:128px;bottom:64px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto">
+<p style="font-size:24px;color:#A9B8B2">The New Agent Pay Scale</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">5</p>
+</div>
+
+</section>
+
+<section class="slide" id="lead-gen" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">THE OPPORTUNITY</p>
+<h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">Two Ways to Sell Insurance</h2>
+<p style="font-size:32px;font-style:italic;color:#C2CDC8">Spend your time, or spend your dollars.</p>
+</div>
+<div style="display:flex;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,0.04);border:2px dashed rgba(246,244,242,0.3);border-radius:24px;padding:36px 40px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:80px;height:80px;color:#A9B8B2;flex:none" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5"/><path d="M12 18h.01"/></svg>
+<h3 style="font-size:56px;font-weight:600;line-height:1.1;color:#DCE3E0">Cold call all day</h3>
+<p style="font-size:34px;line-height:1.3;color:#A9B8B2">Miserable. Banging your head on the wall.</p>
+</div>
+<div style="width:128px;display:flex;align-items:center;justify-content:center">
+<div style="width:96px;height:96px;border-radius:50%;background:#B9CBC2;display:flex;align-items:center;justify-content:center"><p style="font-size:36px;font-weight:800;color:#1F2B29">OR</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:24px;padding:36px 40px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:80px;height:80px;color:#B9CBC2;flex:none" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+<h3 style="font-size:56px;font-weight:600;line-height:1.1;color:#F6F4F2">Buy your time back</h3>
+<div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.08);border-radius:14px;padding:16px 24px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:44px;height:44px;color:#B9CBC2;flex:none" aria-hidden="true"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 16v-4"/><path d="M12 16V8"/><path d="M16 16v-6"/></svg><p style="font-size:34px;font-weight:600;color:#F6F4F2">Plug in your ad spend</p></div>
+<div style="display:flex;align-items:center;gap:16px;background:#B9CBC2;border-radius:14px;padding:16px 24px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:44px;height:44px;color:#1F2B29;flex:none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><p style="font-size:34px;font-weight:700;color:#1F2B29">High-intent leads to close</p></div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:20px;border:2px solid #B9CBC2;border-radius:18px;padding:18px 32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:52px;height:52px;color:#B9CBC2;flex:none" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/><path d="M16 7l3 3"/></svg>
+<p style="font-size:34px;font-weight:600;color:#F6F4F2">No cash to start? Tell Chandler: <span style="color:#B9CBC2">$10–15K at 0%</span> to get going.</p>
+</div>
+<div style="position:absolute;left:128px;right:128px;bottom:64px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto">
+<p style="font-size:24px;color:#A9B8B2">Two Ways to Sell Insurance</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">6</p>
+</div>
+
+</section>
+
+<section class="slide" id="leaderboard" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">THE COMPANY YOU KEEP</p>
+<h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">Rub Shoulders With the Best</h2>
+<p style="font-size:32px;font-style:italic;color:#C2CDC8">Plug into a system that helps people produce far more than average.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;color:#A9B8B2;padding:0 0 4px">SEPTEMBER 2026 · TOP 10 BY ISSUED AP</p>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#B9CBC2;text-align:right">1</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">Ryder W.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:1060px;height:30px;background:#B9CBC2;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$116,031</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#B9CBC2;text-align:right">2</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">Drake B.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:959px;height:30px;background:#B9CBC2;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$104,964</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#B9CBC2;text-align:right">3</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">James P.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:620px;height:30px;background:#B9CBC2;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$67,836</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#A9B8B2;text-align:right">4</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">Timm V.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:599px;height:30px;background:#93A49C;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$65,605</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#A9B8B2;text-align:right">5</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">Sammy B.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:555px;height:30px;background:#93A49C;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$60,743</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#A9B8B2;text-align:right">6</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">Talbott B.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:553px;height:30px;background:#93A49C;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$60,483</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#A9B8B2;text-align:right">7</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">Derek B.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:522px;height:30px;background:#93A49C;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$57,122</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#A9B8B2;text-align:right">8</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">Justin K.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:380px;height:30px;background:#93A49C;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$41,607</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#A9B8B2;text-align:right">9</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">Jareel H.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:375px;height:30px;background:#93A49C;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$40,992</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:50px"><p style="width:56px;font-size:30px;font-weight:700;color:#A9B8B2;text-align:right">10</p><p style="width:300px;font-size:32px;font-weight:600;color:#F6F4F2">Harrison P.</p><div style="width:1060px;height:30px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:362px;height:30px;background:#93A49C;border-radius:8px"></div></div><p style="width:200px;font-size:32px;font-weight:700;color:#F6F4F2;text-align:right">$39,614</p></div>
+</div>
+<div style="position:absolute;left:128px;right:128px;bottom:64px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto">
+<p style="font-size:24px;color:#A9B8B2">The company you keep</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">7</p>
+</div>
+
+</section>
+
+<section class="slide" id="build-a-team" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">THE MANAGER PATH</p>
+<h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">Build a Team, Earn Overrides</h2>
+<p style="font-size:32px;font-style:italic;color:#C2CDC8">Keep a 15% margin on every rep's production.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="display:grid;grid-template-columns:280px repeat(5, 1fr);gap:10px">
+<div style="display:flex;align-items:center;padding:0 4px"><p style="font-size:24px;font-weight:700;letter-spacing:3px;color:#A9B8B2">TEAM SIZE</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 4px"><p style="font-size:40px;font-weight:700;color:#B9CBC2">$15K</p><p style="font-size:24px;color:#C2CDC8">per rep / mo</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 4px"><p style="font-size:40px;font-weight:700;color:#B9CBC2">$20K</p><p style="font-size:24px;color:#C2CDC8">per rep / mo</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 4px"><p style="font-size:40px;font-weight:700;color:#B9CBC2">$25K</p><p style="font-size:24px;color:#C2CDC8">per rep / mo</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 4px"><p style="font-size:40px;font-weight:700;color:#B9CBC2">$30K</p><p style="font-size:24px;color:#C2CDC8">per rep / mo</p></div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 4px"><p style="font-size:40px;font-weight:700;color:#F6F4F2">Per year</p><p style="font-size:24px;color:#C2CDC8">at $20K avg</p></div>
+<div style="display:flex;align-items:center;gap:14px;padding:0 4px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:#B9CBC2;flex:none" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg><p style="font-size:40px;font-weight:700;color:#F6F4F2">5 reps</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$11,250</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:12px;padding:12px 4px"><p style="font-size:38px;font-weight:700;color:#F6F4F2">$15,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$18,750</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$22,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:700;color:#1F2B29">$180,000</p></div>
+<div style="display:flex;align-items:center;gap:14px;padding:0 4px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:#B9CBC2;flex:none" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg><p style="font-size:40px;font-weight:700;color:#F6F4F2">10 reps</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$22,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:12px;padding:12px 4px"><p style="font-size:38px;font-weight:700;color:#F6F4F2">$30,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$37,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$45,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:700;color:#1F2B29">$360,000</p></div>
+<div style="display:flex;align-items:center;gap:14px;padding:0 4px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:#B9CBC2;flex:none" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg><p style="font-size:40px;font-weight:700;color:#F6F4F2">25 reps</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$56,250</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:12px;padding:12px 4px"><p style="font-size:38px;font-weight:700;color:#F6F4F2">$75,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$93,750</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$112,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:700;color:#1F2B29">$900,000</p></div>
+<div style="display:flex;align-items:center;gap:14px;padding:0 4px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:#B9CBC2;flex:none" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg><p style="font-size:40px;font-weight:700;color:#F6F4F2">50 reps</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$112,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:12px;padding:12px 4px"><p style="font-size:38px;font-weight:700;color:#F6F4F2">$150,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$187,500</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$225,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:700;color:#1F2B29">$1,800,000</p></div>
+<div style="display:flex;align-items:center;gap:14px;padding:0 4px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:#B9CBC2;flex:none" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg><p style="font-size:40px;font-weight:700;color:#F6F4F2">100 reps</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$225,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:12px;padding:12px 4px"><p style="font-size:38px;font-weight:700;color:#F6F4F2">$300,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$375,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:600;color:#DCE3E0">$450,000</p></div>
+<div style="display:flex;align-items:center;justify-content:center;background:#B9CBC2;border-radius:12px;padding:14px 4px"><p style="font-size:38px;font-weight:700;color:#1F2B29">$3,600,000</p></div>
+</div>
+<p style="font-size:24px;color:#A9B8B2">Monthly override = team issued premium × 15%. Example: you at 115%, your reps at 100%.</p>
+</div>
+<div style="position:absolute;left:128px;right:128px;bottom:64px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto">
+<p style="font-size:24px;color:#A9B8B2">Build a Team, Earn Overrides</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">8</p>
+</div>
+
+</section>
+
+<section class="slide" id="medicare" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">THE SECOND ENGINE · OPTIONAL</p>
+<h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">Build a Medicare Book</h2>
+<p style="font-size:32px;font-style:italic;color:#C2CDC8">Everlife brings the blueprint and the lead pipeline.</p>
+</div>
+<div style="display:flex;align-items:center">
+<div style="flex:1;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(246,244,242,0.2);border-radius:18px;padding:22px 26px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:56px;height:56px;color:#B9CBC2;flex:none" aria-hidden="true"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 16v-4"/><path d="M12 16V8"/><path d="M16 16v-6"/></svg><p style="font-size:30px;font-weight:600;line-height:1.2;color:#F6F4F2">Roll life profit</p></div>
+<div style="width:72px;display:flex;align-items:center;justify-content:center"><div class="xarrow" style="width:44px;height:30px;background:#B9CBC2"></div></div>
+<div style="flex:1;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(246,244,242,0.2);border-radius:18px;padding:22px 26px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:56px;height:56px;color:#B9CBC2;flex:none" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg><p style="font-size:30px;font-weight:600;line-height:1.2;color:#F6F4F2">W-2 Medicare reps</p></div>
+<div style="width:72px;display:flex;align-items:center;justify-content:center"><div class="xarrow" style="width:44px;height:30px;background:#B9CBC2"></div></div>
+<div style="flex:1;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(246,244,242,0.2);border-radius:18px;padding:22px 26px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:56px;height:56px;color:#B9CBC2;flex:none" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/><path d="M16 7l3 3"/></svg><p style="font-size:30px;font-weight:600;line-height:1.2;color:#F6F4F2">You own 100% of the book</p></div>
+<div style="width:72px;display:flex;align-items:center;justify-content:center"><div class="xarrow" style="width:44px;height:30px;background:#B9CBC2"></div></div>
+<div style="flex:1;display:flex;align-items:center;gap:14px;background:#B9CBC2;border-radius:18px;padding:22px 26px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:56px;height:56px;color:#1F2B29;flex:none" aria-hidden="true"><path d="M12 3l2.8 5.9 6.2.8-4.6 4.3 1.2 6.2L12 17.2 6.4 20.2l1.2-6.2L3 9.7l6.2-.8z"/></svg><p style="font-size:30px;font-weight:700;line-height:1.2;color:#1F2B29">Sell at 10–15x</p></div>
+</div>
+<div style="display:flex;gap:32px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:24px;padding:28px 32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;color:#B9CBC2">PER MEDICARE REP</p>
+<div style="display:flex;align-items:center;gap:20px">
+<p style="font-size:72px;font-weight:700;line-height:1.05;color:#F6F4F2">215</p>
+<p style="font-size:28px;color:#C2CDC8">policies</p>
+<div class="xarrow" style="width:44px;height:30px;background:#B9CBC2"></div>
+<p style="font-size:72px;font-weight:700;line-height:1.05;color:#B9CBC2">~$1M</p>
+<p style="font-size:28px;color:#C2CDC8">value</p>
+</div>
+<div style="display:flex;align-items:center;gap:16px;height:40px"><p style="width:130px;font-size:28px;font-weight:600;color:#F6F4F2">1 rep</p><div style="width:430px;height:26px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:43px;height:26px;background:#B9CBC2;border-radius:8px"></div></div><p style="font-size:28px;font-weight:700;color:#F6F4F2">$1M</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:40px"><p style="width:130px;font-size:28px;font-weight:600;color:#F6F4F2">5 reps</p><div style="width:430px;height:26px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:215px;height:26px;background:#B9CBC2;border-radius:8px"></div></div><p style="font-size:28px;font-weight:700;color:#F6F4F2">$5M</p></div>
+<div style="display:flex;align-items:center;gap:16px;height:40px"><p style="width:130px;font-size:28px;font-weight:600;color:#F6F4F2">10 reps</p><div style="width:430px;height:26px;background:rgba(255,255,255,0.06);border-radius:8px"><div style="width:430px;height:26px;background:#B9CBC2;border-radius:8px"></div></div><p style="font-size:28px;font-weight:700;color:#F6F4F2">$10M</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(246,244,242,0.2);border-radius:24px;padding:28px 32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;color:#B9CBC2">COSTS FIRST. RENEWALS BUILD VALUE.</p>
+<div style="position:relative;width:740px;height:260px">
+<svg aria-label="Curve dipping during the build phase then climbing steeply as renewals compound toward the exit" width="740" height="260" viewBox="0 0 740 260" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="100" x2="720" y2="100" stroke="#93A49C" stroke-width="2" stroke-dasharray="8 8" opacity="0.5"/><path d="M 20 100 C 120 100, 160 200, 260 190 C 380 180, 470 60, 720 30" fill="none" stroke="#B9CBC2" stroke-width="8" stroke-linecap="round"/><circle cx="720" cy="30" r="14" fill="#B9CBC2"/></svg>
+<p style="position:absolute;left:40px;top:214px;width:160px;font-size:26px;font-weight:600;color:#C2CDC8">Invest</p>
+<p style="position:absolute;left:300px;top:214px;width:330px;font-size:26px;font-weight:600;color:#C2CDC8">Renewals compound</p>
+<p style="position:absolute;left:470px;top:96px;width:260px;font-size:26px;font-weight:700;color:#1F2B29;background:#B9CBC2;border-radius:999px;padding:8px 20px;text-align:center">EXIT · 10–15x</p>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px;border:2px solid #B9CBC2;border-radius:18px;padding:16px 28px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:44px;height:44px;color:#B9CBC2;flex:none" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.3.8 3.1 2.9 1.4-1.2 3 1.2 3-2.9 1.4-.8 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.8-3.1L2.7 15.7l1.2-3-1.2-3 2.9-1.4.8-3.1 3.2.3z"/><path d="M8.5 12.3l2.4 2.4 4.6-4.9"/></svg>
+<p style="font-size:30px;font-weight:600;color:#F6F4F2">Private equity buys Medicare books. That's why <span style="color:#B9CBC2">Sandlot</span> invested.</p>
+</div>
+<div style="position:absolute;left:128px;right:128px;bottom:64px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto">
+<p style="font-size:24px;color:#A9B8B2">Build a Medicare Book</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">9</p>
+</div>
+
+</section>
+
+<section class="slide" id="cabo" data-transition="fade" style="background:#050B10;color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:0;display:flex;flex-direction:column">
+<img src="/chans-toolbox/recruiting-deck/cabo.jpg" alt="EverLife Starters Incentive Trip to Cabo San Lucas, Mexico, September 2027, with three opportunities to earn qualification" style="width:1920px;height:1080px;object-fit:cover">
+
+</section>
+
+<section class="slide" id="real-estate" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">BEYOND INSURANCE</p>
+<h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">Invest in Real Estate With Chandler</h2>
+<p style="font-size:32px;font-style:italic;color:#C2CDC8">Turn tax dollars into monthly income. Chandler has done it for years.</p>
+</div>
+<div style="display:flex;gap:32px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:18px;background:rgba(255,255,255,0.06);border:1px solid rgba(246,244,242,0.2);border-radius:24px;padding:32px 36px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;color:#B9CBC2">THE PLAY</p>
+<div style="display:flex;align-items:center;gap:16px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:#B9CBC2;flex:none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><p style="font-size:34px;font-weight:600;color:#F6F4F2">Set aside 20% of insurance profit</p></div>
+<div style="display:flex;align-items:center;gap:16px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:#B9CBC2;flex:none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><p style="font-size:34px;font-weight:600;color:#F6F4F2">Down payments on RV + MH parks</p></div>
+<div style="display:flex;align-items:center;gap:16px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:#B9CBC2;flex:none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><p style="font-size:34px;font-weight:600;color:#F6F4F2">Cost seg: write off the purchase</p></div>
+<div style="display:flex;align-items:center;gap:16px"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:#B9CBC2;flex:none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><p style="font-size:34px;font-weight:600;color:#F6F4F2">Shelter your insurance income</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:24px;padding:32px 36px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;color:#B9CBC2">EXAMPLE · $500K OF INCOME</p>
+<div style="display:flex;align-items:stretch;gap:12px">
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:rgba(255,255,255,0.04);border:2px dashed rgba(246,244,242,0.3);border-radius:18px;padding:20px 16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:3px;color:#A9B8B2">PAY THE IRS</p>
+<p style="font-size:52px;font-weight:700;line-height:1.05;color:#C2CDC8">$200,000</p>
+<p style="font-size:26px;color:#A9B8B2">Gone. Nothing back.</p>
+</div>
+<div style="width:48px;display:flex;align-items:center;justify-content:center"><p style="font-size:26px;font-weight:800;color:#B9CBC2">OR</p></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#B9CBC2;border-radius:18px;padding:20px 16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:3px;color:#1F2B29">INVEST</p>
+<p style="font-size:52px;font-weight:700;line-height:1.05;color:#1F2B29">$100,000</p>
+<p style="font-size:26px;font-weight:600;color:#1F2B29">Owned. Paid monthly.</p>
+</div>
+</div>
+<p style="font-size:24px;color:#A9B8B2">Same income. Your choice.</p>
+</div>
+</div>
+<div style="background:#B9CBC2;border-radius:18px;padding:18px 32px;display:flex;align-items:center;justify-content:center">
+<p style="font-size:36px;font-weight:700;color:#1F2B29">Partner with me and the team as we buy more.</p>
+</div>
+<div style="position:absolute;left:128px;right:128px;bottom:64px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto">
+<p style="font-size:24px;color:#A9B8B2">Invest With Chandler</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">Illustrative example. Not tax advice. Consult your CPA.</p>
+<p style="font-size:24px;color:#A9B8B2">11</p>
+</div>
+
+</section>
+
+<section class="slide" id="net-worth" data-transition="fade" style="background:linear-gradient(160deg, #3E5450 0%, #2A3A37 100%);color:#F6F4F2;font-family:'Inter', Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:28px;font-weight:700;letter-spacing:6px;color:#B9CBC2">THE BIG PICTURE</p>
+<h2 style="font-size:76px;font-weight:400;line-height:1.1;color:#F6F4F2">Your Net Worth Over Time</h2>
+<p style="font-size:32px;font-style:italic;color:#C2CDC8">$250K/year · $130K set aside · $120K per Medicare rep · $0 taxes</p>
+</div>
+<div style="display:flex;gap:32px;align-items:stretch">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:1140px;height:500px">
+<svg aria-label="Stacked area line graph of net worth over seven years, growing from zero to 6.67 million dollars, split into life income at the bottom, Medicare asset in the middle and real estate value on top, with steps up of one million dollars each time a Medicare rep is hired" width="1140" height="500" viewBox="0 0 1140 500" xmlns="http://www.w3.org/2000/svg">
+<g stroke="#F6F4F2" stroke-width="2" opacity="0.15"><line x1="90" y1="450" x2="1120" y2="450"/><line x1="90" y1="340" x2="1120" y2="340"/><line x1="90" y1="230" x2="1120" y2="230"/><line x1="90" y1="120" x2="1120" y2="120"/><line x1="90" y1="10" x2="1120" y2="10"/></g>
+<path d="M90 450 L237.14 439 L384.29 434.6 L531.43 430.2 L678.57 419.2 L825.71 414.8 L972.86 410.4 L1120 399.4 L1120 450 Z" fill="#6E8C85"/>
+<path d="M90 450 L237.14 439 L384.29 379.6 L531.43 320.2 L678.57 309.2 L825.71 249.8 L972.86 190.4 L1120 179.4 L1120 399.4 L972.86 410.4 L825.71 414.8 L678.57 419.2 L531.43 430.2 L384.29 434.6 L237.14 439 Z" fill="#B9CBC2"/>
+<path d="M90 450 L237.14 425.25 L384.29 352.1 L531.43 278.95 L678.57 254.2 L825.71 181.05 L972.86 107.9 L1120 83.15 L1120 179.4 L972.86 190.4 L825.71 249.8 L678.57 309.2 L531.43 320.2 L384.29 379.6 L237.14 439 Z" fill="#F6F4F2" opacity="0.92"/>
+<g fill="none" stroke="#2A3A37" stroke-width="3" stroke-linejoin="round"><polyline points="90,450 237.14,439 384.29,434.6 531.43,430.2 678.57,419.2 825.71,414.8 972.86,410.4 1120,399.4"/><polyline points="90,450 237.14,439 384.29,379.6 531.43,320.2 678.57,309.2 825.71,249.8 972.86,190.4 1120,179.4"/></g>
+<polyline points="90,450 237.14,425.25 384.29,352.1 531.43,278.95 678.57,254.2 825.71,181.05 972.86,107.9 1120,83.15" fill="none" stroke="#F6F4F2" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<g fill="#F6F4F2" stroke="#2A3A37" stroke-width="3"><circle cx="90" cy="450" r="9"/><circle cx="237.14" cy="425.25" r="9"/><circle cx="384.29" cy="352.1" r="9"/><circle cx="531.43" cy="278.95" r="9"/><circle cx="678.57" cy="254.2" r="9"/><circle cx="825.71" cy="181.05" r="9"/><circle cx="972.86" cy="107.9" r="9"/><circle cx="1120" cy="83.15" r="9"/></g>
+</svg>
+<p style="position:absolute;left:0;top:436px;width:76px;font-size:24px;color:#A9B8B2;text-align:right">$0</p>
+<p style="position:absolute;left:0;top:326px;width:76px;font-size:24px;color:#A9B8B2;text-align:right">$2M</p>
+<p style="position:absolute;left:0;top:216px;width:76px;font-size:24px;color:#A9B8B2;text-align:right">$4M</p>
+<p style="position:absolute;left:0;top:106px;width:76px;font-size:24px;color:#A9B8B2;text-align:right">$6M</p>
+<p style="position:absolute;left:0;top:0px;width:76px;font-size:24px;color:#A9B8B2;text-align:right">$8M</p>
+<p style="position:absolute;left:40px;top:464px;width:100px;font-size:24px;color:#A9B8B2;text-align:center">Now</p>
+<p style="position:absolute;left:187px;top:464px;width:100px;font-size:24px;color:#A9B8B2;text-align:center">Yr 1</p>
+<p style="position:absolute;left:334px;top:464px;width:100px;font-size:24px;color:#A9B8B2;text-align:center">Yr 2</p>
+<p style="position:absolute;left:481px;top:464px;width:100px;font-size:24px;color:#A9B8B2;text-align:center">Yr 3</p>
+<p style="position:absolute;left:628px;top:464px;width:100px;font-size:24px;color:#A9B8B2;text-align:center">Yr 4</p>
+<p style="position:absolute;left:776px;top:464px;width:100px;font-size:24px;color:#A9B8B2;text-align:center">Yr 5</p>
+<p style="position:absolute;left:923px;top:464px;width:100px;font-size:24px;color:#A9B8B2;text-align:center">Yr 6</p>
+<p style="position:absolute;left:1040px;top:464px;width:100px;font-size:24px;color:#A9B8B2;text-align:center">Yr 7</p>
+<p style="position:absolute;left:224px;top:290px;width:190px;font-size:24px;font-weight:700;color:#1F2B29;background:#B9CBC2;border-radius:999px;padding:6px 0;text-align:center">Rep 1 · +$1M</p>
+<p style="position:absolute;left:371px;top:217px;width:190px;font-size:24px;font-weight:700;color:#1F2B29;background:#B9CBC2;border-radius:999px;padding:6px 0;text-align:center">Rep 2 · +$1M</p>
+<p style="position:absolute;left:666px;top:119px;width:190px;font-size:24px;font-weight:700;color:#1F2B29;background:#B9CBC2;border-radius:999px;padding:6px 0;text-align:center">Rep 3 · +$1M</p>
+<p style="position:absolute;left:813px;top:46px;width:190px;font-size:24px;font-weight:700;color:#1F2B29;background:#B9CBC2;border-radius:999px;padding:6px 0;text-align:center">Rep 4 · +$1M</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">$50K real estate down + $80K saved for reps. Every $120K saved = 1 rep = +$1M.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.06);border:2px solid #B9CBC2;border-radius:24px;padding:32px 36px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;color:#B9CBC2">YEAR 7 NET WORTH</p>
+<p style="font-size:88px;font-weight:700;line-height:1.05;color:#B9CBC2">$6.67M</p>
+<hr style="width:100%;border-top:1px solid rgba(246,244,242,0.25)">
+<div style="display:flex;align-items:center;gap:14px"><div style="width:28px;height:28px;background:#F6F4F2;border-radius:6px"></div><p style="flex:1;font-size:30px;font-weight:600;color:#F6F4F2">Real estate</p><p style="font-size:30px;font-weight:700;color:#F6F4F2">$1.75M</p></div>
+<div style="display:flex;align-items:center;gap:14px"><div style="width:28px;height:28px;background:#B9CBC2;border-radius:6px"></div><p style="flex:1;font-size:30px;font-weight:600;color:#F6F4F2">Medicare asset</p><p style="font-size:30px;font-weight:700;color:#F6F4F2">$4M</p></div>
+<div style="display:flex;align-items:center;gap:14px"><div style="width:28px;height:28px;background:#6E8C85;border-radius:6px"></div><p style="flex:1;font-size:30px;font-weight:600;color:#F6F4F2">Life income</p><p style="font-size:30px;font-weight:700;color:#F6F4F2">$920K</p></div>
+<p style="font-size:28px;font-weight:600;color:#B9CBC2;padding:6px 0 0">4 Medicare reps by year 7</p>
+</div>
+</div>
+<div style="position:absolute;left:128px;right:128px;bottom:64px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="/brand/ctlyst-mark.png" alt="CTLYST" style="height:40px;width:auto">
+<p style="font-size:24px;color:#A9B8B2">Your Net Worth Over Time</p>
+</div>
+<p style="font-size:24px;color:#A9B8B2">Illustrative projection. Not tax advice.</p>
+<p style="font-size:24px;color:#A9B8B2">12</p>
+</div>
+
+</section>
+
+</div></div>
+<p class="hint">Swipe or tap to change slides · Turn your phone sideways for a full-screen view</p>
+<script>
+  const slides = [...document.querySelectorAll(".slide")], frame = document.getElementById("frame");
+  let i = Math.max(0, Math.min(slides.length - 1, (parseInt(location.hash.slice(1)) || 1) - 1));
+  function fit() {
+    const r = document.getElementById("stage").getBoundingClientRect();
+    const s = Math.min((r.width - 8) / 1920, (r.height - 4) / 1080);
+    frame.style.transform = "translate(-50%, -50%) scale(" + s + ")";
+  }
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((el, k) => el.classList.toggle("on", k === i));
+    document.getElementById("count").textContent = (i + 1) + " / " + slides.length;
+    document.getElementById("prev").disabled = i === 0;
+    document.getElementById("next").disabled = i === slides.length - 1;
+    history.replaceState(null, "", "#" + (i + 1));
+  }
+  document.getElementById("prev").onclick = () => show(i - 1);
+  document.getElementById("next").onclick = () => show(i + 1);
+  addEventListener("keydown", e => {
+    if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); show(i - 1); }
+  });
+  let x0 = null;
+  addEventListener("touchstart", e => x0 = e.touches[0].clientX, { passive: true });
+  addEventListener("touchend", e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
+    else if (!e.target.closest("a,button")) show(i + (e.changedTouches[0].clientX > innerWidth / 2 ? 1 : -1));
+  });
+  addEventListener("resize", fit); addEventListener("orientationchange", () => setTimeout(fit, 250)); fit(); show(i);
+</script>
+</body>
+</html>

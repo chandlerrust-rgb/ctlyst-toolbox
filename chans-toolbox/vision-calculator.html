@@ -1,0 +1,539 @@
+<!doctype html><html><head><meta charset=utf8><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Life and Health Pro Forma</title>
+<meta property="og:image" content="https://www.scalewithsteelwater.com/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f5f6f9;
+    --surface: #ffffff;
+    --surface-2: #eef1f6;
+    --border: #dde1e9;
+    --text: #12172b;
+    --text-muted: #5b6478;
+    --text-faint: #8b93a5;
+    --accent: #2a78d6;
+    --series-life: #2a78d6;
+    --series-medicare: #eb6834;
+    --series-cume: #4a3aa7;
+    --good: #1a9c6b;
+    --warn: #c9860a;
+    --shadow: 0 1px 2px rgba(18,23,43,.04), 0 8px 24px rgba(18,23,43,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0f1117;
+      --surface: #171a22;
+      --surface-2: #1e222d;
+      --border: #2a2f3b;
+      --text: #f1f2f6;
+      --text-muted: #9aa3b4;
+      --text-faint: #6b7484;
+      --accent: #3987e5;
+      --series-life: #3987e5;
+      --series-medicare: #d95926;
+      --series-cume: #9085e9;
+      --good: #22b17e;
+      --warn: #c98500;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0f1117;
+    --surface: #171a22;
+    --surface-2: #1e222d;
+    --border: #2a2f3b;
+    --text: #f1f2f6;
+    --text-muted: #9aa3b4;
+    --text-faint: #6b7484;
+    --accent: #3987e5;
+    --series-life: #3987e5;
+    --series-medicare: #d95926;
+    --series-cume: #9085e9;
+    --good: #22b17e;
+    --warn: #c98500;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.4);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    padding: clamp(16px, 4vw, 32px);
+    padding-block: clamp(20px, 4vw, 36px);
+  }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; margin: 0; text-wrap: balance; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+
+  header.page { margin-bottom: 24px; }
+  .back { display: inline-block; margin-bottom: 18px; font-size: 13px; font-weight: 600; color: var(--text-muted); text-decoration: none; }
+  .back:hover { color: var(--accent); }
+  header.page .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 8px; display: block;
+  }
+  header.page h1 { font-size: clamp(26px, 3.4vw, 36px); font-weight: 600; color: var(--text); }
+  header.page p { color: var(--text-muted); font-size: 15px; margin-top: 8px; max-width: 640px; line-height: 1.55; }
+
+  .layout { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 20px; align-items: start; min-width: 0; }
+  .layout > * { min-width: 0; }
+  @media (max-width: 860px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+  }
+  @media (max-width: 420px) {
+    .panel { padding: 14px; }
+    .table-card .table-head { padding: 16px 14px 4px; }
+    .table-card .chart-sub { padding: 0 14px 12px; }
+  }
+  .controls { position: sticky; top: env(safe-area-inset-top, 0px); display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+  @media (max-width: 860px) { .controls { position: static; } }
+
+  .controls h2 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .control { display: flex; flex-direction: column; gap: 6px; }
+  .control-label { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 8px; flex-wrap: wrap; }
+  .control-label .name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .control-label .val {
+    font-family: 'Inter', sans-serif; font-variant-numeric: tabular-nums;
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    background: var(--surface-2); padding: 2px 8px; border-radius: 6px; white-space: nowrap;
+  }
+  .control .hint { font-size: 11.5px; color: var(--text-faint); line-height: 1.4; }
+
+  input[type="range"] {
+    -webkit-appearance: none; appearance: none; width: 100%; height: 8px;
+    border-radius: 4px; background: var(--surface-2); outline: none; cursor: pointer;
+    touch-action: pan-y; margin: 6px 0;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    cursor: pointer;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 26px; height: 26px; border-radius: 50%; background: var(--accent);
+    border: 3px solid var(--surface); box-shadow: 0 1px 3px rgba(0,0,0,.3); cursor: pointer;
+  }
+
+  .divider { height: 1px; background: var(--border); margin: 2px 0; }
+
+  .funding-note {
+    background: var(--surface-2); border-radius: 10px; padding: 12px 14px;
+    font-size: 12.5px; color: var(--text-muted); line-height: 1.55;
+  }
+  .funding-note b { color: var(--text); }
+  .funding-note .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .03em;
+    color: var(--series-medicare); background: color-mix(in srgb, var(--series-medicare) 14%, transparent);
+    border-radius: 5px; padding: 1px 6px; margin-right: 6px;
+  }
+
+  main { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+  main > * { min-width: 0; }
+
+  .chart-sub { font-size: 12.5px; color: var(--text-muted); }
+
+  .exit-tile {
+    border-color: color-mix(in srgb, var(--good) 35%, var(--border));
+  }
+  .exit-tile h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .exit-tile .chart-sub { margin-bottom: 14px; }
+  .exit-rows { display: flex; flex-direction: column; }
+  .exit-row {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    padding: 9px 0; border-top: 1px solid var(--border); font-size: 13.5px;
+  }
+  .exit-row:first-child { border-top: none; }
+  .exit-row .exit-row-label { color: var(--text-muted); }
+  .exit-row .exit-row-value { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); white-space: nowrap; }
+  .exit-row.total { border-top: 2px solid var(--border); }
+  .exit-row.total .exit-row-label, .exit-row.total .exit-row-value { font-weight: 700; color: var(--text); }
+  .exit-row.hero { border-top: 2px solid var(--border); padding-top: 12px; }
+  .exit-row.hero .exit-row-label {
+    font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--good);
+  }
+  .exit-row.hero .exit-row-value {
+    font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 4vw, 32px); font-weight: 600;
+    color: var(--good);
+  }
+  .exit-sub { font-size: 12.5px; color: var(--text-muted); display: block; margin-top: 12px; }
+
+  .table-card { padding: 0; overflow: hidden; }
+  .table-card .table-head { padding: 20px 20px 4px; }
+  .table-card h3 { font-size: 15px; font-weight: 600; }
+  .table-card .chart-sub { padding: 0 20px 14px; font-size: 12.5px; color: var(--text-muted); }
+  .table-scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 13px; }
+  thead th {
+    position: sticky; top: env(safe-area-inset-top, 0px); background: var(--surface-2);
+    text-align: right; font-weight: 600; color: var(--text-muted); font-size: 11.5px;
+    letter-spacing: .02em; text-transform: uppercase; padding: 10px 14px; white-space: nowrap;
+  }
+  thead th:first-child, tbody td:first-child { text-align: left; position: sticky; left: 0; background: var(--surface); z-index: 2; }
+  thead th:first-child { background: var(--surface-2); z-index: 3; }
+  tbody td { text-align: right; padding: 8px 14px; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--text); border-top: 1px solid var(--border); }
+  @media (max-width: 480px) {
+    thead th, tbody td { padding: 7px 9px; font-size: 12px; }
+  }
+  tbody tr.section-row td { padding-top: 16px; font-weight: 700; color: var(--text-faint); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; border-top: none; background: transparent; }
+  tbody tr.subtle td { color: var(--text-muted); font-size: 12.5px; }
+  tbody tr.total td { font-weight: 700; border-top: 2px solid var(--border); }
+  tbody tr.hero td { font-weight: 800; color: var(--good); font-size: 14px; }
+  tbody tr:last-child td { padding-bottom: 16px; }
+
+  footer.fine {
+    font-size: 11.5px; color: var(--text-faint); line-height: 1.6; padding: 4px 4px 0;
+  }
+  footer.fine b { color: var(--text-muted); }
+</style>
+
+<div class="wrap">
+  <a class="back" href="/chans-toolbox">&larr; CTLYST Toolbox</a>
+  <header class="page">
+    <h1>Chandler Rust Life and Health Pro Forma Tool</h1>
+    <p>Move the sliders to see how personal production, recruiting pace, and override margin turn into a 7-year path &mdash; including how surplus profit above your target income automatically funds new Medicare reps.</p>
+  </header>
+
+  <div class="layout">
+    <div class="panel controls">
+      <div>
+        <h2>Life Insurance Inputs</h2>
+      </div>
+
+      <div class="control">
+        <div class="control-label">
+          <span class="name">Personal production / month</span>
+          <span class="val" id="v-personal">$25,000</span>
+        </div>
+        <input type="range" id="personal" min="0" max="125000" step="1000" value="25000">
+        <span class="hint">Your own monthly production, recurring every year, before any team is layered on top. Cuts off automatically once your team's override revenue reaches $100,000/month.</span>
+      </div>
+
+      <div class="control">
+        <div class="control-label">
+          <span class="name">Year 1 recruits</span>
+          <span class="val" id="v-recruits">25</span>
+        </div>
+        <input type="range" id="recruits" min="0" max="200" step="5" value="25">
+        <span class="hint">Life insurance reps on the team at the end of Year 1.</span>
+      </div>
+
+      <div class="control">
+        <div class="control-label">
+          <span class="name">YoY recruit growth</span>
+          <span class="val" id="v-growth">50%</span>
+        </div>
+        <input type="range" id="growth" min="0" max="150" step="5" value="50">
+        <span class="hint">Team headcount growth, compounded each year off the prior year's count.</span>
+      </div>
+
+      <div class="control">
+        <div class="control-label">
+          <span class="name">Effective override margin</span>
+          <span class="val" id="v-margin">10%</span>
+        </div>
+        <input type="range" id="margin" min="5" max="20" step="1" value="10">
+        <span class="hint">Your override on team production, after upline/agency splits. Held flat across all 7 years.</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div>
+        <h2>Medicare Funding Trigger</h2>
+      </div>
+
+      <div class="control">
+        <div class="control-label">
+          <span class="name">Roll-over threshold / month</span>
+          <span class="val" id="v-threshold">$25,000</span>
+        </div>
+        <input type="range" id="threshold" min="0" max="100000" step="1000" value="25000">
+        <span class="hint">Life insurance profit above this, each month, rolls into a Medicare hiring fund.</span>
+      </div>
+
+      <div class="funding-note">
+        <span class="tag">HOW IT WORKS</span>
+        Monthly life-insurance profit above your threshold accrues into a fund. Every <b>$120,000</b> banked greenlights <b>one new Medicare W-2 rep</b>, active starting the following year. Leftover balance always carries forward &mdash; nothing is lost between years.
+      </div>
+    </div>
+
+    <main>
+      <div class="panel table-card">
+        <div class="table-head">
+          <h3>7-Year P&amp;L</h3>
+        </div>
+        <div class="chart-sub">Every figure below recalculates live as you move the sliders.</div>
+        <div class="table-scroll">
+          <table id="pl-table">
+            <thead><tr id="thead-row"></tr></thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel exit-tile">
+        <h3>Acquisition Valuation (Year 7)</h3>
+        <div class="chart-sub">EverLife tag-along exit, applied to Year 7 combined net income.</div>
+        <div class="exit-rows">
+          <div class="exit-row">
+            <span class="exit-row-label">Medicare Book Value <span style="font-weight:400;">(renewal revenue)</span></span>
+            <span class="exit-row-value" id="exit-med-book">$0</span>
+          </div>
+          <div class="exit-row">
+            <span class="exit-row-label">Life Insurance Net Income</span>
+            <span class="exit-row-value" id="exit-life-net">$0</span>
+          </div>
+          <div class="exit-row total">
+            <span class="exit-row-label">Total Net Income</span>
+            <span class="exit-row-value" id="exit-total-net">$0</span>
+          </div>
+          <div class="exit-row">
+            <span class="exit-row-label">Multiple</span>
+            <span class="exit-row-value" id="exit-multiple">11.0&times;</span>
+          </div>
+          <div class="exit-row hero">
+            <span class="exit-row-label">Value</span>
+            <span class="exit-row-value" id="exit-value">$0</span>
+          </div>
+        </div>
+        <span class="exit-sub">Illustrative valuation only &mdash; not a guaranteed or offered price.</span>
+      </div>
+
+      <div class="panel">
+        <footer class="fine">
+          <b>Fixed assumptions, not adjustable here:</b> avg. monthly production/rep $20,000 &middot; 15% of the life insurance team is dormant (non-producing) in any given year &middot; life insurance business attrition 20% (lapses/chargebacks against gross production revenue) &middot; life insurance expenses 10% of revenue (net of attrition) &middot; Medicare: $697 new + $357 renewal commission, $150 override, 250 new customers/rep/yr, 30% annual attrition, $178 cost per new customer &middot; per-rep annual overhead: $50,000 salary, 10% payroll tax on salary+OTE, $30,000 OTE, $12,000 benefits, $1,200 licensing, $1,000 G&amp;A, $425 E&amp;O, $2,000 CRM, $1,500 hardware. A Medicare rep funded from Year Y's rolled-over surplus becomes active in Year Y+1.
+        </footer>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var YEARS = [2026, 2027, 2028, 2029, 2030, 2031, 2032];
+  var YEAR_LABELS = YEARS.map(function (y, i) { return "Y" + (i + 1); });
+
+  // ---- fixed assumptions (not slider-controlled) ----
+  var AVG_MONTHLY_PROD_PER_REP = 20000;
+  var LIFE_EXPENSE_RATIO = 0.10;
+  var LIFE_BUSINESS_ATTRITION = 0.20;
+  var REP_DORMANCY = 0.15;
+  var PERSONAL_CUTOFF_TEAM_REVENUE = 100000;
+  var MEDICARE_OUTLAY_PER_REP = 120000;
+
+  var NEWCOMM = 697, OVERRIDE = 150, RENEWCOMM = 357;
+  var ATTRITION = 0.30, RETENTION = 0.70, CPA = 178, PERREP = 250;
+  var SALARY = 50000, TAXRATE = 0.10, LICENSE = 1200, GA = 1000, OTE = 30000;
+  var BENEFITS = 12000, EO = 425, CRM = 2000, HARDWARE = 1500;
+
+  var els = {
+    personal: document.getElementById("personal"),
+    recruits: document.getElementById("recruits"),
+    growth: document.getElementById("growth"),
+    margin: document.getElementById("margin"),
+    threshold: document.getElementById("threshold"),
+    vPersonal: document.getElementById("v-personal"),
+    vRecruits: document.getElementById("v-recruits"),
+    vGrowth: document.getElementById("v-growth"),
+    vMargin: document.getElementById("v-margin"),
+    vThreshold: document.getElementById("v-threshold"),
+    theadRow: document.getElementById("thead-row"),
+    tbody: document.getElementById("tbody"),
+    exitMedBook: document.getElementById("exit-med-book"),
+    exitLifeNet: document.getElementById("exit-life-net"),
+    exitTotalNet: document.getElementById("exit-total-net"),
+    exitValue: document.getElementById("exit-value")
+  };
+
+  var EXIT_MULTIPLE = 11;
+
+  function fmtMoney(n, opts) {
+    opts = opts || {};
+    var neg = n < 0;
+    var abs = Math.abs(n);
+    var str;
+    if (opts.compact) {
+      if (abs >= 1e6) str = "$" + (abs / 1e6).toFixed(abs >= 1e7 ? 0 : 1) + "M";
+      else if (abs >= 1e3) str = "$" + (abs / 1e3).toFixed(0) + "K";
+      else str = "$" + Math.round(abs);
+    } else {
+      str = "$" + Math.round(abs).toLocaleString("en-US");
+    }
+    return neg ? "(" + str + ")" : str;
+  }
+
+  function compute() {
+    var personalMonthly = Number(els.personal.value);
+    var y1Recruits = Number(els.recruits.value);
+    var growth = Number(els.growth.value) / 100;
+    var margin = Number(els.margin.value) / 100;
+    var threshold = Number(els.threshold.value);
+
+    var rows = [];
+    var bank = 0;
+    var medicareRepsCarry = 0;
+    var cumulative = 0;
+
+    for (var i = 0; i < YEARS.length; i++) {
+      var lifeReps = Math.round(y1Recruits * Math.pow(1 + growth, i));
+      var newRecruits = i === 0 ? lifeReps : lifeReps - rows[i - 1].lifeReps;
+      var dormantReps = Math.round(lifeReps * REP_DORMANCY);
+      var producingReps = lifeReps - dormantReps;
+      var annualRepProduction = producingReps * AVG_MONTHLY_PROD_PER_REP * 12;
+      var repOverrideRevenue = annualRepProduction * margin;
+      var teamMonthlyRevenue = repOverrideRevenue / 12;
+      var personalCutoff = teamMonthlyRevenue >= PERSONAL_CUTOFF_TEAM_REVENUE;
+      var personalRevenue = personalCutoff ? 0 : personalMonthly * 12;
+      var lifeRevenueGross = repOverrideRevenue + personalRevenue;
+      var attritionAmount = lifeRevenueGross * LIFE_BUSINESS_ATTRITION;
+      var lifeRevenue = lifeRevenueGross - attritionAmount;
+      var lifeExpense = lifeRevenue * LIFE_EXPENSE_RATIO;
+      var lifeNet = lifeRevenue - lifeExpense;
+
+      var medicareReps = medicareRepsCarry;
+      var newCustomers = medicareReps * PERREP;
+      var newRevenue = newCustomers * (NEWCOMM + OVERRIDE);
+      var cpaExpense = newCustomers * CPA;
+
+      // renewal cohort roll-forward using this row's own prior new-customer history
+      var renewalCustomers = 0;
+      for (var c = 0; c < i; c++) {
+        var priorNew = rows[c].newCustomers;
+        renewalCustomers += priorNew * Math.pow(RETENTION, i - c);
+      }
+      var renewRevenue = renewalCustomers * (RENEWCOMM + OVERRIDE);
+
+      var medicareRevenue = newRevenue + renewRevenue;
+
+      var salaryExp = medicareReps * SALARY;
+      var oteExp = medicareReps * OTE;
+      var taxExp = (salaryExp + oteExp) * TAXRATE;
+      var licenseExp = medicareReps * LICENSE;
+      var gaExp = medicareReps * GA;
+      var benefitsExp = medicareReps * BENEFITS;
+      var eoExp = medicareReps * EO;
+      var crmExp = medicareReps * CRM;
+      var hardwareExp = medicareReps * HARDWARE;
+      var medicareExpense = salaryExp + oteExp + taxExp + licenseExp + gaExp + benefitsExp + eoExp + crmExp + hardwareExp + cpaExpense;
+      var medicareNet = medicareRevenue - medicareExpense;
+
+      var totalRevenue = lifeRevenue + medicareRevenue;
+      var totalExpense = lifeExpense + medicareExpense;
+      var netCF = totalRevenue - totalExpense;
+      cumulative += netCF;
+
+      // roll this year's life surplus into the Medicare fund for NEXT year
+      var lifeMonthlyProfit = lifeNet / 12;
+      var monthlySurplus = Math.max(0, lifeMonthlyProfit - threshold);
+      var annualSurplus = monthlySurplus * 12;
+      var bankAvailable = bank + annualSurplus;
+      var newRepsFunded = Math.floor(bankAvailable / MEDICARE_OUTLAY_PER_REP);
+      bank = bankAvailable - newRepsFunded * MEDICARE_OUTLAY_PER_REP;
+      medicareRepsCarry = medicareReps + newRepsFunded;
+
+      rows.push({
+        year: YEARS[i], label: YEAR_LABELS[i],
+        lifeReps: lifeReps, newRecruits: newRecruits, dormantReps: dormantReps, producingReps: producingReps,
+        lifeRevenueGross: lifeRevenueGross, attritionAmountNeg: -attritionAmount,
+        medicareReps: medicareReps,
+        lifeRevenue: lifeRevenue, lifeExpense: lifeExpense, lifeNet: lifeNet,
+        newRevenue: newRevenue, renewRevenue: renewRevenue,
+        medicareRevenue: medicareRevenue, medicareExpense: medicareExpense, medicareNet: medicareNet,
+        totalRevenue: totalRevenue, totalExpense: totalExpense, netCF: netCF, cumulative: cumulative,
+        newCustomers: newCustomers, newRepsFunded: newRepsFunded, bankEnd: bank,
+        annualSurplus: annualSurplus,
+        personalRevenue: personalRevenue, personalCutoff: personalCutoff, teamMonthlyRevenue: teamMonthlyRevenue
+      });
+    }
+    return rows;
+  }
+
+  function renderTable(rows) {
+    els.theadRow.innerHTML = "<th>&nbsp;</th>" + rows.map(function (r) { return "<th>" + r.label + "</th>"; }).join("");
+
+    function dataRow(label, key, opts) {
+      opts = opts || {};
+      var cls = opts.cls ? ' class="' + opts.cls + '"' : "";
+      var cells = rows.map(function (r) {
+        var v = r[key];
+        return "<td>" + (opts.raw ? v : fmtMoney(v)) + "</td>";
+      }).join("");
+      return "<tr" + cls + "><td>" + label + "</td>" + cells + "</tr>";
+    }
+    function sectionRow(label) {
+      return '<tr class="section-row"><td colspan="' + (rows.length + 1) + '">' + label + "</td></tr>";
+    }
+
+    var html = "";
+    html += sectionRow("Life Insurance");
+    html += dataRow("New Recruits This Year", "newRecruits", { raw: true, cls: "subtle" });
+    html += dataRow("Business Headcount", "lifeReps", { raw: true, cls: "subtle" });
+    html += dataRow("Rep Dormancy (count, 15%)", "dormantReps", { raw: true, cls: "subtle" });
+    html += dataRow("Gross Revenue (before attrition)", "lifeRevenueGross", { cls: "subtle" });
+    html += dataRow("Revenue Attrition (20%)", "attritionAmountNeg", { cls: "subtle" });
+    html += dataRow("Revenue (net of attrition)", "lifeRevenue");
+    html += dataRow("Expenses (10%)", "lifeExpense", { cls: "subtle" });
+    html += dataRow("Net income", "lifeNet", { cls: "total" });
+
+    html += sectionRow("Medicare");
+    html += dataRow("New Reps", "newRepsFunded", { raw: true, cls: "subtle" });
+    html += dataRow("Total Reps", "medicareReps", { raw: true, cls: "subtle" });
+    html += dataRow("New Business Revenue", "newRevenue", { cls: "subtle" });
+    html += dataRow("Net Renewal Rev.", "renewRevenue", { cls: "subtle" });
+    html += dataRow("Revenue", "medicareRevenue");
+    html += dataRow("Expenses", "medicareExpense", { cls: "subtle" });
+    html += dataRow("Net income", "medicareNet", { cls: "total" });
+
+    html += sectionRow("Combined");
+    html += dataRow("Total revenue", "totalRevenue");
+    html += dataRow("Total expenses", "totalExpense", { cls: "subtle" });
+    html += dataRow("Net cash flow", "netCF", { cls: "hero" });
+
+    els.tbody.innerHTML = html;
+  }
+
+  function render() {
+    els.vPersonal.textContent = fmtMoney(Number(els.personal.value));
+    els.vRecruits.textContent = Number(els.recruits.value).toLocaleString();
+    els.vGrowth.textContent = els.growth.value + "%";
+    els.vMargin.textContent = els.margin.value + "%";
+    els.vThreshold.textContent = fmtMoney(Number(els.threshold.value));
+
+    var rows = compute();
+    renderTable(rows);
+
+    var last = rows[rows.length - 1];
+    var medicareBookValue = last.renewRevenue;
+    var lifeNetIncome = last.lifeNet;
+    var totalNetIncome = medicareBookValue + lifeNetIncome;
+    var exitValueTotal = totalNetIncome * EXIT_MULTIPLE;
+
+    els.exitMedBook.textContent = fmtMoney(medicareBookValue, { compact: true });
+    els.exitLifeNet.textContent = fmtMoney(lifeNetIncome, { compact: true });
+    els.exitTotalNet.textContent = fmtMoney(totalNetIncome, { compact: true });
+    els.exitValue.textContent = fmtMoney(exitValueTotal, { compact: true });
+  }
+
+  [els.personal, els.recruits, els.growth, els.margin, els.threshold].forEach(function (el) {
+    el.addEventListener("input", render);
+  });
+
+  render();
+})();
+</script>
+
+</body></html>

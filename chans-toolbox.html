@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>CTLYST Toolbox</title>
+<meta property="og:title" content="CTLYST Toolbox">
+<meta property="og:image" content="https://www.scalewithsteelwater.com/brand/ctlyst-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png">
+<link rel="manifest" href="/chans-toolbox.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CTLYST">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#2B3B38">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #2B3B38;
+    --text: #F6F4F2;
+    --muted: #B8C3C0;
+    --dim: #8B9A96;
+    --gold: #A3B3AB;
+    --gold-hi: #CFDBD4;
+    --gold-deep: #74867F;
+    /* the chest: brushed graphite steel */
+    --steel-1: #3A4542;
+    --steel-2: #293431;
+    --steel-3: #1F2826;
+    --seam: #141C1A;
+    --tray: #161F1D;
+    --foam: #1E2A27;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    background: radial-gradient(120% 50% at 50% -10%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg);
+    color: var(--text);
+    font: 400 16px/1.5 var(--body);
+    -webkit-font-smoothing: antialiased;
+    padding-inline: 16px;
+  }
+  main { max-width: 600px; margin: 0 auto; padding-block: var(--top, 40px) 72px; display: grid; gap: 22px; }
+
+  .head { display: grid; gap: 10px; text-align: center; }
+  h1 { font: 400 clamp(2.4rem, 9vw, 3.4rem)/1 var(--display); margin: 0; letter-spacing: -.01em; }
+  h1 em { color: var(--gold); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .tip { margin: 0; text-align: center; color: var(--muted); font-size: .92rem; text-wrap: balance; }
+
+  /* ---------- the chest ---------- */
+  .chest { position: relative; margin-top: 8px; filter: drop-shadow(0 30px 40px rgba(0,0,0,.45)); }
+  .lid {
+    position: relative; height: 68px; border-radius: 18px 18px 6px 6px;
+    background: linear-gradient(180deg, #485753 0%, var(--steel-1) 40%, var(--steel-2) 100%);
+    border: 1px solid #4E5E5A; border-bottom-color: var(--seam);
+    display: grid; place-items: center;
+  }
+  .lid::before { /* carry handle on top */
+    content: ""; position: absolute; top: -16px; left: 50%; width: 120px; height: 20px; transform: translateX(-50%);
+    border: 5px solid #4E5E5A; border-bottom: 0; border-radius: 12px 12px 0 0;
+  }
+  .plate {
+    display: grid; place-items: center; padding: 9px 18px; border-radius: 6px;
+    background: linear-gradient(180deg, #4D6762, #445C58); border: 1px solid #5E7772;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 2px 4px rgba(0,0,0,.35);
+  }
+  .plate img { display: block; height: 22px; width: auto; }
+  .body {
+    margin-top: 4px; padding: 12px; border-radius: 6px 6px 12px 12px;
+    background: linear-gradient(90deg, var(--steel-3), var(--steel-2) 8%, var(--steel-2) 92%, var(--steel-3));
+    border: 1px solid #3F4C49; display: grid; gap: 12px;
+  }
+  .feet { display: flex; justify-content: space-between; padding-inline: 22px; }
+  .feet i { width: 34px; height: 12px; border-radius: 0 0 8px 8px; background: #1D2523; border: 1px solid #35403D; border-top: 0; }
+
+  /* ---------- a drawer ---------- */
+  .drawer { position: relative; }
+  .face {
+    position: relative; z-index: 2; width: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px;
+    padding: 18px 18px; border: 0; border-radius: 8px; cursor: pointer; text-align: left; color: var(--text); font: inherit;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.018) 0 2px, rgba(0,0,0,0) 2px 5px),
+      linear-gradient(180deg, #45524F 0%, #35403D 55%, #2B3533 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.09), inset 0 -2px 0 rgba(0,0,0,.35), 0 2px 0 var(--seam);
+    transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s;
+  }
+  .face:hover { background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.022) 0 2px, rgba(0,0,0,0) 2px 5px),
+      linear-gradient(180deg, #4D5B58 0%, #3A4643 55%, #2F3A37 100%); }
+  .face:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .num { font: 400 1.6rem/1 var(--display); color: var(--gold); width: 26px; text-align: center; }
+  .label { display: grid; gap: 2px; }
+  .label b { font-size: 1.12rem; font-weight: 800; letter-spacing: .01em; }
+  .label small { color: var(--muted); font-size: .8rem; }
+  .handle {
+    width: 74px; height: 14px; border-radius: 8px; position: relative;
+    background: linear-gradient(180deg, var(--gold-hi), var(--gold) 55%, var(--gold-deep));
+    box-shadow: 0 2px 3px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .handle::before, .handle::after { content: ""; position: absolute; top: 3px; width: 6px; height: 8px; background: rgba(0,0,0,.35); border-radius: 2px; }
+  .handle::before { left: 7px; } .handle::after { right: 7px; }
+
+  /* open state: face pulls toward you, tray slides out underneath */
+  .drawer.open .face { transform: translateY(-2px) scale(1.025); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 14px 22px rgba(0,0,0,.55); }
+  .tray-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s cubic-bezier(.2,.8,.2,1); }
+  .drawer.open .tray-wrap { grid-template-rows: 1fr; }
+  .tray-wrap > div { overflow: hidden; }
+  .tray {
+    margin: -6px 10px 0; padding: 20px 12px 12px; border-radius: 0 0 10px 10px;
+    background: linear-gradient(180deg, #0E1413 0, var(--tray) 22px);
+    border: 1px solid #2B3734; border-top: 0;
+    box-shadow: inset 0 10px 14px -8px rgba(0,0,0,.8);
+    display: grid; gap: 8px;
+    transform: translateY(-14px); opacity: 0; transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .35s;
+  }
+  .drawer.open .tray { transform: none; opacity: 1; }
+
+  /* each tool sits in a foam cut-out */
+  .tool {
+    display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 12px;
+    padding: 12px 12px; border-radius: 10px; text-decoration: none; color: var(--text);
+    background: var(--foam); border: 1px solid #2B3936;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,.55);
+    font-weight: 700; font-size: 1rem; line-height: 1.3;
+    transition: background .15s, border-color .15s, transform .15s;
+  }
+  a.tool:hover { background: #243631; border-color: rgba(163,179,171,.55); transform: translateX(3px); }
+  a.tool:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .ico { width: 38px; height: 38px; border-radius: 9px; display: grid; place-items: center; background: rgba(163,179,171,.12); color: var(--gold); }
+  .ico svg { width: 20px; height: 20px; }
+  .stepn { font: 400 1.25rem/1 var(--display); color: inherit; }
+  .go { width: 18px; height: 18px; color: var(--gold); }
+  .tool.soon { color: var(--muted); }
+  .tool.soon .ico { background: rgba(255,255,255,.05); color: var(--dim); }
+  .tool.soon small { font-weight: 700; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
+
+  .otext { display: grid; gap: 4px; }
+  .otext em { font-style: normal; font-weight: 500; font-size: .86rem; line-height: 1.4; color: var(--muted); }
+  .tool.soon .otext > span { color: var(--text); }
+  .tool.tall { align-items: start; }
+  .tool.tall .ico, .tool.tall .go { margin-top: 2px; }
+  .tool.soon.tall { grid-template-columns: 38px 1fr; }
+  .tool.soon.tall small { grid-column: 2; justify-self: start; margin-top: -2px; color: var(--gold); opacity: .8; }
+  button.tool { width: 100%; font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+  button.tool:hover { background: #243631; border-color: rgba(163,179,171,.55); transform: translateX(3px); }
+  button.tool:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  dialog { border: 0; padding: 0; background: transparent; color: var(--text); width: min(440px, calc(100vw - 32px)); max-width: none; }
+  dialog::backdrop { background: rgba(11,18,17,.72); backdrop-filter: blur(3px); }
+  dialog[open] .pick-in { animation: pop .28s cubic-bezier(.2,.8,.2,1); }
+  @keyframes pop { from { transform: translateY(12px) scale(.97); opacity: 0; } }
+  .pick-in { background: linear-gradient(180deg, #3A4542, #293431); border: 1px solid #4E5E5A; border-radius: 16px; padding: 18px; display: grid; gap: 14px; box-shadow: 0 30px 60px rgba(0,0,0,.6); }
+  .pick-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .pick-head h2 { margin: 0; font: 400 1.6rem/1.1 var(--display); }
+  .x { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #4E5E5A; background: transparent; color: var(--muted); font-size: 1.4rem; line-height: 1; cursor: pointer; }
+  .x:hover { color: var(--gold); border-color: var(--gold); }
+  .pick-list { display: grid; gap: 8px; padding: 10px; border-radius: 12px; background: var(--tray); box-shadow: inset 0 6px 12px -6px rgba(0,0,0,.8); }
+  .empty { margin: 0; padding: 14px; text-align: center; color: var(--dim); font-size: .9rem; font-weight: 600; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <h1 class="sr">CTLYST Toolbox</h1>
+
+  <div class="chest">
+    <div class="lid"><span class="plate"><img src="/brand/ctlyst-logo.png" alt="CTLYST"></span></div>
+    <div class="body" id="drawers"></div>
+    <div class="feet" aria-hidden="true"><i></i><i></i></div>
+  </div>
+  <p class="tip">Bookmark this page or save it as an app to your phone's home screen.</p>
+</main>
+
+<dialog id="pick" aria-labelledby="pick-title">
+  <div class="pick-in">
+    <div class="pick-head"><h2 id="pick-title">Which pitch?</h2><button class="x" type="button" aria-label="Close">&times;</button></div>
+    <div class="pick-list" id="pick-list"></div>
+  </div>
+</dialog>
+
+<script>
+  // ===== EDIT THIS =====
+  // Each drawer and the tools inside it. Leave url "" to show a tool as "Coming soon".
+  // icon: deck, calc, chart, map, route, flow, chat, target, phone, monitor, book
+  const DRAWERS = [
+    { id: "vision", name: "Catch the Vision", note: "Where this can take you", tools: [
+      { name: "Chan's Recruiting Deck", url: "/chans-toolbox/recruiting-deck", icon: "deck" },
+      { name: "New Agent Roadmap", url: "/chans-toolbox/new-agent-roadmap", icon: "route" },
+      { name: "Long-Term Life + Health Vision Calculator", url: "/chans-toolbox/vision-calculator", icon: "chart" },
+      { name: "Sandlot Presentation Deck", url: "https://us.list-manage.com/W_eIlGzCWjk?e=0660a2ad39&c2id=71d6bb9d62b7ffe4a31f6e5cf08c6dfe", icon: "deck" },
+    ]},
+    { id: "start", name: "Get Started", note: "Licensed, set up and ready to sell", numbered: true, tools: [
+      { name: "Onboarding with Everlife", url: "/chans-toolbox/get-started#1" },
+      { name: "Passing the Test & Getting Your License", url: "/chans-toolbox/get-started#2" },
+      { name: "Onboarding with Everlife, Part 2", url: "/chans-toolbox/get-started#3" },
+      { name: "Carrier Contracting", url: "/chans-toolbox/get-started#4" },
+      { name: "Set Up Your Tech", url: "/chans-toolbox/get-started#5" },
+      { name: "Pitch Walkthrough", url: "" },
+      { name: "Practice E-Apps", url: "" },
+      { name: "Wingmans", url: "" },
+      { name: "Big Boy Leads & Automation", url: "" },
+    ]},
+    { id: "axe", name: "Sharpen the Axe", note: "Get better on every call", tools: [
+      { name: "Easy-to-Read Pitch Flowcharts", icon: "flow", menu: {
+          title: "Which pitch?", options: [
+            { name: "Mortgage Protection", url: "/chans-toolbox/pitch-flowchart", icon: "home" },
+            { name: "Veteran", url: "/chans-toolbox/veteran-pitch", icon: "star" },
+            { name: "Inbound FEX", url: "/chans-toolbox/inbound-fex-pitch", icon: "heart" },
+          ]}},
+      { name: "VA Pitches", icon: "phone", menu: {
+          title: "VA pitches", options: [
+            { name: "Assistant Crash Course", url: "/chans-toolbox/va/assistant-crash-course.pdf", icon: "book" },
+            { name: "Assistant Crash Course (Tagalog)", url: "/chans-toolbox/va/assistant-crash-course-tagalog.pdf", icon: "book" },
+            { name: "Mortgage Protection Appointment Setter", url: "/chans-toolbox/va/mp-appointment-setter.pdf", icon: "home" },
+            { name: "Veteran Appointment Setter", url: "/chans-toolbox/va/veteran-appointment-setter.pdf", icon: "star" },
+          ]}},
+      { name: "Lead Spend Planner", url: "/chans-toolbox/lead-spend-planner", icon: "calc" },
+      { name: "How Do I Get My Leads Set Up?", icon: "target", id: "leads", menu: {
+          title: "Get your leads set up", options: [
+            { name: "Google", url: "", icon: "google", note: "Join Chan's exclusive Google campaign pool. Set your ad spend at the beginning of each week." },
+            { name: "Meta", url: "", icon: "meta", note: "Join Chan's exclusive Meta campaign pool. Set your ad spend at the beginning of each week." },
+            { name: "Aged Leads", url: "", icon: "calc", note: "Submit an order at the beginning of each week in the Everlife Leads Discord, then upload the leads to your dialer / CRM." },
+            { name: "Wingman", url: "", icon: "users", note: "Set up your Wingman account, then make yourself available for TV inbounds." },
+          ]}},
+      { name: "Objections and Word Tracks", url: "", icon: "chat" },
+      { name: "What Other States Should I License In?", url: "/chans-toolbox/state-licensing", icon: "map" },
+      { name: "Chan's Secret Lead Sources", url: "", icon: "target" },
+      { name: "Chan's Tabs, Bookmarks, and Monitor Setup", url: "", icon: "monitor" },
+      { name: "Chan's Recruiting Playbook", url: "", icon: "book" },
+    ]},
+  ];
+
+  const P = {
+    deck: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/>',
+    calc: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h0M16 11h0M8 15h2M12 15h0M16 15h0"/>',
+    chart: '<path d="M4 20h16"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/>',
+    map: '<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+    route: '<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h8a3 3 0 0 0 0-6H8a3 3 0 0 1 0-6h8"/>',
+    flow: '<rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/>',
+    chat: '<path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/>',
+    target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/>',
+    phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/><path d="M4 20L20 4" stroke-width="2.2"/>',
+    monitor: '<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
+    home: '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+    star: '<path d="M12 3l2.8 5.9 6.2.8-4.6 4.3 1.2 6.2L12 17.2 6.4 20.2l1.2-6.2L3 9.7l6.2-.8z"/>',
+    heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+    google: '<path d="M20 12.2c0-.6-.1-1.2-.2-1.7H12v3.3h4.5a3.9 3.9 0 0 1-1.7 2.5v2.1h2.7c1.6-1.5 2.5-3.6 2.5-6.2z"/><path d="M12 20c2.3 0 4.2-.8 5.5-2.1l-2.7-2.1a5 5 0 0 1-7.4-2.6H4.6v2.2A8 8 0 0 0 12 20z"/><path d="M7.4 13.2a4.8 4.8 0 0 1 0-3.1V7.9H4.6a8 8 0 0 0 0 7.5z"/><path d="M12 6.8c1.2 0 2.3.4 3.2 1.2l2.4-2.4A8 8 0 0 0 4.6 7.9l2.8 2.2A4.8 4.8 0 0 1 12 6.8z"/>',
+    meta: '<path d="M3 15c0-4 2-8 4.5-8 3.5 0 5.5 10 9 10 2 0 3.5-2 3.5-5s-1.5-5-3.5-5c-3.5 0-5.5 10-9 10C5 17 3 16.5 3 15z"/>',
+    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.8"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/>',
+    book: '<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/>',
+  };
+  const svg = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+  const goArrow = '<svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+  const ico = t => t.step ? `<b class="stepn">${t.step}</b>` : svg(P[t.icon] || P.book);
+  const box = document.getElementById("drawers");
+  box.innerHTML = DRAWERS.map((d, n) => {
+    const live = d.tools.filter(t => t.url).length;
+    const items = !d.tools.length ? `<p class="empty">Tools for this drawer are coming soon.</p>` : d.tools.map((t, k) => (t = d.numbered ? { ...t, step: k + 1 } : t, t.menu
+      ? `<button class="tool" type="button" data-menu="${n}-${k}"><span class="ico">${ico(t)}</span><span>${esc(t.name)}</span>${goArrow}</button>`
+      : t.url
+      ? `<a class="tool" href="${esc(t.url)}"${t.url.startsWith("/") ? "" : ' target="_blank" rel="noopener"'}><span class="ico">${ico(t)}</span><span>${esc(t.name)}</span>${goArrow}</a>`
+      : `<div class="tool soon" aria-disabled="true"><span class="ico">${ico(t)}</span><span>${esc(t.name)}</span><small>Coming soon</small></div>`)
+    ).join("");
+    return `<div class="drawer" id="${d.id}">
+      <button class="face" type="button" aria-expanded="false" aria-controls="tray-${d.id}">
+        <span class="num">${n + 1}</span>
+        <span class="label"><b>${esc(d.name)}</b></span>
+        <span class="handle" aria-hidden="true"></span>
+      </button>
+      <div class="tray-wrap" id="tray-${d.id}"><div><div class="tray">${items}</div></div></div>
+    </div>`;
+  }).join("");
+
+  // one drawer open at a time; remember it in the link (#vision, #start, #axe)
+  function openDrawer(id, fromClick) {
+    document.querySelectorAll(".drawer").forEach(dr => {
+      const on = dr.id === id;
+      dr.classList.toggle("open", on);
+      dr.querySelector(".face").setAttribute("aria-expanded", on);
+      dr.querySelectorAll(".tray a, .tray button").forEach(a => a.tabIndex = on ? 0 : -1);
+    });
+    if (fromClick) history.replaceState(null, "", id ? "#" + id : location.pathname);
+  }
+  const pick = document.getElementById("pick");
+  box.addEventListener("click", e => {
+    const mb = e.target.closest("[data-menu]");
+    if (mb) {
+      const [n, k] = mb.dataset.menu.split("-").map(Number), m = DRAWERS[n].tools[k].menu;
+      document.getElementById("pick-title").textContent = m.title;
+      const label = o => o.note ? `<span class="otext"><span>${esc(o.name)}</span><em>${esc(o.note)}</em></span>` : `<span>${esc(o.name)}</span>`;
+      document.getElementById("pick-list").innerHTML = m.options.map(o => o.url
+        ? `<a class="tool${o.note ? " tall" : ""}" href="${esc(o.url)}"${o.url.startsWith("/") ? "" : ' target="_blank" rel="noopener"'}><span class="ico">${svg(P[o.icon] || P.book)}</span>${label(o)}${goArrow}</a>`
+        : `<div class="tool soon${o.note ? " tall" : ""}" aria-disabled="true"><span class="ico">${svg(P[o.icon] || P.book)}</span>${label(o)}<small>${o.note ? "Link coming soon" : "Coming soon"}</small></div>`).join("");
+      pick.showModal();
+      return;
+    }
+    const face = e.target.closest(".face");
+    if (!face) return;
+    const dr = face.parentElement;
+    openDrawer(dr.classList.contains("open") ? null : dr.id, true);
+  });
+  pick.addEventListener("click", e => { if (e.target === pick || e.target.closest(".x")) pick.close(); });
+  // vertically center the closed chest + tip in the screen
+  function center() {
+    if (document.querySelector(".drawer.open")) return;
+    const m = document.querySelector("main"), h = document.querySelector(".chest").offsetHeight + document.querySelector(".tip").offsetHeight + 22;
+    m.style.setProperty("--top", Math.max(28, (window.innerHeight - h) / 2) + "px");
+  }
+  center(); addEventListener("resize", center);
+  if (document.fonts) document.fonts.ready.then(center);
+  openDrawer(DRAWERS.some(d => "#" + d.id === location.hash) ? location.hash.slice(1) : null, false);
+  // deep links to a pop-up, e.g. /chans-toolbox#leads
+  DRAWERS.forEach((d, n) => d.tools.forEach((t, k) => {
+    if (t.id && "#" + t.id === location.hash) {
+      openDrawer(d.id, false);
+      setTimeout(() => document.querySelector(`[data-menu="${n}-${k}"]`)?.click(), 350);
+    }
+  }));
+</script>
+</body>
+</html>

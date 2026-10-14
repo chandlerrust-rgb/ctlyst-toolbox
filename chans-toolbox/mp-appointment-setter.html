@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>MP Appointment Setter</title>
+<meta property="og:image" content="https://www.scalewithsteelwater.com/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #2B3B38;
+    --card: #1F302B;
+    --card-2: #273D38;
+    --line: #3A4D48;
+    --text: #F6F4F2;
+    --muted: #B8C3C0;
+    --dim: #8B9A96;
+    --gold: #A3B3AB;
+    --gold-soft: rgba(163,179,171,.13);
+    --teal: #6CC4A6;
+    --teal-soft: rgba(108,196,166,.12);
+    --rose: #E89A8C;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px)); }
+  html, body { margin: 0; }
+  body {
+    background: radial-gradient(120% 40% at 50% -5%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg);
+    color: var(--text); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding-inline: 18px; }
+
+  /* nav */
+  nav.tabs { position: sticky; top: 0; z-index: 10; background: rgba(22,35,32,.94); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top, 0px); }
+  nav.tabs .wrap { display: flex; gap: 6px; overflow-x: auto; padding-block: 10px; scrollbar-width: none; }
+  nav.tabs .wrap::-webkit-scrollbar { display: none; }
+  nav.tabs a { flex: none; text-decoration: none; color: var(--muted); font-weight: 700; font-size: .82rem;
+    padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+  nav.tabs a.on { color: #1C2826; background: var(--gold); border-color: var(--gold); }
+
+  header.top { padding-block: 22px 8px; display: grid; gap: 12px; }
+  .back { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .88rem; }
+  .back:hover { color: var(--gold); }
+  h1 { font: 400 clamp(1.9rem, 7vw, 2.7rem)/1.06 var(--display); margin: 0; text-wrap: balance; }
+  h1 em { color: var(--gold); }
+  .carriers { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: .85rem; color: var(--muted); }
+  .carriers b { color: var(--text); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; margin-right: 4px; }
+  .carriers span { border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; color: var(--text); }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .78rem; color: var(--muted); }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+  /* sections */
+  section { padding-block: 34px 8px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+  .sec-head .n { font: 400 2.2rem/1 var(--display); color: var(--gold); }
+  h2 { font: 800 .8rem/1 var(--body); letter-spacing: .18em; text-transform: uppercase; margin: 0; }
+
+  /* flow */
+  .flow { display: grid; gap: 0; }
+  .step { position: relative; padding-left: 26px; padding-bottom: 18px; }
+  .step::before { content: ""; position: absolute; left: 7px; top: 20px; bottom: 0; width: 2px; background: var(--line); }
+  .step:last-child::before { display: none; }
+  .step::after { content: ""; position: absolute; left: 1px; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--gold); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .card p { margin: 0; }
+  .card p + p, .card ul + p, .card p + ul { margin-top: 10px; }
+  .card ul { margin: 0; padding-left: 18px; }
+  .card li + li { margin-top: 4px; }
+  .fill { color: var(--gold); font-weight: 700; }
+  .note { display: block; margin-top: 8px; font-size: .88rem; color: var(--teal); font-style: italic; }
+  .rep { background: var(--teal-soft); border-color: rgba(108,196,166,.35); color: var(--teal); font-weight: 600; }
+  .rep b { color: var(--text); }
+  .tag { display: inline-block; font-size: .66rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+  /* branches */
+  .branch { display: grid; gap: 10px; margin-top: 10px; }
+  .path { border-left: 2px dashed var(--line); padding-left: 12px; display: grid; gap: 8px; }
+  .cond { justify-self: start; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    color: #1C2826; background: var(--gold); border-radius: 6px; padding: 3px 8px; }
+  .cond.no { background: var(--line); color: var(--text); }
+  .then { font-size: .9rem; color: var(--muted); }
+  .then a { color: var(--gold); font-weight: 700; }
+  .carrier { display: grid; gap: 2px; background: var(--gold-soft); border: 1px solid rgba(163,179,171,.4); border-radius: 10px; padding: 10px 12px; }
+  .carrier b { color: var(--gold); }
+  .carrier small { color: var(--muted); font-size: .8rem; }
+  .carrier .skip { justify-self: start; margin-top: 6px; font-size: .74rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: #1C2826; background: var(--gold); border-radius: 6px; padding: 4px 8px; text-decoration: none; }
+  .carrier .skip:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+  details.ifyes { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; }
+  details.ifyes summary { cursor: pointer; list-style: none; font-weight: 700; font-size: .88rem; color: var(--gold); display: flex; align-items: center; gap: 8px; }
+  details.ifyes summary::-webkit-details-marker { display: none; }
+  details.ifyes summary::before { content: "+"; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--gold); font-size: .9rem; line-height: 1; }
+  details.ifyes[open] summary::before { content: "–"; }
+  details.ifyes .inner { display: grid; gap: 10px; margin-top: 10px; }
+  .ask { font-size: .92rem; color: var(--muted); }
+  .ask ul { margin: 4px 0 0; padding-left: 18px; color: var(--text); }
+  .nextline { margin-top: 8px; font-size: .8rem; font-weight: 700; color: var(--dim); letter-spacing: .04em; }
+
+
+  /* ===== flowchart: main path down the left, branches to the right ===== */
+  .fc { --g: 104px; --arrow: #7F928C; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: var(--g); font-size: .95rem; }
+  .fc .card { padding: 12px 14px; }
+  .main { grid-column: 1; display: flex; flex-direction: column; align-self: stretch; }
+  .main::after { content: ""; flex: 1; width: 2px; margin-inline: auto; background: var(--arrow); }
+  .main.end::after { display: none; }
+  .side { grid-column: 2; position: relative; display: grid; gap: 8px; align-content: start; }
+  .side::before { content: ""; position: absolute; left: calc(-1 * var(--g)); top: 24px; width: calc(var(--g) - 6px); height: 2px; background: var(--gold); }
+  .side::after { content: ""; position: absolute; left: -9px; top: 19px; border-left: 9px solid var(--gold); border-block: 6px solid transparent; }
+  .side .cond { margin-top: 12px; }
+  .side > .cond:first-child { position: absolute; z-index: 1; margin: 0; left: calc(-1 * var(--g) + 6px); top: 25px; transform: translateY(-50%); font-size: .6rem; letter-spacing: .03em; padding: 3px 6px; white-space: nowrap; }
+  .v { justify-self: center; width: 2px; height: 16px; background: var(--gold); position: relative; }
+  .v::after { content: ""; position: absolute; left: -5px; bottom: -2px; border-top: 7px solid var(--gold); border-inline: 6px solid transparent; }
+  .down { grid-column: 1; position: relative; height: 50px; display: grid; place-items: center; }
+  .down::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 6px; width: 2px; transform: translateX(-1px); background: var(--arrow); }
+  .down::after { content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-6px); border-top: 8px solid var(--arrow); border-inline: 6px solid transparent; }
+  .down span { position: relative; z-index: 1; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; background: var(--bg); color: var(--text); border: 1px solid var(--arrow); border-radius: 6px; padding: 2px 8px; }
+  .down.plain span { display: none; }
+  /* the answer that continues down (NO, UNDER 70…) sits right under its box */
+  .dlabel { align-self: center; position: relative; z-index: 1; margin-top: 14px; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; background: var(--bg); color: var(--text); border: 1px solid var(--arrow); border-radius: 6px; padding: 2px 8px; }
+  .dlabel::before { content: ""; position: absolute; left: 50%; top: -15px; height: 14px; width: 2px; transform: translateX(-1px); background: var(--arrow); }
+  .full { grid-column: 1 / -1; }
+  .pan { overflow-x: auto; margin-inline: -18px; padding: 4px 18px 10px; -webkit-overflow-scrolling: touch; }
+  .fc { min-width: 600px; }
+  .pan-hint { display: none; font-size: .75rem; font-weight: 700; color: var(--muted); margin: -6px 0 10px; }
+  .pan-hint.show { display: block; }
+  /* phones: every column is one screen wide; swipe (with snap) to the next column */
+  @media (max-width: 700px) {
+    .pan { scroll-snap-type: x mandatory; scroll-padding-inline: 12px; margin-inline: -12px; padding-inline: 12px; }
+    .pan .fc, .pan .fc.three { min-width: 0; width: max-content; --g: 94px; --col: calc(100vw - 128px); }
+    .pan .fc { grid-template-columns: repeat(2, var(--col)); }
+    .pan .fc.three { grid-template-columns: repeat(3, var(--col)); }
+    .pan .fc .main, .pan .fc .side, .pan .fc .out, .pan .fc .lane { scroll-snap-align: start; }
+  }
+  .fc { position: relative; }
+  svg.links { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; z-index: 2; }
+  .rejoin { font-size: .8rem; font-weight: 700; color: var(--muted); border: 1px dashed var(--line); border-radius: 8px; padding: 8px 10px; }
+  .rejoin b { color: var(--gold); }
+  .lanes { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; position: relative; padding-top: 34px; }
+  .lanes::before { content: ""; position: absolute; top: 0; left: 25%; right: 25%; height: 18px; border: 2px solid var(--arrow); border-bottom: 0; border-radius: 10px 10px 0 0; }
+  .lanes::after { content: ""; position: absolute; top: -18px; left: 25%; width: 2px; height: 20px; transform: translateX(-1px); background: var(--arrow); }
+  .lane { display: grid; gap: 0; align-content: start; }
+  .lane .cond { justify-self: center; margin-bottom: 10px; }
+  .lane .dn { justify-self: center; width: 2px; height: 22px; background: var(--arrow); position: relative; margin-block: 0 6px; }
+  .lane .dn::after { content: ""; position: absolute; left: -5px; bottom: -6px; border-top: 7px solid var(--arrow); border-inline: 6px solid transparent; }
+  .lane .dn-label { justify-self: center; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--arrow); border-radius: 6px; padding: 2px 8px; margin-bottom: 6px; }
+  .merge { grid-column: 1 / -1; display: grid; place-items: center; padding-block: 8px 0; }
+  .merge i { display: block; width: 50%; height: 20px; border: 2px solid var(--arrow); border-top: 0; border-radius: 0 0 10px 10px; }
+  .merge b { display: block; width: 2px; height: 20px; background: var(--arrow); position: relative; }
+  .merge b::after { content: ""; position: absolute; left: -5px; bottom: -6px; border-top: 7px solid var(--arrow); border-inline: 6px solid transparent; }
+  .sp { grid-column: 1 / -1; height: 12px; }
+
+
+  /* ===== three-column health chart: question | ask | condition -> carrier ===== */
+  .fc.three { grid-template-columns: minmax(0,1fr) minmax(0,.95fr) minmax(0,1.05fr); min-width: 820px; }
+  .fc.three .side { grid-column: 2; }
+  .fc.three .side.askcol { grid-column: 2; }
+  .out { grid-column: 3; position: relative; display: grid; align-content: start; padding-top: 14px; }
+  .out::before { content: ""; position: absolute; left: calc(-1 * var(--g)); top: 24px; width: calc(var(--g) / 2 + 1px); height: 2px; background: var(--gold); }
+  .opt { position: relative; display: grid; gap: 6px; padding-bottom: 12px; }
+  .opt:last-child { padding-bottom: 0; }
+  .opt::before { content: ""; position: absolute; left: calc(-1 * var(--g) / 2); top: 10px; width: calc(var(--g) / 2 - 8px); height: 2px; background: var(--gold); }
+  .opt .cond::before { content: ""; position: absolute; left: -9px; top: 50%; transform: translateY(-50%); border-left: 8px solid var(--gold); border-block: 5px solid transparent; }
+  .opt .cond { position: relative; white-space: normal; line-height: 1.25; }
+  .opt::after { content: ""; position: absolute; left: calc(-1 * var(--g) / 2 - 1px); top: 0; bottom: 0; width: 2px; background: var(--gold); }
+  .opt:first-child::after { top: 10px; }
+  .opt:last-child::after { bottom: auto; height: 12px; top: 0; }
+  .opt:only-child::after { display: none; }
+
+  /* pitches */
+  .pick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+  .pick button { font: 700 .92rem/1.25 var(--body); color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; cursor: pointer; text-align: left; }
+  .pick button small { display: block; color: var(--muted); font-weight: 500; font-size: .78rem; margin-top: 2px; }
+  .pick button[aria-pressed="true"] { border-color: var(--gold); background: var(--card-2); box-shadow: inset 0 0 0 1px var(--gold); }
+  .pick button:focus-visible, details summary:focus-visible, nav a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  table.opts { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  table.opts th, table.opts td { text-align: left; padding: 9px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  table.opts th { color: var(--muted); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; border-top: 0; }
+  table.opts td:first-child { font-weight: 800; white-space: nowrap; }
+  .g { color: var(--gold); } .s { color: #E6EAE9; } .b { color: #94A99F; }
+  .scroll { overflow-x: auto; }
+
+  footer { padding-block: 30px 60px; color: var(--dim); font-size: .8rem; text-align: center; }
+</style>
+<style>
+  .objs { display: grid; gap: 8px; }
+  .objs h3 { margin: 18px 0 4px; font: 800 .74rem/1 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .objs h3:first-child { margin-top: 0; }
+  details.obj { background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+  details.obj summary { cursor: pointer; list-style: none; padding: 14px 44px 14px 16px; font-weight: 700; position: relative; }
+  details.obj summary::-webkit-details-marker { display: none; }
+  details.obj summary::after { content: "+"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 1.3rem; }
+  details.obj[open] summary::after { content: "–"; }
+  details.obj .ans { padding: 0 16px 16px; display: grid; gap: 10px; color: var(--text); }
+  details.obj .ans p, details.obj .ans ul { margin: 0; }
+  details.obj .ans a { color: var(--gold); font-weight: 700; }
+  .card ul li .note { display: block; }
+</style>
+</head>
+<body>
+
+
+<main class="wrap">
+  <header class="top">
+    <a class="back" href="/chans-toolbox">&larr; CTLYST Toolbox</a>
+    <h1>Mortgage Protection <em>Appointment Setter</em></h1>
+    <p class="note" style="margin:0;font-style:normal;color:var(--muted)">Goal: re-engage interest and book the call with Chandler. Don’t quote prices or ask health questions. Call 8am–9pm their time.</p>
+  </header>
+
+  <section id="call">
+    <p class="pan-hint">Swipe sideways to follow the branches →</p><div class="pan"><div class="fc">
+      <div class="main"><div class="card"><p>Hey <span class="fill">(name)</span>? This is <span class="fill">(your name)</span> with Chandler Rust’s <b>mortgage protection team</b>. It’s showing on my file that your mortgage protection request is still open. Did you get that taken care of, or not yet?</p></div></div>
+      <div class="side"><span class="cond">Already did</span><div class="card "><p>Oh good! A lot of folks have Chandler do a quick review to make sure it actually covers the mortgage and they’re not overpaying. Would that be helpful?</p><span class="note">Yes: book the call below. No: thank them and end the call.</span></div></div>
+      <div class="down"><span>Not yet</span></div>
+      <div class="main"><div class="card"><p>Totally get it. What got you looking into it in the first place?</p><span class="note">Listen. Write their why down for Chandler.</span></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>If something happened to you tomorrow, what would happen with the house? Could <span class="fill">(spouse / family)</span> keep up with the payment on their own?</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>So would you say protecting the home is more of a <b>luxury</b> or a <b>necessity</b> for you? What makes you say that?</p></div></div>
+      <div class="side"><span class="cond no">Luxury</span><div class="card "><p>Totally fair. Thanks for your time!</p><span class="note">No real need: end the call politely.</span></div></div>
+      <div class="down"><span>Necessity</span></div>
+      <div class="main"><div class="card"><p>That makes sense. Chandler’s licensed with <b>30+ A-rated companies</b> and will shop them to find the best fit for your budget. It’s a quick 15-minute call. He has <span class="fill">(day, time)</span> or <span class="fill">(day, time)</span>. Which works better?</p></div></div>
+      <div class="side"><span class="cond no">Asks price</span><div class="card "><p>Great question. It depends on your age and health, and Chandler’s the licensed one who goes over that. That’s exactly what the call is for. <span class="fill">(time)</span> or <span class="fill">(time)</span>?</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main"><div class="card"><p>You’re all set for <span class="fill">(day, time)</span>. Will your <span class="fill">(spouse)</span> be joining? Is this the best number? I’ll text you a reminder with Chandler’s name so you know it’s him.</p></div></div>
+      <div class="down plain"><span></span></div>
+      <div class="main end"><div class="card rep"><p><b>Book it</b> on Chandler’s calendar with their why, and <b>send the reminder text</b>.</p></div></div>
+    </div></div>
+  </section>
+
+  <section id="objections">
+    <div class="sec-head"><h2>If they push back</h2></div>
+    <div class="objs">
+      <details class="obj"><summary>“Just send me something.”</summary><div class="ans"><p>I wish I could, but it’s all based on your age and health, so there’s nothing generic to send. It’s a quick 15-minute call. Would (time) work?</p></div></details>
+      <details class="obj"><summary>“I’m not interested.”</summary><div class="ans"><p>No problem. Just so I update your file, did you already get something in place, or did things change with the home?</p><p class="note">One soft try, then thank them.</p></div></details>
+      <details class="obj"><summary>“I’m busy.”</summary><div class="ans"><p>Totally understand. When’s a better time for 60 seconds?</p></div></details>
+      <details class="obj"><summary>“Don’t call me.”</summary><div class="ans"><p>Absolutely, I’ll remove you right now. Sorry to bother you.</p><p class="note">Mark DNC immediately.</p></div></details>
+    </div>
+  </section>
+</main>
+
+<footer>MP Appointment Setter · CTLYST Toolbox</footer>
+
+<script>
+  // pitch toggle
+  document.querySelectorAll(".pick button").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll(".pick button").forEach(b => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+    document.querySelectorAll("[data-panel]").forEach(p => p.hidden = p.dataset.panel !== btn.dataset.p);
+  }));
+  // draw arrows from "rejoin" boxes back into the main path
+  // move each "down" answer label up so it sits directly under the box it comes from
+  document.querySelectorAll(".fc > .down:not(.plain)").forEach(d => {
+    let m = d.previousElementSibling;
+    while (m && !m.classList.contains("main")) m = m.previousElementSibling;
+    if (!m) return;
+    const lab = document.createElement("span");
+    lab.className = "dlabel"; lab.textContent = d.querySelector("span").textContent;
+    m.appendChild(lab);
+    d.classList.add("plain");
+  });
+  const NS = "http://www.w3.org/2000/svg";
+  function drawLinks() {
+    document.querySelectorAll(".fc").forEach((fc, n) => {
+      let svg = fc.querySelector(":scope > svg.links");
+      if (!svg) { svg = document.createElementNS(NS, "svg"); svg.setAttribute("class", "links"); svg.setAttribute("aria-hidden", "true"); fc.prepend(svg); }
+      const r = fc.getBoundingClientRect();
+      svg.setAttribute("width", r.width); svg.setAttribute("height", r.height);
+      const col = getComputedStyle(fc).getPropertyValue("--arrow").trim() || "#7F928C";
+      let html = `<defs><marker id="ah${n}" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="${col}"/></marker></defs>`;
+      fc.querySelectorAll("[data-to]").forEach(el => {
+        const t = document.getElementById(el.dataset.to); if (!t) return;
+        const a = el.getBoundingClientRect(), b = t.getBoundingClientRect();
+        // leave from the bottom of the branch box (its top-left is where the gold arrow comes in)
+        const x1 = a.left - r.left + 22, y1 = a.bottom - r.top;
+        // come in through the TOP of the target box (near its right corner), well clear of the
+        // gold branch arrow that leaves from the box's right side
+        const bx = b.right - r.left, by = b.top - r.top;
+        const xm = bx + (a.left - r.left - bx) / 2, xin = bx - 28;
+        html += `<path d="M${x1} ${y1} V${y1 + 14} H${xm} V${by - 16} H${xin} V${by - 1}" fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah${n})"/>`;
+      });
+      svg.innerHTML = html;
+    });
+  }
+  function hints() {
+    document.querySelectorAll(".pan").forEach(p => {
+      const on = p.scrollWidth > p.clientWidth + 4;
+      p.previousElementSibling.classList.toggle("show", on);
+      p.classList.toggle("scrolls", on);
+    });
+  }
+
+  drawLinks(); hints();
+  window.addEventListener("resize", () => { drawLinks(); hints(); });
+  window.addEventListener("load", drawLinks);
+  if (document.fonts) document.fonts.ready.then(drawLinks);
+  if (window.ResizeObserver) document.querySelectorAll(".fc").forEach(fc => new ResizeObserver(drawLinks).observe(fc));
+
+  // highlight current section in nav
+  const links = [...document.querySelectorAll("nav.tabs a")];
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => {
+        const on = a.getAttribute("href") === "#" + e.target.id;
+        a.classList.toggle("on", on);
+        if (on) { const bar = a.parentElement; bar.scrollLeft = a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2; }
+      });
+    });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("main section").forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
