@@ -6,9 +6,8 @@ Owner: Chandler Rust (independent life insurance agent; agency **CTLYST**, under
 The recruiting intake form, opt-in page, privacy policy, terms and the `/api/lead` → Make webhook live in a **separate** site/project (scalewithsteelwater.com, Vercel project `steelwater-scaling`), not in this repo. Old `scalewithsteelwater.com/chans-toolbox/...` links show a "toolbox has moved" notice with a button to the matching page here.
 
 ## Deploying
-- Pushing to `main` on GitHub deploys to production via the GitHub Action in `.github/workflows/deploy.yml` (uses the `VERCEL_TOKEN` repo secret). Vercel's own Git auto-deploys are turned off in `vercel.json` (`git.deploymentEnabled: false`).
+- Pushing to `main` on GitHub deploys to production automatically (Vercel Git integration). The repo is **public** (that's what lets collaborators' pushes deploy on Vercel's free plan), so never commit secrets, tokens or private links you don't want public.
 - Manual deploy from this folder: `vercel deploy --prod --yes`.
-- **Publishing collaborator changes:** Vercel's free plan only deploys commits authored by the owner (Chandler). Collaborators push normally; their work is saved on GitHub but not live. To publish, Chandler (in his own session) pulls, reviews the new commits, and pushes a commit authored by him (e.g. "Publish <name>'s changes"), which triggers the deploy. The GitHub Action only runs on pushes by `chandlerrust-rgb`.
 - `vercel.json` sets `cleanUrls` (so `/pitch-flowchart` serves `pitch-flowchart.html`).
 - After deploying, check the live URL with a cache-busting query (e.g. `?v=123`); phones cache aggressively.
 
