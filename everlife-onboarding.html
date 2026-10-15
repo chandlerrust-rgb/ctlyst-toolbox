@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>EverLife Onboarding</title>
+<meta property="og:image" content="https://ctlyst-toolbox.vercel.app/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #2B3B38;
+    --card: #1F302B;
+    --line: #3A4D48;
+    --text: #F6F4F2;
+    --muted: #B8C3C0;
+    --dim: #8B9A96;
+    --gold: #A3B3AB;
+    --gold-hi: #C4D1CA;
+    --gold-deep: #7F918A;
+    --gold-soft: rgba(163,179,171,.13);
+    --teal: #6CC4A6;
+    --amber: #E3C27A;
+    --rose: #E89A8C;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  html { scroll-padding-top: 16px; }
+  body {
+    background: radial-gradient(120% 40% at 50% -5%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg);
+    color: var(--text); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased;
+    padding-inline: 16px;
+  }
+  a { color: var(--gold-hi); }
+  main { max-width: 760px; margin: 0 auto; padding-block: 22px 64px; display: grid; gap: 22px; }
+  .back { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .88rem; justify-self: start; }
+  .back:hover { color: var(--gold); }
+  header { display: grid; gap: 12px; }
+  .eyebrow { font: 800 .72rem/1 var(--body); letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+  h1 { font: 400 clamp(2.1rem, 8vw, 3rem)/1.04 var(--display); margin: 0; text-wrap: balance; }
+  .lede { margin: 0; color: var(--muted); font-size: 1.02rem; max-width: 62ch; }
+  .label { font: 800 .7rem/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+  .speed { margin: 0; display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; font-size: .88rem; color: var(--muted);
+    background: rgba(163,179,171,.1); border: 1px solid rgba(163,179,171,.4); }
+  .speed svg { flex: none; width: 22px; height: 22px; color: var(--gold); }
+  .speed b { color: var(--text); }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .systems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+  .systems div { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: rgba(255,255,255,.03); font-size: .85rem; color: var(--muted); }
+  .systems b { display: block; color: var(--gold); font-size: .98rem; }
+
+  .progress-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .progress-top b { font: 400 1.3rem/1 var(--display); color: var(--gold); }
+  .bar { height: 8px; border-radius: 99px; background: var(--card); border: 1px solid var(--line); overflow: hidden; margin-top: 8px; }
+  .bar div { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold-deep), var(--gold-hi)); transition: width .25s; }
+
+  .phase { display: grid; gap: 14px; }
+  .phase-head { display: grid; gap: 4px; margin-top: 8px; }
+  .phase-head .label { color: var(--gold); }
+  .phase-head h2 { font: 400 clamp(1.6rem, 6vw, 2rem)/1.1 var(--display); margin: 0; }
+
+  .step { display: grid; gap: 12px; scroll-margin-top: 16px; }
+  .step:target { border-color: var(--gold); box-shadow: inset 0 0 0 1px rgba(163,179,171,.35); }
+  .step.done { border-color: rgba(108,196,166,.5); }
+  .step-head { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; }
+  .num { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font: 400 1.4rem/1 var(--display); color: var(--gold); border: 1.5px solid var(--gold); text-decoration: none; }
+  .step.done .num { background: var(--teal); border-color: var(--teal); color: #1C2826; font: 800 1.1rem/1 var(--body); }
+  .step-head h3 { margin: 0; font-size: 1.08rem; font-weight: 800; line-height: 1.25; }
+  .step-head p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+
+  .video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #0D1412; border: 1px solid var(--line); }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .vid { display: grid; gap: 6px; }
+
+  .checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  .checklist label { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; padding: 7px 8px; border-radius: 8px; cursor: pointer; }
+  .checklist label:hover { background: rgba(255,255,255,.03); }
+  .checklist input { appearance: none; -webkit-appearance: none; margin: 2px 0 0; width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--gold-deep); background: transparent; display: grid; place-items: center; cursor: pointer; }
+  .checklist input:checked { background: var(--gold); border-color: var(--gold); }
+  .checklist input:checked::after { content: ""; width: 10px; height: 6px; border: solid #1C2826; border-width: 0 0 2.5px 2.5px; transform: translateY(-1px) rotate(-45deg); }
+  .checklist input:checked + span { color: var(--dim); text-decoration: line-through; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .chips span { font-size: .88rem; font-weight: 600; padding: 5px 10px; border-radius: 8px; background: var(--gold-soft); border: 1px solid rgba(163,179,171,.35); }
+
+  .note { padding: 10px 14px; border-radius: 10px; font-size: .9rem; border: 1px solid; }
+  .note.info { background: rgba(163,179,171,.08); border-color: rgba(163,179,171,.35); color: var(--muted); }
+  .note.warn { background: rgba(227,194,122,.08); border-color: rgba(227,194,122,.45); color: #EBD9AE; }
+  .note.stop { background: rgba(232,154,140,.09); border-color: rgba(232,154,140,.5); color: #F2C2B9; }
+
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: .9rem;
+    background: linear-gradient(180deg, var(--gold-hi), var(--gold)); color: #1C2826; box-shadow: inset 0 -2px 0 var(--gold-deep); }
+  .btn:hover { filter: brightness(1.06); }
+
+  .contact p { margin: 6px 0 0; color: var(--muted); }
+  @media (max-width: 560px) { .systems { grid-template-columns: 1fr; } .card { padding: 14px; } }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">&larr; CTLYST Toolbox</a>
+  <header>
+    <span class="eyebrow">EverLife Onboarding</span>
+    <h1>Get Started</h1>
+    <p class="lede">Do every step in order. Some steps can't start until the one before is done. Save every confirmation email, receipt, certificate and password as you go.</p>
+  </header>
+  <p class="speed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 18l7-6-7-6z"/><path d="M12 18l7-6-7-6z"/></svg><span><b>Save time:</b> watch the videos at <b>1.5×</b> or <b>2×</b> speed (⚙ Settings → Playback speed).</span></p>
+
+  <div class="card">
+    <div class="label">Which site is for what</div>
+    <div class="systems" id="systems"></div>
+  </div>
+
+  <div>
+    <div class="progress-top"><span class="label">Your progress</span><b id="count">0 / 0</b></div>
+    <div class="bar"><div id="bar"></div></div>
+  </div>
+
+  <div id="phases"></div>
+
+  <div class="card contact">
+    <div class="label">Stuck on contracting?</div>
+    <p id="contact"></p>
+  </div>
+</main>
+<script>
+  // Ported from the EverLife onboarding guide (onboarding.config.ts).
+  // NEVER put shared logins or passwords here: the page is viewable by anyone with the link.
+  const yt = id => `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&playsinline=1`;
+  const links = {
+    xcel: "https://partners.xcelsolutions.com/?partner=uncommon",
+    everlifeStudy: "https://getyourinsurancelicense.com/everlife-agency?am_id=dev1997",
+    prometricExam: "https://www.prometric.com/utah/insurance",
+    prometricFingerprint: "https://www.prometric.com/exams/insurance",
+    niprApply: "https://nipr.com/licensing-center/apply",
+    npnLookup: "https://nipr.com/licensing-center/look-up-a-national-producer-number",
+    everlifeForm: "https://docs.google.com/forms/d/e/1FAIpQLSfjOYSsCGOR2zTcciHTJ0N2Em3Wl0GINaS89M1rqYubS6MTRQ/viewform",
+    nonResidentGuide: "https://drive.google.com/file/d/11GYSq599C9oGzQ0blLOiGci4w3OcurQ-/view?usp=sharing",
+    sureLC: "https://accounts.surancebay.com/oauth/authorize?redirect_uri=https:%2F%2Fsurelc.surancebay.com%2Fproducer%2Foauth%3FreturnUrl%3D%252Fprofile%252Fcontact-info%253FgaId%253D689%2526gaId%253D689%2526phone%253D8016371314%2526upline%253DAntonio%252520Moderno%2526branch%253DEverLife%2526branchVisible%253Dtrue%2526branchEditable%253Dfalse%2526branchRequired%253Dtrue%2526autoAdd%253Dfalse%2526requestMethod%253DGET&gaId=689&client_id=surecrmweb&response_type=code",
+    sureLCGuide: "https://docs.google.com/document/d/1xyhVvtR4hYNvwdWj0Dyx-bbeXkkajbQ2h8gMZPms874/edit?tab=t.0",
+    nlc: "https://nlc.chims.uppatop.com/login",
+    groupme: "https://groupme.com/join_group/117919253/hWKYsf9K",
+    discord: "https://discord.gg/eYSEbRaFx", // invite expires 2026-11-06: replace with a non-expiring one
+    bootcamp: "https://sso.teachable.com/secure/2596213/identity/sign_up/otp",
+    workMarket: "https://www.workmarket.com/recruiting-campaign/E984995AF55FE5665C4A2E9E4E29514C2BA68B152A4218E6E96DB5EFAEADBB97",
+  };
+  const contact = { name: "Averi Johnson, Life Onboarding", email: "life.contracting@tryeverlife.com", phone: "(801) 471-5185" };
+  const systems = [
+    { name: "HCMS", use: "Your agent profile" },
+    { name: "SureLC", use: "AML, E&O, banking" },
+    { name: "NLC", use: "Request & track carriers" },
+  ];
+
+  const PHASES = [
+    {
+      title: "Get Licensed",
+      steps: [
+        {
+          title: "Complete Your Pre-Licensing Course",
+          summary: "Required before you can schedule the state exam.",
+          checklist: [
+            "Open Xcel Solutions and enter promo code Uncommon",
+            "Click State Requirements → pick your resident state → follow Steps 1–4",
+            "Confirm Life + Health or Life-only (ask your upline if unsure)",
+            "Click Find Courses, buy the course, finish it and study",
+            "Join the EverLife Discord (The Starters)",
+            "Join First 90 Days Training (GroupMe)",
+          ],
+          notes: [{ tone: "info", text: "Alternative: EverLife's own study portal (link below) works too." }],
+          links: [
+            { label: "Xcel Solutions", href: links.xcel },
+            { label: "EverLife study portal", href: links.everlifeStudy },
+            { label: "Join the EverLife Discord", href: links.discord },
+            { label: "Join First 90 Days Training", href: links.groupme },
+          ],
+          videoUrl: yt("45tsouE8x7w"),
+        },
+        {
+          title: "Schedule & Pass Your State Exam",
+          summary: "Producers Combined Life, Accident & Health exam (remote).",
+          checklist: [
+            "Prometric → Remote Exam → Schedule → Next",
+            "Pre-approved testing accommodations: No",
+            "Pick Producers Combined Life, Accident, and Health Exam",
+            "Choose a date and check out",
+            "Pass and save your score report",
+          ],
+          notes: [{ tone: "info", text: "Outside Utah? Follow your state's exam steps under State Requirements in Xcel." }],
+          links: [{ label: "Prometric (Utah)", href: links.prometricExam }],
+          videos: [
+            { title: "Study guide: Life Insurance Exam (comprehensive)", url: yt("dLqOihvtKR4") },
+            { title: "Study guide: Utah Life Insurance Exam (state-specific)", url: yt("tAquZru1VX0") },
+          ],
+        },
+        {
+          title: "Fingerprints (if your state requires them)",
+          summary: "Get these done before you apply for your license in the next step.",
+          checklist: [
+            "Prometric → Test Center Exam → Schedule → Next",
+            "No accommodations → test option: Fingerprint",
+            "Enter your zip, pick a location and date, check out",
+          ],
+          notes: [{ tone: "warn", text: "If the fingerprint site asks for your NIPR application receipt, do step 4 first, then bring the receipt to your appointment." }],
+          links: [{ label: "Prometric fingerprinting", href: links.prometricFingerprint }],
+        },
+        {
+          title: "Apply for Your Resident License (NIPR)",
+          summary: "Submit your Individual Producer application.",
+          checklist: [
+            "Apply for an insurance license → Start now → Individual",
+            "Search by SSN: last name, SSN, date of birth → Start",
+            "Producer Licensing · Initial · Resident",
+            "Pick your resident state",
+            "Check Accident & Health or Sickness and Life. Leave everything else blank",
+            "Next → follow the prompts → check out",
+          ],
+          links: [{ label: "NIPR application", href: links.niprApply }],
+        },
+        {
+          title: "Get Your NPN",
+          summary: "Your National Producer Number usually shows up 1–3 days after you pass.",
+          checklist: [
+            "NIPR NPN lookup → Individual SSN → enter your info",
+            "Check daily until it appears",
+            "Send your NPN to your upline right away",
+          ],
+          links: [{ label: "NPN lookup", href: links.npnLookup }],
+        },
+      ],
+    },
+    {
+      title: "EverLife Setup",
+      steps: [
+        {
+          title: "Submit the EverLife Onboarding Form",
+          summary: "Do this once you have your NPN. It gets you your EverLife email and starts contracting.",
+          checklist: [
+            "Fill out and submit the EverLife onboarding / contracting request form",
+            "Watch for your Google Workspace invite (24–48 hrs). Check spam",
+            "Activate it within 24 hours: firstname.lastname@tryeverlife.com",
+            "Sign the contracting packet sent through Adobe Sign",
+          ],
+          notes: [{ tone: "warn", text: "Use your EverLife email for ALL contracting. Never a personal email." }],
+          links: [{ label: "EverLife onboarding form", href: links.everlifeForm }],
+          videoUrl: yt("LDDigpI9RoU"),
+        },
+        {
+          title: "Buy Your Non-Resident States",
+          summary: "Buy the states you want to sell in BEFORE contracting, so carriers appoint you in all of them.",
+          checklist: ["Buy the priority states on NIPR", "Add more until you have at least 10 states active"],
+          lists: [
+            { title: "Priority", items: ["Your resident state", "Texas", "Florida", "California", "Georgia", "North Carolina", "Ohio", "Pennsylvania", "Michigan", "Arizona", "Tennessee"] },
+            { title: "Also recommended", items: ["Alabama", "Arkansas", "Illinois", "Indiana", "Kentucky", "Louisiana", "Missouri", "South Carolina", "Utah", "Virginia"] },
+          ],
+          links: [
+            { label: "Non-resident walkthrough", href: links.nonResidentGuide },
+            { label: "Which states? (guide)", href: "/state-licensing" },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Contracting",
+      steps: [
+        {
+          title: "HCMS Profile (Family First Life)",
+          summary: "Your main agent profile. You'll use this login a lot.",
+          checklist: [
+            "Open the email \"Family First Life (FFL) – Onboarding for New Agent\"",
+            "Fill out everything and SAVE YOUR PASSWORD",
+            "Verify the \"Onboarding Completed\" email that follows",
+          ],
+          notes: [{ tone: "stop", text: "Do NOT go to NLC yet when it prompts you. Log out and do SureLC first." }],
+          links: [],
+          videoUrl: yt("fZyvgBRzWv4"),
+        },
+        {
+          title: "SureLC (AML, E&O, Banking)",
+          summary: "Ignore the link in SureLC's own email. Register through the EverLife link below.",
+          checklist: [
+            "Register a new account with your EverLife email. Save the password",
+            "Fill every section. No blank fields, no red dots left",
+            "DBA: Licensed Only Agent → select your upline under Solicitor For",
+            "Bank info + upload a voided check or direct deposit form",
+            "Buy E&O insurance (Plan A)",
+            "Do the FREE SuranceBay AML training (other AML courses can be rejected)",
+            "Answer all questions honestly and upload documents",
+            "Add 5 years of employment history, through CURRENT",
+            "Draw your full legal signature. No typing, initials or DocuSign",
+            "Request contracts with all carriers",
+            "Sign up for the UIG mailing list (link in your onboarding email)",
+          ],
+          notes: [
+            { tone: "info", text: "Add contracts@surancebay.com to safe senders and answer correction requests fast." },
+            { tone: "info", text: "EMC National (term) also needs a background check from customer_service@accurate.com after you submit." },
+          ],
+          links: [
+            { label: "EverLife SureLC registration", href: links.sureLC },
+            { label: "Detailed SureLC guide", href: links.sureLCGuide },
+          ],
+        },
+        {
+          title: "NLC (Request & Sign Carriers)",
+          summary: "Same login as HCMS. Many questions repeat from SureLC. That's normal; both are required.",
+          checklist: [
+            "Banking: choose DAILY pay",
+            "E&O: upload the policy you bought in SureLC",
+            "Training: blue Add button → upload your SureLC AML certificate",
+            "Questions: #58 → YES and attach your AML certificate",
+            "Blue + (top left) → New Contracting → add each carrier with ALL products and ALL states",
+            "Training tab: check AML → Add to Request → Next",
+            "Documents: nothing to upload → Next",
+            "Each contract: Read and Review → check I agree → Next, until every tab turns green",
+            "E-signature: texted code + your HCMS password",
+          ],
+          lists: [
+            { title: "Carriers to request", items: ["Americo", "Aflac", "American Amicable", "Corebridge", "Ethos", "Foresters", "Mutual of Omaha", "Occidental", "Transamerica"] },
+          ],
+          links: [{ label: "NLC login", href: links.nlc }],
+          videoUrl: yt("1Owej7xF4Ao"),
+        },
+        {
+          title: "Do Both Bootcamps While You Wait",
+          summary: "Contracting takes time. Use it: finish both EverLife bootcamps before you're cleared to sell.",
+          checklist: ["Sign up for the bootcamps on Teachable", "Complete bootcamp 1", "Complete bootcamp 2"],
+          links: [{ label: "EverLife Bootcamps", href: links.bootcamp }],
+        },
+        {
+          title: "Send In Your Writing Numbers",
+          summary: "Keep HCMS current at all times.",
+          checklist: ["Each time a carrier sends a writing number / agent code, email it to Life Onboarding right away"],
+          links: [{ label: "Email Life Onboarding", href: `mailto:${contact.email}` }],
+        },
+      ],
+    },
+    {
+      title: "Get Paid & Ready to Sell",
+      steps: [
+        {
+          title: "Set Up WorkMarket (Commission Pay)",
+          summary: "How EverLife pays your commissions. Register once contracting is underway.",
+          checklist: ["Register through the EverLife WorkMarket link"],
+          links: [{ label: "WorkMarket registration", href: links.workMarket }],
+        },
+        {
+          title: "Ready to Sell (RTS)",
+          summary: "You're cleared to sell when all of these are true.",
+          checklist: [
+            "10+ states active",
+            "3+ carrier appointments active",
+            "All contracting and certifications complete",
+            "Confirmation that you're approved to sell",
+            "Quoting tool (Insurance Toolkits) login received from your upline",
+          ],
+          notes: [{ tone: "stop", text: "Don't quote, solicit or submit business for a carrier or state until that appointment is active." }],
+          links: [],
+          videoUrl: yt("q6IFw6kUpmk"),
+        },
+      ],
+    },
+    {
+      title: "Start Selling",
+      steps: [
+        {
+          title: "Pitch Walkthrough",
+          summary: "Learn the shape of a sale before you memorize any words. Every call follows the same path.",
+          checklist: [
+            "Read the pitch flowchart top to bottom",
+            "Say the intro and the fact-find out loud 10 times",
+            "Role-play a full call with your upline",
+            "Read the objections page and practice the top 5",
+          ],
+          links: [
+            { label: "Pitch flowchart", href: "/guides/pitch-flowchart" },
+            { label: "Objections & word tracks", href: "/guides/objections" },
+          ],
+        },
+        {
+          title: "Practice E-Apps",
+          summary: "A fumbled application loses sales you already closed. Run a practice app on every carrier until you can do it without thinking.",
+          checklist: [
+            "Run a practice e-app on each carrier you're appointed with (use the carrier's training or demo mode)",
+            "Time yourself: aim for under 15 minutes per app",
+            "Save a cheat sheet of each carrier's health questions and knockout conditions",
+            "Practice taking bank details and beneficiary info smoothly out loud",
+            "Do one practice app with your upline playing the client",
+          ],
+          links: [],
+        },
+        {
+          title: "Wingmans",
+          summary: "Learn by watching, then by doing with backup. A wingman sits in on live calls so you see real sales before you run your own.",
+          checklist: [
+            "Listen in on 10 live calls with a top closer",
+            "Write down the 3 best lines you heard on each call",
+            "Run 5 calls yourself with a closer listening in",
+            "Debrief after every call: what worked, where you lost control",
+            "Go solo once a closer signs off",
+          ],
+          links: [],
+        },
+        {
+          title: "Leads & Automation",
+          summary: "Buy leads with a plan, work every one fast, and let automation handle follow-up.",
+          checklist: [
+            "Plan your weekly budget in the Lead Spend Planner",
+            "Pick 1–2 lead sources to start (see the Lead Sources Guide)",
+            "Connect lead delivery straight into your CRM",
+            "Set up auto-text and email when a new lead comes in",
+            "Build a follow-up cadence for no-answers (call + text, days 1, 2, 4, 7)",
+          ],
+          links: [
+            { label: "Lead Spend Planner", href: "/lead-spend-planner" },
+            { label: "Lead Sources Guide", href: "/guides/lead-sources" },
+          ],
+        },
+      ],
+    },
+  ];
+
+  // Progress is saved in this browser only.
+  const KEY = "everlife-onboarding-v1";
+  let done = {};
+  try { done = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) {}
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} };
+
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const frame = (url, title) => `<div class="video"><iframe src="${esc(url)}" title="${esc(title)}" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`;
+
+  document.getElementById("systems").innerHTML = systems.map(s => `<div><b>${esc(s.name)}</b>${esc(s.use)}</div>`).join("");
+  document.getElementById("contact").innerHTML = `${esc(contact.name)} · <a href="mailto:${esc(contact.email)}">${esc(contact.email)}</a> · ${esc(contact.phone)}`;
+
+  const all = PHASES.flatMap(p => p.steps);
+  const ids = all.flatMap((s, i) => s.checklist.map((_, j) => `${i}-${j}`));
+
+  let n = 0;
+  document.getElementById("phases").innerHTML = PHASES.map((p, pi) => `
+    <section class="phase">
+      <div class="phase-head"><span class="label">Phase ${pi + 1}</span><h2>${esc(p.title)}</h2></div>
+      ${p.steps.map(s => {
+        const i = n++;
+        const videos = (s.videoUrl ? `<div class="vid"><div class="label">Chan's walkthrough video</div>${frame(s.videoUrl, s.title)}</div>` : "")
+          + (s.videos || []).map(v => `<div class="vid"><div class="label">${esc(v.title)}</div>${frame(v.url, v.title)}</div>`).join("");
+        const checks = `<ul class="checklist">${s.checklist.map((item, j) =>
+          `<li><label><input type="checkbox" data-id="${i}-${j}"${done[`${i}-${j}`] ? " checked" : ""}><span>${esc(item)}</span></label></li>`).join("")}</ul>`;
+        const lists = (s.lists || []).map(l => `<div><div class="label">${esc(l.title)}</div><div class="chips">${l.items.map(it => `<span>${esc(it)}</span>`).join("")}</div></div>`).join("");
+        const notes = (s.notes || []).map(note => `<div class="note ${note.tone}">${esc(note.text)}</div>`).join("");
+        const btns = s.links.length ? `<div class="links">${s.links.map(l => {
+          const external = !l.href.startsWith("/");
+          const blank = external && !l.href.startsWith("mailto:") ? ' target="_blank" rel="noopener noreferrer"' : "";
+          return `<a class="btn" href="${esc(l.href)}"${blank}>${esc(l.label)} ${external ? "↗" : "→"}</a>`;
+        }).join("")}</div>` : "";
+        return `<section class="card step" id="${i + 1}" data-step="${i}">
+          <div class="step-head"><a class="num" href="#${i + 1}" aria-label="Step ${i + 1}">${i + 1}</a><div><h3>${esc(s.title)}</h3><p>${esc(s.summary)}</p></div></div>
+          ${videos}${checks}${lists}${notes}${btns}
+        </section>`;
+      }).join("")}
+    </section>`).join("");
+
+  function update() {
+    const complete = ids.filter(id => done[id]).length;
+    document.getElementById("count").textContent = `${complete} / ${ids.length}`;
+    document.getElementById("bar").style.width = `${ids.length ? (complete / ids.length) * 100 : 0}%`;
+    all.forEach((s, i) => {
+      const el = document.querySelector(`[data-step="${i}"]`);
+      const stepDone = s.checklist.every((_, j) => done[`${i}-${j}`]);
+      el.classList.toggle("done", stepDone);
+      el.querySelector(".num").textContent = stepDone ? "✓" : i + 1;
+    });
+  }
+  document.getElementById("phases").addEventListener("change", e => {
+    const id = e.target.dataset && e.target.dataset.id;
+    if (!id) return;
+    done[id] = e.target.checked;
+    save();
+    update();
+  });
+  update();
+
+  // Steps are rendered by script, so jump to /everlife-onboarding#N once they exist.
+  function jump() {
+    const el = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (el) el.scrollIntoView();
+  }
+  addEventListener("hashchange", jump);
+  jump();
+</script>
+</body>
+</html>

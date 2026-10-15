@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Pitch Flowchart</title>
+<meta property="og:image" content="https://ctlyst-toolbox.vercel.app/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #2B3B38;
+    --card: #1F302B;
+    --line: #3A4D48;
+    --text: #F6F4F2;
+    --muted: #B8C3C0;
+    --dim: #8B9A96;
+    --gold: #A3B3AB;
+    --gold-soft: rgba(163,179,171,.13);
+    --teal: #6CC4A6;
+    --amber: #94A99F;
+    --rose: #E89A8C;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body {
+    background: radial-gradient(120% 40% at 50% -5%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg);
+    color: var(--text); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased;
+    padding-inline: 18px; overflow-wrap: anywhere;
+  }
+  main { max-width: 760px; margin: 0 auto; padding-block: 24px 64px; display: grid; gap: 28px; }
+  .back { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .88rem; }
+  .back:hover { color: var(--gold); }
+  header { display: grid; gap: 14px; }
+  h1 { font: 400 clamp(2.1rem, 8vw, 3rem)/1.04 var(--display); margin: 0; text-wrap: balance; }
+  h2 { margin: 0; font-size: 1.08rem; font-weight: 800; line-height: 1.25; }
+  h3 { margin: 0; font-size: 1rem; font-weight: 800; line-height: 1.3; }
+  a { color: var(--gold); }
+  .why { margin: 0; color: var(--muted); font-size: 1.02rem; max-width: 60ch; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .num { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font: 400 1.15rem/1 var(--display); color: var(--gold); border: 1.5px solid var(--gold); }
+  .tag { display: inline-flex; align-items: center; font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; border: 1px solid rgba(163,179,171,.5); color: var(--gold); white-space: nowrap; }
+
+  .gsec { display: grid; gap: 12px; }
+  .gsec > h2 { font-size: 1.15rem; }
+  .card p { margin: 0; }
+  .glist { margin: 0; padding: 16px 18px 16px 38px; display: grid; gap: 8px; }
+  .glist li::marker { color: var(--gold); font-weight: 800; }
+  .gcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 10px; }
+  .gcards .card { display: grid; gap: 8px; align-content: start; }
+  .gcards .card .tag { justify-self: start; }
+  .gcards p, .flow p { color: var(--muted); font-size: .94rem; }
+  .flow { display: grid; }
+  .fstep { position: relative; padding: 0 0 12px 30px; }
+  .fstep::before { content: ""; position: absolute; left: 5px; top: 22px; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft); }
+  .fstep:not(:last-child)::after { content: ""; position: absolute; left: 10px; top: 40px; bottom: -4px; width: 2px; background: var(--line); }
+  .fstep .card { display: grid; gap: 6px; }
+  .branch { margin-top: 4px; font-size: .86rem; color: var(--teal); padding-left: 12px; border-left: 2px solid rgba(108,196,166,.4); }
+
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="back" href="/">&larr; CTLYST Toolbox</a>
+    <h1>Pitch Flowchart</h1>
+    <p class="why">Every call follows the same path. Know where you are on the map and you'll never get lost, even if the words come out different every time.</p>
+  </header>
+  <section class="gsec">
+    <h2>The phone call, start to finish</h2>
+    <div class="flow"><div class="fstep"><div class="card"><h3>1. Intro &amp; reason for the call</h3><p>Say who you are and why you're calling: they asked for information about coverage. Smile, slow down, and use their name.</p><div class="branch">&#8627; Doesn't remember filling it out → remind them what they asked for and when</div><div class="branch">&#8627; Bad time → book a specific callback time, don't just say &quot;later&quot;</div></div></div>
+<div class="fstep"><div class="card"><h3>2. Set the agenda</h3><p>Tell them how the call will go: a few questions, look at options together, and they decide. People relax when they know the plan.</p></div></div>
+<div class="fstep"><div class="card"><h3>3. Fact-find: the why</h3><p>Why did they reach out? Who would be left with the bills? What would happen if they passed tomorrow? Let them tell the story. This is the most important step.</p><div class="branch">&#8627; Short answers → ask &quot;what made you look into this now?&quot; and wait</div></div></div>
+<div class="fstep"><div class="card"><h3>4. Health &amp; lifestyle questions</h3><p>Age, height and weight, tobacco, medications and conditions. This tells you which carriers and products they qualify for.</p><div class="branch">&#8627; Serious health history → guaranteed or graded options, and set expectations honestly</div></div></div>
+<div class="fstep"><div class="card"><h3>5. Budget &amp; coverage amount</h3><p>Agree on what the coverage needs to do (final expenses, the mortgage, income replacement) and a monthly amount that's comfortable, not a stretch.</p></div></div>
+<div class="fstep"><div class="card"><h3>6. Present options</h3><p>Show 2–3 options, good, better and best, from the carriers they qualify for. Recommend one and explain why in plain words.</p><div class="branch">&#8627; Objection → go to Objections &amp; Word Tracks, then come back here</div></div></div>
+<div class="fstep"><div class="card"><h3>7. Close &amp; application</h3><p>Ask for the decision directly. Then fill out the e-app together: beneficiary, health questions, payment date that lines up with their income.</p></div></div>
+<div class="fstep"><div class="card"><h3>8. Lock it in</h3><p>Explain what happens next (underwriting, the welcome call, the policy in the mail). Ask for referrals while the good feeling is fresh.</p></div></div></div>
+  </section>
+  <section class="gsec">
+    <h2>Rules of the road</h2>
+    <ul class="card glist"><li>Never skip the fact-find. Without a why, every price sounds too high.</li><li>Ask, then stop talking. Silence is where the real answers come from.</li><li>Only recommend what you'd put your own family in.</li><li>Tell the truth about health questions. Misstated apps get denied at claim time, and that's the worst outcome for the family.</li></ul>
+  </section>
+</main>
+</body>
+</html>

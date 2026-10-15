@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>EverLife Comp Plan</title>
+<!-- EverLife marks this "confidential & proprietary": keep it out of search results (noindex). -->
+<meta property="og:image" content="https://ctlyst-toolbox.vercel.app/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #2B3B38;
+    --card: #1F302B;
+    --line: #3A4D48;
+    --text: #F6F4F2;
+    --muted: #B8C3C0;
+    --dim: #8B9A96;
+    --gold: #A3B3AB;
+    --gold-soft: rgba(163,179,171,.13);
+    --teal: #6CC4A6;
+    --amber: #94A99F;
+    --rose: #E89A8C;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+    --brand: #445C58;
+    --brand-soft: rgba(68,92,88,.45);
+    --field: #17251F;
+    --line-strong: #56706A;
+    --on-gold: #1C2826;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: radial-gradient(120% 40% at 50% -5%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg);
+    color: var(--text); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased;
+    padding-inline: 18px;
+  }
+  main { max-width: 760px; margin: 0 auto; padding-block: 24px 64px; display: grid; gap: 28px; }
+  main > * { min-width: 0; }
+  a { color: inherit; }
+  .back { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .88rem; }
+  .back:hover { color: var(--gold); }
+  header { display: grid; gap: 14px; }
+  h1 { font: 400 clamp(2.1rem, 8vw, 3rem)/1.04 var(--display); margin: 0; text-wrap: balance; }
+  h1 em { color: var(--gold); }
+  h2 { font-size: 1.08rem; font-weight: 800; line-height: 1.25; margin: 0 0 10px; }
+  h3 { font-size: 1rem; font-weight: 800; margin: 0 0 10px; }
+  .lede { margin: 0; color: var(--muted); font-size: 1.02rem; max-width: 62ch; }
+  .lede b { color: var(--text); }
+  .sec { display: grid; gap: 14px; }
+  .sec > * { min-width: 0; }
+  .sec-h { font: 400 1.6rem/1.15 var(--display); margin: 0; }
+  .sub { margin: -6px 0 0; color: var(--muted); font-size: .85rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; min-width: 0; }
+  .label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 800; }
+  .disclaimer { color: var(--muted); font-size: .82rem; margin: 0; }
+  .disclaimer a { color: var(--gold); }
+  .muted { color: var(--muted); }
+  .num { font-variant-numeric: tabular-nums; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 10px; background: var(--gold); color: var(--on-gold); text-decoration: none; font: 700 .85rem/1.2 var(--body); border: 1px solid var(--gold); cursor: pointer; justify-self: start; }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: rgba(255,255,255,.04); color: var(--text); border-color: var(--line); }
+  .btn.ghost:hover { border-color: var(--gold); filter: none; }
+  .note { font-size: .85rem; padding: 10px 14px; border-radius: 10px; margin: 0; }
+  .note.warn { background: var(--gold-soft); color: var(--gold); border: 1px solid rgba(163,179,171,.3); }
+
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  th, td { padding: 7px 8px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { color: var(--muted); font-weight: 700; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+  tr.total td { font-weight: 800; color: var(--gold); border-bottom: 0; }
+  td small { color: var(--dim); }
+
+  .seg { display: inline-flex; flex-wrap: wrap; gap: 2px; background: var(--field); border: 1px solid var(--line); border-radius: 10px; padding: 3px; max-width: 100%; }
+  .seg button { background: none; border: 0; color: var(--muted); font: 600 .8rem/1.2 var(--body); padding: 7px 12px; border-radius: 7px; cursor: pointer; }
+  .seg button:hover { color: var(--text); }
+  .seg button.on { background: var(--gold); color: var(--on-gold); font-weight: 800; }
+
+  .calc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 14px; align-items: start; }
+  .calc > * { min-width: 0; }
+  .calc-carriers { display: grid; gap: 6px; }
+  .calc-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .88rem; margin-bottom: 6px; }
+  .calc-row > span:first-child { min-width: 0; }
+  .calc-row small { color: var(--muted); margin-left: 4px; }
+  .money-input { display: flex; align-items: center; gap: 2px; background: var(--field); border: 1px solid var(--line); border-radius: 9px; padding: 0 10px; color: var(--muted); width: 132px; flex: none; }
+  .money-input:focus-within { border-color: var(--gold); }
+  .money-input input, select.money-input { background: none; border: 0; color: var(--text); font: 700 .95rem/1.2 var(--body); padding: 7px 2px; width: 100%; min-width: 0; outline: none; text-align: right; }
+  select.money-input { padding: 7px 10px; background: var(--field); border: 1px solid var(--line); text-align: left; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+  .stat .v { font-size: 1.4rem; font-weight: 800; margin-top: 2px; letter-spacing: -.02em; }
+  .stat .s { color: var(--muted); font-size: .75rem; margin-top: 2px; }
+  .stat.hero { grid-column: 1 / -1; background: var(--brand-soft); border-color: rgba(163,179,171,.45); padding: 18px; }
+  .stat.hero .v { font: 400 2.5rem/1.1 var(--display); color: var(--text); }
+  .stack { display: grid; gap: 12px; }
+  .stack > * { min-width: 0; }
+  .slider-top { display: flex; justify-content: space-between; font-size: .88rem; margin-bottom: 4px; }
+  input[type=range] { width: 100%; accent-color: var(--gold); }
+
+  .bonus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+  .bonus-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bonus-grid h3 small { color: var(--muted); font-weight: 500; font-size: .75rem; margin-left: 4px; }
+  .bonus-grid .disclaimer { margin-bottom: 8px; }
+  .card p.how { margin: 0; color: var(--muted); font-size: .88rem; }
+
+  .flow-diagram { display: flex; align-items: stretch; }
+  .fd-item { display: flex; align-items: center; flex: 1; min-width: 0; }
+  .fd-box { flex: 1; min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 4px; min-height: 92px; justify-content: center; }
+  .fd-box b { font-size: .85rem; }
+  .fd-box span { font-size: .75rem; color: var(--muted); }
+  .fd-box.start { border-color: rgba(163,179,171,.45); background: var(--brand-soft); }
+  .fd-box.end { border-color: rgba(163,179,171,.5); background: var(--gold-soft); }
+  .fd-box.end b { color: var(--gold); }
+  .fd-arrow { flex: none; width: 62px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 4px; }
+  .fd-arrow em { font-style: normal; font-size: .68rem; font-weight: 700; color: var(--gold); text-align: center; line-height: 1.2; }
+  .fd-arrow i { width: 100%; height: 2px; background: var(--line-strong); position: relative; }
+  .fd-arrow i::after { content: ""; position: absolute; right: -1px; top: -4px; border: 5px solid transparent; border-left: 7px solid var(--line-strong); border-right: 0; }
+
+  .ex { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 16px; font-size: .88rem; }
+  .ex > div { display: contents; }
+  .ex dt { color: var(--muted); }
+  .ex dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+  .ex .ex-total dt, .ex .ex-total dd { color: var(--gold); font-weight: 800; padding-top: 6px; border-top: 1px solid var(--line); }
+
+  .video { position: relative; padding-top: 56.25%; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .va-list { margin: 0; padding-left: 18px; font-size: .88rem; display: grid; gap: 6px; color: var(--muted); }
+  .va-list.good li::marker { color: var(--teal); }
+
+  @media (max-width: 720px) {
+    .calc, .bonus-grid, .bonus-grid.two { grid-template-columns: minmax(0, 1fr); }
+    .flow-diagram { flex-direction: column; }
+    .fd-item { flex-direction: column; align-items: stretch; }
+    .fd-box { min-height: 0; }
+    .fd-arrow { width: auto; flex-direction: row; justify-content: center; padding: 6px 0; }
+    .fd-arrow i { width: 2px; height: 18px; order: -1; }
+    .fd-arrow i::after { right: -4px; top: auto; bottom: -2px; border: 5px solid transparent; border-top: 7px solid var(--line-strong); border-bottom: 0; }
+  }
+  @media (max-width: 420px) {
+    .money-input { width: 118px; }
+    .stat.hero .v { font-size: 2.1rem; }
+    .ex { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+  }
+
+  .comp-legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: .82rem; color: var(--muted); }
+  .comp-legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .dot.personal { background: var(--teal); }
+  .dot.team { background: var(--gold); }
+  .ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .rung { display: grid; grid-template-columns: 88px minmax(0, 1fr); align-items: center; gap: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; }
+  .rung-level { font: 400 1.9rem/1 var(--display); color: var(--gold); }
+  .rung-reqs { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; }
+  .req { color: var(--muted); font-size: .88rem; }
+  .req b { font-size: 1.2rem; letter-spacing: -.02em; margin-right: 4px; }
+  .req.personal b { color: var(--teal); }
+  .req.team b { color: var(--text); }
+  .or { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+  .rung-directs { font-size: .82rem; color: var(--gold); margin-top: 4px; }
+  .rung.start { background: var(--brand-soft); border-color: rgba(163,179,171,.45); }
+  .rung-start { font-weight: 800; }
+  .comp-rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .comp-rules .card { font-size: .88rem; border-left: 3px solid var(--gold); }
+  .comp-bonus { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .bonus-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: .88rem; color: var(--muted); }
+  .bonus-row b { color: var(--gold); font-size: 1.05rem; }
+  @media (max-width: 640px) {
+    .rung { grid-template-columns: 64px minmax(0, 1fr); padding: 12px 14px; gap: 12px; }
+    .rung-level { font-size: 1.5rem; }
+    .req b { font-size: 1.05rem; }
+    .comp-rules, .comp-bonus { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="back" href="/">&larr; CTLYST Toolbox</a>
+    <h1>EverLife <em>Comp Plan</em></h1>
+    <p class="lede">Your contract level and how to move up. Hit the production for a level two months in a row and you&rsquo;re promoted to it.</p>
+    <a class="btn" href="/everlife/everlife-comp-plan.pdf" download>Download the comp plan (PDF) &darr;</a>
+  </header>
+
+  <section class="sec">
+    <div class="comp-legend">
+      <span><i class="dot personal"></i> Personal issued premium</span>
+      <span><i class="dot team"></i> Team issued premium</span>
+    </div>
+    <ol class="ladder">
+    <li class="rung"><div class="rung-level num">145%</div><div class="rung-body"><div class="rung-reqs"><span class="req team"><b class="num">$2,000,000</b> team</span></div><div class="rung-directs">15 direct agents each issue paying $25K+ a month</div></div></li>
+    <li class="rung"><div class="rung-level num">135%</div><div class="rung-body"><div class="rung-reqs"><span class="req team"><b class="num">$1,500,000</b> team</span></div><div class="rung-directs">15 direct agents each issue paying $25K+ a month</div></div></li>
+    <li class="rung"><div class="rung-level num">130%</div><div class="rung-body"><div class="rung-reqs"><span class="req team"><b class="num">$1,000,000</b> team</span></div><div class="rung-directs">15 direct agents each issue paying $25K+ a month</div></div></li>
+    <li class="rung"><div class="rung-level num">125%</div><div class="rung-body"><div class="rung-reqs"><span class="req team"><b class="num">$750,000</b> team</span></div><div class="rung-directs">15 direct agents each issue paying $25K+ a month</div></div></li>
+    <li class="rung"><div class="rung-level num">120%</div><div class="rung-body"><div class="rung-reqs"><span class="req team"><b class="num">$450,000</b> team</span></div><div class="rung-directs">10 direct agents each issue paying $25K+ a month</div></div></li>
+    <li class="rung"><div class="rung-level num">115%</div><div class="rung-body"><div class="rung-reqs"><span class="req team"><b class="num">$250,000</b> team</span></div><div class="rung-directs">5 direct agents each issue paying $25K+ a month</div></div></li>
+    <li class="rung"><div class="rung-level num">110%</div><div class="rung-body"><div class="rung-reqs"><span class="req personal"><b class="num">$60,000</b> personal</span><span class="or">or</span><span class="req team"><b class="num">$150,000</b> team</span></div></div></li>
+    <li class="rung"><div class="rung-level num">105%</div><div class="rung-body"><div class="rung-reqs"><span class="req personal"><b class="num">$50,000</b> personal</span><span class="or">or</span><span class="req team"><b class="num">$100,000</b> team</span></div></div></li>
+    <li class="rung"><div class="rung-level num">100%</div><div class="rung-body"><div class="rung-reqs"><span class="req personal"><b class="num">$40,000</b> personal</span></div></div></li>
+    <li class="rung"><div class="rung-level num">95%</div><div class="rung-body"><div class="rung-reqs"><span class="req personal"><b class="num">$30,000</b> personal</span></div></div></li>
+    <li class="rung"><div class="rung-level num">90%</div><div class="rung-body"><div class="rung-reqs"><span class="req personal"><b class="num">$25,000</b> personal</span></div></div></li>
+    <li class="rung"><div class="rung-level num">85%</div><div class="rung-body"><div class="rung-reqs"><span class="req personal"><b class="num">$15,000</b> personal</span></div></div></li>
+    <li class="rung start"><div class="rung-level num">80%</div><div class="rung-body"><div class="rung-start">New Agent: everyone starts here</div><div class="rung-reqs"></div></div></li>
+    </ol>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-h">Qualification rules</h2>
+    <div class="comp-rules">
+      <div class="card">Must hit production requirements for 2 consecutive months</div>
+      <div class="card">Tiers cannot be skipped</div>
+      <div class="card">Promotions are reviewed monthly</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-h">Monthly agent bonus</h2>
+    <p class="sub">Based on monthly issued paid life volume.</p>
+    <div class="comp-bonus">
+      <div class="bonus-row num"><span>$20K in life</span><b>$650</b></div>
+      <div class="bonus-row num"><span>$30K in life</span><b>$1,200</b></div>
+      <div class="bonus-row num"><span>$40K in life</span><b>$1,600</b></div>
+      <div class="bonus-row num"><span>$50K in life</span><b>$2,000</b></div>
+      <div class="bonus-row num"><span>$75K in life</span><b>$4,000</b></div>
+      <div class="bonus-row num"><span>$100K in life</span><b>$8,000</b></div>
+      <div class="bonus-row num"><span>$125K in life</span><b>$10,000</b></div>
+      <div class="bonus-row num"><span>$150K in life</span><b>$15,000</b></div>
+      <div class="bonus-row num"><span>$200K in life</span><b>$20,000</b></div>
+    </div>
+    <p class="disclaimer">Bonus eligibility requires the agent to be in good standing at the time of payout. EverLife may withhold or apply bonus funds toward any unpaid lead costs, carrier balances, licensing fees, or other amounts owed to the company. Bonus volume is tracked on a calendar-month basis, with $650 as the minimum qualifying payout.</p>
+  </section>
+
+  <p class="disclaimer"><a href="/everlife/comp-plan.jpg" target="_blank" rel="noopener noreferrer">View the original EverLife graphic &nearr;</a> &middot; <a href="/everlife/everlife-comp-plan.pdf" download>Download as PDF &darr;</a></p>
+</main>
+
+</body>
+</html>

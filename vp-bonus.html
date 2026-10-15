@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>FFL VP Bonus Program</title>
+<meta property="og:image" content="https://ctlyst-toolbox.vercel.app/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #2B3B38;
+    --card: #1F302B;
+    --line: #3A4D48;
+    --text: #F6F4F2;
+    --muted: #B8C3C0;
+    --dim: #8B9A96;
+    --gold: #A3B3AB;
+    --gold-soft: rgba(163,179,171,.13);
+    --teal: #6CC4A6;
+    --amber: #94A99F;
+    --rose: #E89A8C;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+    --brand: #445C58;
+    --brand-soft: rgba(68,92,88,.45);
+    --field: #17251F;
+    --line-strong: #56706A;
+    --on-gold: #1C2826;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: radial-gradient(120% 40% at 50% -5%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg);
+    color: var(--text); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased;
+    padding-inline: 18px;
+  }
+  main { max-width: 760px; margin: 0 auto; padding-block: 24px 64px; display: grid; gap: 28px; }
+  main > * { min-width: 0; }
+  a { color: inherit; }
+  .back { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .88rem; }
+  .back:hover { color: var(--gold); }
+  header { display: grid; gap: 14px; }
+  h1 { font: 400 clamp(2.1rem, 8vw, 3rem)/1.04 var(--display); margin: 0; text-wrap: balance; }
+  h1 em { color: var(--gold); }
+  h2 { font-size: 1.08rem; font-weight: 800; line-height: 1.25; margin: 0 0 10px; }
+  h3 { font-size: 1rem; font-weight: 800; margin: 0 0 10px; }
+  .lede { margin: 0; color: var(--muted); font-size: 1.02rem; max-width: 62ch; }
+  .lede b { color: var(--text); }
+  .sec { display: grid; gap: 14px; }
+  .sec > * { min-width: 0; }
+  .sec-h { font: 400 1.6rem/1.15 var(--display); margin: 0; }
+  .sub { margin: -6px 0 0; color: var(--muted); font-size: .85rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; min-width: 0; }
+  .label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 800; }
+  .disclaimer { color: var(--muted); font-size: .82rem; margin: 0; }
+  .disclaimer a { color: var(--gold); }
+  .muted { color: var(--muted); }
+  .num { font-variant-numeric: tabular-nums; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 10px; background: var(--gold); color: var(--on-gold); text-decoration: none; font: 700 .85rem/1.2 var(--body); border: 1px solid var(--gold); cursor: pointer; justify-self: start; }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: rgba(255,255,255,.04); color: var(--text); border-color: var(--line); }
+  .btn.ghost:hover { border-color: var(--gold); filter: none; }
+  .note { font-size: .85rem; padding: 10px 14px; border-radius: 10px; margin: 0; }
+  .note.warn { background: var(--gold-soft); color: var(--gold); border: 1px solid rgba(163,179,171,.3); }
+
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  th, td { padding: 7px 8px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { color: var(--muted); font-weight: 700; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+  tr.total td { font-weight: 800; color: var(--gold); border-bottom: 0; }
+  td small { color: var(--dim); }
+
+  .seg { display: inline-flex; flex-wrap: wrap; gap: 2px; background: var(--field); border: 1px solid var(--line); border-radius: 10px; padding: 3px; max-width: 100%; }
+  .seg button { background: none; border: 0; color: var(--muted); font: 600 .8rem/1.2 var(--body); padding: 7px 12px; border-radius: 7px; cursor: pointer; }
+  .seg button:hover { color: var(--text); }
+  .seg button.on { background: var(--gold); color: var(--on-gold); font-weight: 800; }
+
+  .calc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 14px; align-items: start; }
+  .calc > * { min-width: 0; }
+  .calc-carriers { display: grid; gap: 6px; }
+  .calc-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .88rem; margin-bottom: 6px; }
+  .calc-row > span:first-child { min-width: 0; }
+  .calc-row small { color: var(--muted); margin-left: 4px; }
+  .money-input { display: flex; align-items: center; gap: 2px; background: var(--field); border: 1px solid var(--line); border-radius: 9px; padding: 0 10px; color: var(--muted); width: 132px; flex: none; }
+  .money-input:focus-within { border-color: var(--gold); }
+  .money-input input, select.money-input { background: none; border: 0; color: var(--text); font: 700 .95rem/1.2 var(--body); padding: 7px 2px; width: 100%; min-width: 0; outline: none; text-align: right; }
+  select.money-input { padding: 7px 10px; background: var(--field); border: 1px solid var(--line); text-align: left; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+  .stat .v { font-size: 1.4rem; font-weight: 800; margin-top: 2px; letter-spacing: -.02em; }
+  .stat .s { color: var(--muted); font-size: .75rem; margin-top: 2px; }
+  .stat.hero { grid-column: 1 / -1; background: var(--brand-soft); border-color: rgba(163,179,171,.45); padding: 18px; }
+  .stat.hero .v { font: 400 2.5rem/1.1 var(--display); color: var(--text); }
+  .stack { display: grid; gap: 12px; }
+  .stack > * { min-width: 0; }
+  .slider-top { display: flex; justify-content: space-between; font-size: .88rem; margin-bottom: 4px; }
+  input[type=range] { width: 100%; accent-color: var(--gold); }
+
+  .bonus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+  .bonus-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bonus-grid h3 small { color: var(--muted); font-weight: 500; font-size: .75rem; margin-left: 4px; }
+  .bonus-grid .disclaimer { margin-bottom: 8px; }
+  .card p.how { margin: 0; color: var(--muted); font-size: .88rem; }
+
+  .flow-diagram { display: flex; align-items: stretch; }
+  .fd-item { display: flex; align-items: center; flex: 1; min-width: 0; }
+  .fd-box { flex: 1; min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 4px; min-height: 92px; justify-content: center; }
+  .fd-box b { font-size: .85rem; }
+  .fd-box span { font-size: .75rem; color: var(--muted); }
+  .fd-box.start { border-color: rgba(163,179,171,.45); background: var(--brand-soft); }
+  .fd-box.end { border-color: rgba(163,179,171,.5); background: var(--gold-soft); }
+  .fd-box.end b { color: var(--gold); }
+  .fd-arrow { flex: none; width: 62px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 4px; }
+  .fd-arrow em { font-style: normal; font-size: .68rem; font-weight: 700; color: var(--gold); text-align: center; line-height: 1.2; }
+  .fd-arrow i { width: 100%; height: 2px; background: var(--line-strong); position: relative; }
+  .fd-arrow i::after { content: ""; position: absolute; right: -1px; top: -4px; border: 5px solid transparent; border-left: 7px solid var(--line-strong); border-right: 0; }
+
+  .ex { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 16px; font-size: .88rem; }
+  .ex > div { display: contents; }
+  .ex dt { color: var(--muted); }
+  .ex dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+  .ex .ex-total dt, .ex .ex-total dd { color: var(--gold); font-weight: 800; padding-top: 6px; border-top: 1px solid var(--line); }
+
+  .video { position: relative; padding-top: 56.25%; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .va-list { margin: 0; padding-left: 18px; font-size: .88rem; display: grid; gap: 6px; color: var(--muted); }
+  .va-list.good li::marker { color: var(--teal); }
+
+  @media (max-width: 720px) {
+    .calc, .bonus-grid, .bonus-grid.two { grid-template-columns: minmax(0, 1fr); }
+    .flow-diagram { flex-direction: column; }
+    .fd-item { flex-direction: column; align-items: stretch; }
+    .fd-box { min-height: 0; }
+    .fd-arrow { width: auto; flex-direction: row; justify-content: center; padding: 6px 0; }
+    .fd-arrow i { width: 2px; height: 18px; order: -1; }
+    .fd-arrow i::after { right: -4px; top: auto; bottom: -2px; border: 5px solid transparent; border-top: 7px solid var(--line-strong); border-bottom: 0; }
+  }
+  @media (max-width: 420px) {
+    .money-input { width: 118px; }
+    .stat.hero .v { font-size: 2.1rem; }
+    .ex { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+  }
+
+  .pool { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .pool-top, .pool-mid { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 20px; text-align: center; display: flex; flex-direction: column; }
+  .pool-top span { font-size: .75rem; color: var(--muted); }
+  .pool-mid { border-color: rgba(163,179,171,.5); background: var(--gold-soft); }
+  .pool-arrow { font-size: .75rem; font-weight: 800; color: var(--gold); }
+  .pool-split { display: grid; grid-template-columns: 3fr 1fr; gap: 10px; width: 100%; }
+  .pool-leg { background: var(--brand-soft); border: 1px solid rgba(163,179,171,.45); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .pool-leg.alt { background: var(--card); border-color: var(--line); }
+  .pool-leg span { font-size: .75rem; color: var(--muted); }
+  .pool-pct { font: 400 2rem/1.1 var(--display); color: var(--gold); }
+  .points-bar { display: flex; gap: 4px; }
+  .points-bar div { background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; min-width: 0; }
+  .points-bar div.big { background: var(--gold-soft); }
+  .points-bar b { font-size: 1.1rem; color: var(--gold); }
+  .points-bar span { font-size: .68rem; color: var(--muted); line-height: 1.3; }
+  .video-label { color: var(--gold); }
+  @media (max-width: 720px) {
+    .pool-split { grid-template-columns: minmax(0, 1fr); }
+    .points-bar { flex-wrap: wrap; }
+    .points-bar div { flex: 1 1 30% !important; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="back" href="/">&larr; CTLYST Toolbox</a>
+    <h1>FFL Vice President <em>Bonus Program</em></h1>
+    <p class="lede">Each month FFL sets aside a bonus pool and splits it between VPs based on points. Earn more points than other VPs and you take a bigger share.</p>
+    <a class="btn ghost" href="/ffl/VPbonusprogram.pdf" download>Download the original PDF &darr;</a>
+  </header>
+
+  <section class="sec">
+    <div class="label video-label">Watch: FFL&rsquo;s bonus program walkthrough</div>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/Iy0g-mkznp0?rel=0&amp;modestbranding=1&amp;playsinline=1" title="NEW 2024 Bonus Program at Family First Life" allowfullscreen loading="lazy"></iframe></div>
+    <p class="disclaimer">&ldquo;NEW 2024 Bonus Program at Family First Life&rdquo;, from Family First Life. The written program below is the 2026 version (effective 03/01/26), so go by the numbers on this page if anything differs.</p>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-h">Where the money comes from</h2>
+    <div class="pool">
+      <div class="pool-top"><b>Monthly life annualized premium</b><span>All of FFL, for the month</span></div>
+      <div class="pool-arrow">&times; 4.5%</div>
+      <div class="pool-mid"><b>Total bonus pool</b></div>
+      <div class="pool-split">
+        <div class="pool-leg"><div class="pool-pct">75%</div><b>General Bonus Pool</b><span>Shared by points (below)</span></div>
+        <div class="pool-leg alt"><div class="pool-pct">25%</div><b>145 Bonus Pool</b><span>For VPs who promoted direct downlines to 145</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-h">How your share of the General Pool is figured</h2>
+<div class="flow-diagram" role="list">
+<div class="fd-item" role="listitem"><div class="fd-box start"><b>Eligible Bonusable Premium</b><span>Carrier % + 1st leg rule applied</span></div><div class="fd-arrow" aria-hidden="true"><em>× growth credit</em><i></i></div></div>
+<div class="fd-item" role="listitem"><div class="fd-box"><b>Qualified Bonusable Premium</b><span>Must be $150K+ to qualify</span></div><div class="fd-arrow" aria-hidden="true"><em>earn points</em><i></i></div></div>
+<div class="fd-item" role="listitem"><div class="fd-box"><b>Your points (max 50)</b><span>5 categories below</span></div><div class="fd-arrow" aria-hidden="true"><em>÷ all VPs&#x27; points</em><i></i></div></div>
+<div class="fd-item" role="listitem"><div class="fd-box end"><b>Your share of the 75% pool</b></div></div>
+</div>
+    <div class="points-bar" aria-label="Points by category"><div style="flex:30" class="big"><b>30</b><span>Bonusable Premium</span></div><div style="flex:5" class=""><b>5</b><span>Direct Legs</span></div><div style="flex:5" class=""><b>5</b><span>Net Direct Writers</span></div><div style="flex:5" class=""><b>5</b><span># of Direct Non-VP</span></div><div style="flex:5" class=""><b>5</b><span>Persistency</span></div></div>
+    <div class="bonus-grid">
+      <section class="card"><h3>Bonusable Premium <small>max 30 pts</small></h3><p class="how">Your Qualified BP as a share of corporate BP, compared to the top producer&#x27;s share, × 30.</p></section>
+      <section class="card"><h3>Direct Legs <small>max 5 pts</small></h3><p class="how">Number of direct producing legs ÷ 6 (capped at 5).</p></section>
+      <section class="card"><h3>Net Direct Writers <small>max 5 pts</small></h3><p class="how">Current direct writers minus your best month in the last 12, per the points table.</p></section>
+      <section class="card"><h3># of Direct Non-VP <small>max 5 pts</small></h3><p class="how">Non-VP direct teams with at least $10,000 team volume, per the points table. Need 2 for the first point.</p></section>
+      <section class="card"><h3>Persistency <small>max 5 pts</small></h3><p class="how">Average of short-term (6-month) and long-term (12–14 month) persistency, per the points table.</p></section>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-h">The 145 pool</h2>
+<div class="flow-diagram" role="list">
+<div class="fd-item" role="listitem"><div class="fd-box start"><b>Your 145 eligible volume</b><span>Bonus on any 145 direct VP, credited by 1st leg %</span></div><div class="fd-arrow" aria-hidden="true"><em>÷ all of FFL&#x27;s 145 volume</em><i></i></div></div>
+<div class="fd-item" role="listitem"><div class="fd-box"><b>Your share</b></div><div class="fd-arrow" aria-hidden="true"><em>× 25% pool</em><i></i></div></div>
+<div class="fd-item" role="listitem"><div class="fd-box end"><b>145 bonus</b></div></div>
+</div>
+    <p class="disclaimer">To be eligible for the 145 VP bonus you must keep at least $150K Bonusable Premium outside of your top 2 VP legs.</p>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-h">Total payout = General Pool share + 145 Pool share</h2>
+    <div class="bonus-grid">
+      <section class="card">
+        <h3>Growth credit</h3>
+        <p class="disclaimer">This month&rsquo;s BP vs. your best month in the last 12.</p>
+        <div class="table-wrap"><table class="num"><thead><tr><th>Growth</th><th>Counts</th></tr></thead><tbody><tr><td>1.0% or more</td><td>100%</td></tr><tr><td>0.75% or more</td><td>85%</td></tr><tr><td>0.50% or more</td><td>70%</td></tr><tr><td>0.25% or more</td><td>55%</td></tr><tr><td>0% or more</td><td>40%</td></tr><tr><td>Below 0%</td><td>20%</td></tr></tbody></table></div>
+      </section>
+      <section class="card">
+        <h3>1st leg rule</h3>
+        <p class="disclaimer">If one leg is most of your volume, less of it counts.</p>
+        <div class="table-wrap"><table class="num"><thead><tr><th>1st leg share</th><th>Credit</th></tr></thead><tbody><tr><td>50% or less</td><td>100%</td></tr><tr><td>Over 50%</td><td>50%</td></tr><tr><td>60%+</td><td>40%</td></tr><tr><td>70%+</td><td>30%</td></tr><tr><td>80%+</td><td>20%</td></tr><tr><td>85%+</td><td>10%</td></tr><tr><td>90%+</td><td>5%</td></tr><tr><td>96%+</td><td>2%</td></tr><tr><td>97%+</td><td>1%</td></tr><tr><td>98%+</td><td>0%</td></tr></tbody></table></div>
+      </section>
+      <section class="card">
+        <h3>Bonusable carrier %</h3>
+        <div class="table-wrap"><table class="num"><thead><tr><th>Carrier</th><th>Life</th><th>IUL</th></tr></thead><tbody><tr><td>American Amicable</td><td>100%</td><td>100%</td></tr><tr><td>Americo</td><td>100%</td><td>100%</td></tr><tr><td>Chubb</td><td>–</td><td>–</td></tr><tr><td>Corebridge</td><td>100%</td><td>–</td></tr><tr><td>InstaBrain</td><td>100%</td><td>–</td></tr><tr><td>Mutual of Omaha</td><td>100%</td><td>100%</td></tr><tr><td>Transamerica</td><td>100%</td><td>100%</td></tr><tr><td>North American</td><td>50%</td><td>50%</td></tr><tr><td>F&amp;G</td><td>25%</td><td>100%</td></tr><tr><td>NLG</td><td>25%</td><td>100%</td></tr><tr><td>Anico</td><td>–</td><td>50%</td></tr><tr><td>Columbus</td><td>–</td><td>50%</td></tr><tr><td>Columbian</td><td>25%</td><td>–</td></tr><tr><td>Ethos</td><td>100%</td><td>100%</td></tr><tr><td>Foresters</td><td>25%</td><td>–</td></tr><tr><td>Occidental</td><td>25%</td><td>–</td></tr><tr><td>Royal Neighbors</td><td>25%</td><td>–</td></tr><tr><td>Annuity</td><td>2.5%</td><td>–</td></tr></tbody></table></div>
+      </section>
+    </div>
+    <section class="card">
+      <h3>Points table</h3>
+      <p class="disclaimer" style="margin-bottom:8px">Direct legs, net direct writers, direct non-VP and persistency all use this table. Rows are your Qualified BP level; the column depends on the category.</p>
+      <div class="table-wrap"><table class="num"><thead><tr><th>Direct legs</th><th>6</th><th>12</th><th>18</th><th>24</th><th>30</th></tr><tr><th>Net direct writers</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr><tr><th>Direct non-VP</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr><tr><th>Persistency</th><th>68%</th><th>72%</th><th>76%</th><th>82%</th><th>85%</th></tr></thead><tbody><tr><td><b>$150K</b></td><td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td><td>0.5</td></tr><tr><td><b>$200K</b></td><td>0.2</td><td>0.3</td><td>0.45</td><td>0.6</td><td>0.75</td></tr><tr><td><b>$300K</b></td><td>0.3</td><td>0.6</td><td>0.9</td><td>1.2</td><td>1.5</td></tr><tr><td><b>$500K</b></td><td>0.4</td><td>0.8</td><td>1.2</td><td>1.6</td><td>2</td></tr><tr><td><b>$750K</b></td><td>0.5</td><td>1</td><td>1.5</td><td>2</td><td>2.5</td></tr><tr><td><b>$1M</b></td><td>0.6</td><td>1.2</td><td>1.8</td><td>2.4</td><td>3</td></tr><tr><td><b>$1.25M</b></td><td>0.7</td><td>1.4</td><td>2.1</td><td>2.8</td><td>3.5</td></tr><tr><td><b>$1.5M</b></td><td>0.8</td><td>1.6</td><td>2.4</td><td>3.2</td><td>4</td></tr><tr><td><b>$1.75M</b></td><td>0.9</td><td>1.8</td><td>2.7</td><td>3.6</td><td>4.5</td></tr><tr><td><b>$2M</b></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr></tbody></table></div>
+    </section>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-h">Worked example: Agent #5</h2>
+    <p class="sub">FFL at $10,000,000 monthly life AP &rarr; $450,000 pool ($337,500 general, $112,500 for 145).</p>
+    <section class="card">
+      <dl class="ex">
+          <div><dt>Eligible BP</dt><dd>$700,000</dd></div>
+          <div><dt>Growth 0.8% → 85% credit</dt><dd>$595,000 Qualified BP</dd></div>
+          <div><dt>Share of corporate BP</dt><dd>$595,000 ÷ $3,765,000 = 15.80%</dd></div>
+          <div><dt>vs. top share (21.25%)</dt><dd>15.80% ÷ 21.25% = 0.7435</dd></div>
+          <div><dt>Bonusable Premium points</dt><dd>0.7435 × 30 = 22.3</dd></div>
+          <div><dt>Direct legs</dt><dd>25 ÷ 6 = 4.2</dd></div>
+          <div><dt>Net direct writers</dt><dd>3</dd></div>
+          <div><dt>Direct non-VP / Persistency (50.99%)</dt><dd>0 / 0</dd></div>
+          <div><dt>Total points</dt><dd>29.5</dd></div>
+          <div><dt>General pool payout</dt><dd>29.5 ÷ 254.4 corporate points × $337,500 = $39,115.61</dd></div>
+          <div><dt>145 pool payout</dt><dd>$100,000 ÷ $780,000 corporate 145 volume × $112,500 = $14,423.08</dd></div>
+          <div class="ex-total"><dt>Total bonus</dt><dd>$53,538.69</dd></div>
+      </dl>
+    </section>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-h">Estimate your VP bonus</h2>
+    <div id="calc"></div>
+  </section>
+
+  <p class="disclaimer">Any VP receiving a bonus must be in good standing with FFL. FFL reserves the right to subtract any lead debt, carrier debt, or any outstanding balance that was rolled to FFL from the VP bonus. If you have contracts outside of FFL, you are not eligible for a bonus. Effective 03/01/26.</p>
+</main>
+<script>
+
+function usd(n) { var s = "$" + Math.round(Math.abs(n)).toLocaleString("en-US"); return n < 0 ? "(" + s + ")" : s; }
+function pct(n, d) { return (n * 100).toFixed(d || 0) + "%"; }
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function statHtml(label, id) { return '<div class="stat"><div class="label">' + esc(label) + '</div><div class="v num" data-o="' + id + '-v"></div><div class="s" data-o="' + id + '-s"></div></div>'; }
+
+
+// FFL VP Bonus estimator (from components/VpBonusCalc.tsx). Point rules were checked against FFL's 10-agent worked example:
+//   BP points = (your share of corporate BP / top VP's share) x 30
+//   Direct legs = legs / 6 (max 5) . Net direct writers = count (max 5) . Direct non-VP = 1 per 2 teams (max 5)
+// Growth credit follows FFL's published table. Persistency points follow a step scale that reproduces
+// FFL's example; FFL doesn't publish the exact scale, so it's an estimate.
+var vpPool = {"rate": 0.045, "general": 0.75, "oneFortyFive": 0.25};
+var GROWTH = [[1, 1], [0.75, 0.85], [0.5, 0.7], [0.25, 0.55], [0, 0.4]];
+function growthCredit(g) { var r = GROWTH.find(function (x) { return g >= x[0]; }); return r ? r[1] : 0.2; }
+var PERSIST = [[85, 5], [82, 4.5], [80, 4], [79, 3.5], [78, 3], [77, 2.5], [76, 2], [74, 1.5], [72, 1], [68, 0.5]];
+function persistPoints(p) { var r = PERSIST.find(function (x) { return p >= x[0]; }); return r ? r[1] : 0; }
+var MIN_QBP = 150000;
+
+function mountVp(root) {
+  // Your month (defaults = FFL's Agent #5 example); FFL-wide numbers (defaults = FFL's example; FFL reports the real ones)
+  var s = { ebp: 700000, growth: 0.8, legs: 25, ndw: 3, nonVp: 0, persist: 50.99, vol145: 100000,
+            lifeAP: 10000000, corpBP: 3765000, topShare: 21.25, corpPts: 254.4, corp145: 780000 };
+  var showFfl = false;
+  var mine = [["ebp", "Eligible bonusable premium", 1], ["growth", "BP growth vs. best month (last 12)", 0, "%"],
+    ["legs", "Direct producing legs", 0], ["ndw", "Net direct writers", 0], ["nonVp", "Direct non-VP teams ($10K+)", 0],
+    ["persist", "Persistency (avg. short + long term)", 0, "%"], ["vol145", "Your 145 eligible volume", 1]];
+  var ffl = [["lifeAP", "FFL monthly life AP", 1], ["corpBP", "Corporate bonusable premium", 1],
+    ["topShare", "Top VP's share of corporate BP", 0, "%"], ["corpPts", "Total corporate bonus points", 0],
+    ["corp145", "Corporate 145 volume", 1]];
+  var fmt = function (n, money) { return money ? (n ? n.toLocaleString("en-US") : "") : String(n); };
+  var field = function (f) {
+    return '<label class="calc-row"><span>' + esc(f[1]) + '</span><span class="money-input">' + (f[2] ? "$" : "") +
+      '<input inputmode="decimal" placeholder="0" aria-label="' + esc(f[1]) + '" data-f="' + f[0] + '" data-m="' + f[2] + '" value="' + esc(fmt(s[f[0]], f[2])) + '">' + (f[3] || "") + '</span></label>';
+  };
+  root.innerHTML = '<div class="calc"><section class="card"><h2>Your month</h2>' + mine.map(field).join("") +
+    '<button type="button" class="btn ghost" style="margin-top:10px" data-t="ffl">Edit FFL-wide numbers</button>' +
+    '<div data-ffl hidden style="margin-top:12px"><p class="disclaimer" style="margin-bottom:10px">FFL reports these each month. Defaults are from FFL&#39;s example.</p>' + ffl.map(field).join("") + '</div>' +
+    '</section><section class="stack"><div class="stats">' +
+    '<div class="stat hero"><div class="label">Estimated VP bonus</div><div class="v num" data-o="total"></div><div class="s" data-o="total-s"></div></div>' +
+    statHtml("Qualified BP", "qbp") + statHtml("General pool share", "gen") + statHtml("145 pool share", "p145") +
+    '</div><div class="card"><div class="label" style="margin-bottom:6px">Points</div><div class="table-wrap"><table class="num"><tbody>' +
+    '<tr><td>Bonusable premium <small>max 30</small></td><td data-o="bpPts"></td></tr>' +
+    '<tr><td>Direct legs <small>max 5</small></td><td data-o="legPts"></td></tr>' +
+    '<tr><td>Net direct writers <small>max 5</small></td><td data-o="ndwPts"></td></tr>' +
+    '<tr><td>Direct non-VP <small>max 5</small></td><td data-o="nonVpPts"></td></tr>' +
+    '<tr><td>Persistency <small>max 5, estimated</small></td><td data-o="persPts"></td></tr>' +
+    '<tr class="total"><td>Total</td><td data-o="points"></td></tr></tbody></table></div></div>' +
+    '<p class="disclaimer">Estimate only; FFL calculates the actual bonus. Uses FFL&#39;s published growth table (their worked example applies different credits for some agents), and persistency points are estimated from FFL&#39;s example because the exact scale isn&#39;t published.</p>' +
+    '</section></div>';
+  var o = function (k, v) { root.querySelector('[data-o="' + k + '"]').textContent = v; };
+
+  function render() {
+    var credit = growthCredit(s.growth);
+    var qbp = s.ebp * credit;
+    var eligible = qbp >= MIN_QBP;
+    var share = s.corpBP > 0 ? qbp / s.corpBP : 0;
+    var bpPts = eligible && s.topShare > 0 ? Math.min(30, (share * 100 / s.topShare) * 30) : 0;
+    var legPts = Math.min(5, s.legs / 6);
+    var ndwPts = Math.min(5, Math.max(0, s.ndw));
+    var nonVpPts = Math.min(5, Math.floor(s.nonVp / 2));
+    var persPts = persistPoints(s.persist);
+    var points = eligible ? bpPts + legPts + ndwPts + nonVpPts + persPts : 0;
+    var pool = s.lifeAP * vpPool.rate;
+    var generalPool = pool * vpPool.general;
+    var pool145 = pool * vpPool.oneFortyFive;
+    var generalPay = s.corpPts > 0 ? (points / s.corpPts) * generalPool : 0;
+    var pay145 = s.corp145 > 0 ? (s.vol145 / s.corp145) * pool145 : 0;
+    o("total", usd(generalPay + pay145));
+    o("total-s", eligible ? points.toFixed(1) + " of 50 points" : "Qualified BP must be " + usd(MIN_QBP) + "+ to earn points");
+    o("qbp-v", usd(qbp)); o("qbp-s", Math.round(credit * 100) + "% growth credit");
+    o("gen-v", usd(generalPay)); o("gen-s", "of " + usd(generalPool));
+    o("p145-v", usd(pay145)); o("p145-s", "of " + usd(pool145));
+    o("bpPts", bpPts.toFixed(1)); o("legPts", legPts.toFixed(1)); o("ndwPts", ndwPts.toFixed(1));
+    o("nonVpPts", nonVpPts.toFixed(1)); o("persPts", persPts.toFixed(1)); o("points", points.toFixed(1));
+  }
+
+  // Number inputs keep what you type (so "0." or "50.9" don't get reformatted mid-entry); reformat on blur.
+  root.querySelectorAll("input[data-f]").forEach(function (inp) {
+    var k = inp.dataset.f, money = inp.dataset.m === "1";
+    inp.addEventListener("input", function () { s[k] = Number(inp.value.replace(/[^\d.-]/g, "")) || 0; render(); });
+    inp.addEventListener("blur", function () { inp.value = fmt(s[k], money); });
+  });
+  var tb = root.querySelector('[data-t="ffl"]'), box = root.querySelector("[data-ffl]");
+  tb.addEventListener("click", function () {
+    showFfl = !showFfl; box.hidden = !showFfl; tb.textContent = (showFfl ? "Hide" : "Edit") + " FFL-wide numbers";
+  });
+  render();
+}
+
+mountVp(document.getElementById("calc"));
+</script>
+</body>
+</html>

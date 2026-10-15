@@ -196,8 +196,18 @@
   const DRAWERS = [
     { id: "vision", name: "Catch the Vision", note: "Where this can take you", tools: [
       { name: "Chan's Recruiting Deck", url: "/recruiting-deck", icon: "deck" },
+      { name: "EverLife Recruiting Deck", url: "/everlife-recruiting-deck", icon: "deck" },
       { name: "New Agent Roadmap", url: "/new-agent-roadmap", icon: "route" },
       { name: "Long-Term Life + Health Vision Calculator", url: "/vision-calculator", icon: "chart" },
+      { name: "How You're Paid", icon: "chart", id: "pay", menu: {
+          title: "How you're paid", options: [
+            { name: "Overview: all the ways you're paid", url: "/how-youre-paid", icon: "chart" },
+            { name: "EverLife Comp Plan & Bonuses", url: "/comp-plan", icon: "calc" },
+            { name: "FFL Producer Bonus (+ estimator)", url: "/producer-bonus", icon: "calc" },
+            { name: "FFL VP Bonus Program", url: "/vp-bonus", icon: "star" },
+            { name: "EverLife Annuity Pay Scale", url: "/annuity-pay", icon: "chart" },
+            { name: "EverLife Medicare Commissions (SEP)", url: "/medicare-pay", icon: "heart" },
+          ]}},
       { name: "Sandlot Presentation Deck", url: "https://us.list-manage.com/W_eIlGzCWjk?e=0660a2ad39&c2id=71d6bb9d62b7ffe4a31f6e5cf08c6dfe", icon: "deck" },
     ]},
     { id: "start", name: "Get Started", note: "Licensed, set up and ready to sell", numbered: true, tools: [
@@ -211,6 +221,13 @@
       { name: "Wingmans", url: "" },
       { name: "Big Boy Leads & Automation", url: "" },
     ]},
+    { id: "team", name: "Team & Training", note: "Where the team meets and trains", tools: [
+      { name: "EverLife Onboarding Checklist", url: "/everlife-onboarding", icon: "book" },
+      { name: "EverLife Discord (The Starters)", url: "https://discord.gg/eYSEbRaFx", icon: "chat" },
+      { name: "First 90 Days Training (GroupMe)", url: "https://groupme.com/join_group/117919253/hWKYsf9K", icon: "users" },
+      { name: "Weekly Calls & Trainings", url: "/agent-resources", icon: "deck" },
+      { name: "EverLife Bootcamps", url: "https://sso.teachable.com/secure/2596213/identity/sign_up/otp", icon: "book" },
+    ]},
     { id: "axe", name: "Sharpen the Axe", note: "Get better on every call", tools: [
       { name: "Easy-to-Read Pitch Flowcharts", icon: "flow", menu: {
           title: "Which pitch?", options: [
@@ -218,6 +235,7 @@
             { name: "Veteran", url: "/veteran-pitch", icon: "star" },
             { name: "Inbound FEX", url: "/inbound-fex-pitch", icon: "heart" },
           ]}},
+      { name: "Corbin's General Call Flow", url: "/guides/pitch-flowchart", icon: "flow" },
       { name: "VA Pitches", icon: "phone", menu: {
           title: "VA pitches", options: [
             { name: "Assistant Crash Course", url: "/va/assistant-crash-course.pdf", icon: "book" },
@@ -234,8 +252,10 @@
             { name: "Wingman", url: "", icon: "users", note: "Set up your Wingman account, then make yourself available for TV inbounds." },
           ]}},
       { name: "Objections and Word Tracks", url: "", icon: "chat" },
+      { name: "Corbin's Objections and Word Tracks", url: "/guides/objections", icon: "chat" },
       { name: "What Other States Should I License In?", url: "/state-licensing", icon: "map" },
       { name: "Chan's Secret Lead Sources", url: "", icon: "target" },
+      { name: "Corbin's Lead Sources Guide", url: "/guides/lead-sources", icon: "target" },
       { name: "Chan's Tabs, Bookmarks, and Monitor Setup", url: "", icon: "monitor" },
       { name: "Chan's Recruiting Playbook", url: "", icon: "book" },
     ]},

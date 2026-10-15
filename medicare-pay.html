@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>EverLife Medicare Commissions (SEP)</title>
+<meta property="og:image" content="https://ctlyst-toolbox.vercel.app/brand/ctlyst-og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/brand/ctlyst-icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/brand/ctlyst-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #2B3B38;
+    --card: #1F302B;
+    --line: #3A4D48;
+    --text: #F6F4F2;
+    --muted: #B8C3C0;
+    --dim: #8B9A96;
+    --gold: #A3B3AB;
+    --gold-soft: rgba(163,179,171,.13);
+    --teal: #6CC4A6;
+    --amber: #94A99F;
+    --rose: #E89A8C;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+    --brand: #445C58;
+    --brand-soft: rgba(68,92,88,.45);
+    --field: #17251F;
+    --line-strong: #56706A;
+    --on-gold: #1C2826;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: radial-gradient(120% 40% at 50% -5%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg);
+    color: var(--text); font: 400 16px/1.55 var(--body); -webkit-font-smoothing: antialiased;
+    padding-inline: 18px;
+  }
+  main { max-width: 760px; margin: 0 auto; padding-block: 24px 64px; display: grid; gap: 28px; }
+  main > * { min-width: 0; }
+  a { color: inherit; }
+  .back { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .88rem; }
+  .back:hover { color: var(--gold); }
+  header { display: grid; gap: 14px; }
+  h1 { font: 400 clamp(2.1rem, 8vw, 3rem)/1.04 var(--display); margin: 0; text-wrap: balance; }
+  h1 em { color: var(--gold); }
+  h2 { font-size: 1.08rem; font-weight: 800; line-height: 1.25; margin: 0 0 10px; }
+  h3 { font-size: 1rem; font-weight: 800; margin: 0 0 10px; }
+  .lede { margin: 0; color: var(--muted); font-size: 1.02rem; max-width: 62ch; }
+  .lede b { color: var(--text); }
+  .sec { display: grid; gap: 14px; }
+  .sec > * { min-width: 0; }
+  .sec-h { font: 400 1.6rem/1.15 var(--display); margin: 0; }
+  .sub { margin: -6px 0 0; color: var(--muted); font-size: .85rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; min-width: 0; }
+  .label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 800; }
+  .disclaimer { color: var(--muted); font-size: .82rem; margin: 0; }
+  .disclaimer a { color: var(--gold); }
+  .muted { color: var(--muted); }
+  .num { font-variant-numeric: tabular-nums; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 10px; background: var(--gold); color: var(--on-gold); text-decoration: none; font: 700 .85rem/1.2 var(--body); border: 1px solid var(--gold); cursor: pointer; justify-self: start; }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: rgba(255,255,255,.04); color: var(--text); border-color: var(--line); }
+  .btn.ghost:hover { border-color: var(--gold); filter: none; }
+  .note { font-size: .85rem; padding: 10px 14px; border-radius: 10px; margin: 0; }
+  .note.warn { background: var(--gold-soft); color: var(--gold); border: 1px solid rgba(163,179,171,.3); }
+
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  th, td { padding: 7px 8px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { color: var(--muted); font-weight: 700; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+  tr.total td { font-weight: 800; color: var(--gold); border-bottom: 0; }
+  td small { color: var(--dim); }
+
+  .seg { display: inline-flex; flex-wrap: wrap; gap: 2px; background: var(--field); border: 1px solid var(--line); border-radius: 10px; padding: 3px; max-width: 100%; }
+  .seg button { background: none; border: 0; color: var(--muted); font: 600 .8rem/1.2 var(--body); padding: 7px 12px; border-radius: 7px; cursor: pointer; }
+  .seg button:hover { color: var(--text); }
+  .seg button.on { background: var(--gold); color: var(--on-gold); font-weight: 800; }
+
+  .calc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 14px; align-items: start; }
+  .calc > * { min-width: 0; }
+  .calc-carriers { display: grid; gap: 6px; }
+  .calc-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .88rem; margin-bottom: 6px; }
+  .calc-row > span:first-child { min-width: 0; }
+  .calc-row small { color: var(--muted); margin-left: 4px; }
+  .money-input { display: flex; align-items: center; gap: 2px; background: var(--field); border: 1px solid var(--line); border-radius: 9px; padding: 0 10px; color: var(--muted); width: 132px; flex: none; }
+  .money-input:focus-within { border-color: var(--gold); }
+  .money-input input, select.money-input { background: none; border: 0; color: var(--text); font: 700 .95rem/1.2 var(--body); padding: 7px 2px; width: 100%; min-width: 0; outline: none; text-align: right; }
+  select.money-input { padding: 7px 10px; background: var(--field); border: 1px solid var(--line); text-align: left; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+  .stat .v { font-size: 1.4rem; font-weight: 800; margin-top: 2px; letter-spacing: -.02em; }
+  .stat .s { color: var(--muted); font-size: .75rem; margin-top: 2px; }
+  .stat.hero { grid-column: 1 / -1; background: var(--brand-soft); border-color: rgba(163,179,171,.45); padding: 18px; }
+  .stat.hero .v { font: 400 2.5rem/1.1 var(--display); color: var(--text); }
+  .stack { display: grid; gap: 12px; }
+  .stack > * { min-width: 0; }
+  .slider-top { display: flex; justify-content: space-between; font-size: .88rem; margin-bottom: 4px; }
+  input[type=range] { width: 100%; accent-color: var(--gold); }
+
+  .bonus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+  .bonus-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bonus-grid h3 small { color: var(--muted); font-weight: 500; font-size: .75rem; margin-left: 4px; }
+  .bonus-grid .disclaimer { margin-bottom: 8px; }
+  .card p.how { margin: 0; color: var(--muted); font-size: .88rem; }
+
+  .flow-diagram { display: flex; align-items: stretch; }
+  .fd-item { display: flex; align-items: center; flex: 1; min-width: 0; }
+  .fd-box { flex: 1; min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 4px; min-height: 92px; justify-content: center; }
+  .fd-box b { font-size: .85rem; }
+  .fd-box span { font-size: .75rem; color: var(--muted); }
+  .fd-box.start { border-color: rgba(163,179,171,.45); background: var(--brand-soft); }
+  .fd-box.end { border-color: rgba(163,179,171,.5); background: var(--gold-soft); }
+  .fd-box.end b { color: var(--gold); }
+  .fd-arrow { flex: none; width: 62px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 4px; }
+  .fd-arrow em { font-style: normal; font-size: .68rem; font-weight: 700; color: var(--gold); text-align: center; line-height: 1.2; }
+  .fd-arrow i { width: 100%; height: 2px; background: var(--line-strong); position: relative; }
+  .fd-arrow i::after { content: ""; position: absolute; right: -1px; top: -4px; border: 5px solid transparent; border-left: 7px solid var(--line-strong); border-right: 0; }
+
+  .ex { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 16px; font-size: .88rem; }
+  .ex > div { display: contents; }
+  .ex dt { color: var(--muted); }
+  .ex dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
+  .ex .ex-total dt, .ex .ex-total dd { color: var(--gold); font-weight: 800; padding-top: 6px; border-top: 1px solid var(--line); }
+
+  .video { position: relative; padding-top: 56.25%; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .va-list { margin: 0; padding-left: 18px; font-size: .88rem; display: grid; gap: 6px; color: var(--muted); }
+  .va-list.good li::marker { color: var(--teal); }
+
+  @media (max-width: 720px) {
+    .calc, .bonus-grid, .bonus-grid.two { grid-template-columns: minmax(0, 1fr); }
+    .flow-diagram { flex-direction: column; }
+    .fd-item { flex-direction: column; align-items: stretch; }
+    .fd-box { min-height: 0; }
+    .fd-arrow { width: auto; flex-direction: row; justify-content: center; padding: 6px 0; }
+    .fd-arrow i { width: 2px; height: 18px; order: -1; }
+    .fd-arrow i::after { right: -4px; top: auto; bottom: -2px; border: 5px solid transparent; border-top: 7px solid var(--line-strong); border-bottom: 0; }
+  }
+  @media (max-width: 420px) {
+    .money-input { width: 118px; }
+    .stat.hero .v { font-size: 2.1rem; }
+    .ex { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+  }
+
+  .paid-who { font-size: .72rem; color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+  .sep-max { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin-top: 12px; padding: 12px 14px; border-radius: 10px; background: var(--gold-soft); border: 1px solid rgba(163,179,171,.4); }
+  .sep-max span { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--gold); }
+  .sep-max b { font-size: 1.35rem; }
+  .sep-max small { color: var(--muted); font-size: .75rem; flex-basis: 100%; }
+  .sep-calc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+  .sep-calc .stats { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  @media (max-width: 720px) { .sep-calc { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="back" href="/">&larr; CTLYST Toolbox</a>
+    <h1>EverLife Medicare <em>Commissions (SEP)</em></h1>
+    <p class="lede">2026 agent commissions for the SEP. Choose the plan that fits your style of selling: you earn a base commission per approved/effectuated policy, plus a bonus per active policy based on your placement rate.</p>
+    <a class="btn" href="/everlife/everlife-medicare-sep-commissions.pdf" download>Download the commission sheet (PDF) &darr;</a>
+  </header>
+
+  <div class="bonus-grid two">
+    <section class="card">
+      <h2 style="margin:0">Performance Plan</h2>
+      <div class="paid-who" style="margin:4px 0 12px">Higher upside · standard chargebacks apply</div>
+      <p style="margin:0 0 10px;font-size:.88rem">Base commission: <b>$125</b> per approved/effectuated policy</p>
+      <div class="label" style="margin-bottom:6px">Placement rate bonus (per active policy)</div>
+      <div class="table-wrap"><table class="num"><thead><tr><th>Tier</th><th>Placement</th><th>Bonus</th></tr></thead><tbody><tr><td>1</td><td>72.5%</td><td><b>$75</b></td></tr><tr><td>2</td><td>75.0%</td><td><b>$125</b></td></tr><tr><td>3</td><td>77.5%</td><td><b>$150</b></td></tr><tr><td>4</td><td>80.0%+</td><td><b>$175</b></td></tr></tbody></table></div>
+      <div class="sep-max"><span>Max total payout</span><b class="num">$300</b><small>per policy, base + placement bonus</small></div>
+      <ul class="va-list" style="margin-top:10px"><li>Includes standard carrier chargebacks.</li><li>A 10–15% reserve on incentive bonuses may apply.</li></ul>
+    </section>
+    <section class="card">
+      <h2 style="margin:0">Stability Plan</h2>
+      <div class="paid-who" style="margin:4px 0 12px">Lower upfront pay · no routine chargebacks</div>
+      <p style="margin:0 0 10px;font-size:.88rem">Base commission: <b>$125</b> per approved/effectuated policy</p>
+      <div class="label" style="margin-bottom:6px">Placement rate bonus (per active policy)</div>
+      <div class="table-wrap"><table class="num"><thead><tr><th>Tier</th><th>Placement</th><th>Bonus</th></tr></thead><tbody><tr><td>1</td><td>72.5%</td><td><b>$25</b></td></tr><tr><td>2</td><td>75.0%</td><td><b>$50</b></td></tr><tr><td>3</td><td>77.5%</td><td><b>$75</b></td></tr></tbody></table></div>
+      <div class="sep-max"><span>Max total payout</span><b class="num">$200</b><small>per policy, base + placement bonus</small></div>
+      <ul class="va-list" style="margin-top:10px"><li>EverLife absorbs ordinary cancellation risk.</li><li>Exceptions: fraud, compliance issues, invalid enrollments, or agent-caused requirements.</li></ul>
+    </section>
+  </div>
+
+  <div class="bonus-grid two">
+    <section class="card">
+      <h3>Override commission tiers</h3>
+      <p class="disclaimer" style="margin-bottom:8px">Shared across both plans.</p>
+      <div class="table-wrap"><table class="num"><thead><tr><th>Level</th><th>Override pay</th></tr></thead><tbody><tr><td>Manager</td><td><b>$20</b></td></tr><tr><td>Team Lead</td><td><b>$10</b></td></tr><tr><td>Recruiter</td><td><b>$10</b></td></tr></tbody></table></div>
+    </section>
+    <section class="card">
+      <h3>Key plan notes</h3>
+      <ul class="va-list good"><li>Bonuses paid on approved and effectuated policies only</li><li>Quality, compliance, and production standards apply</li><li>Plan election locked for the active SEP period</li><li>Existing active agents may transition with leadership approval</li></ul>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>Compare the plans</h2>
+    <div class="sep-calc">
+      <div>
+        <label class="calc-row">
+          <span>Approved / effectuated policies</span>
+          <span class="money-input"><input id="sep-policies" inputmode="numeric" placeholder="0" value="40" aria-label="Approved policies"></span>
+        </label>
+        <div style="margin-top:10px">
+          <div class="slider-top"><span>Placement rate</span><b class="num" id="sep-place-out"></b></div>
+          <input type="range" id="sep-placement" min="60" max="90" step="0.5" value="77.5" aria-label="Placement rate">
+        </div>
+        <p class="disclaimer" style="margin-top:4px">Estimate before chargebacks and any bonus reserve. Placement tiers start at 72.5%.</p>
+      </div>
+      <div class="stats" id="sep-stats"></div>
+    </div>
+  </section>
+
+  <p class="disclaimer">All tiers are based on total approved/effectuated policies placed. Commissions are subject to policy activity.</p>
+  <p class="disclaimer"><a href="/everlife/medicare-sep-commissions.jpg" target="_blank" rel="noopener noreferrer">View the original EverLife graphic &nearr;</a></p>
+</main>
+<script>
+
+function usd(n) { var s = "$" + Math.round(Math.abs(n)).toLocaleString("en-US"); return n < 0 ? "(" + s + ")" : s; }
+function pct(n, d) { return (n * 100).toFixed(d || 0) + "%"; }
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function statHtml(label, id) { return '<div class="stat"><div class="label">' + esc(label) + '</div><div class="v num" data-o="' + id + '-v"></div><div class="s" data-o="' + id + '-s"></div></div>'; }
+
+
+// Compare what each SEP plan pays for a given number of policies and placement rate (from components/SepCalc.tsx).
+var sepPlans = [{"name": "Performance Plan", "base": 125, "tiers": [{"tier": 1, "minPlacement": 72.5, "bonus": 75}, {"tier": 2, "minPlacement": 75, "bonus": 125}, {"tier": 3, "minPlacement": 77.5, "bonus": 150}, {"tier": 4, "minPlacement": 80, "bonus": 175}]}, {"name": "Stability Plan", "base": 125, "tiers": [{"tier": 1, "minPlacement": 72.5, "bonus": 25}, {"tier": 2, "minPlacement": 75, "bonus": 50}, {"tier": 3, "minPlacement": 77.5, "bonus": 75}]}];
+(function () {
+  var policies = 40, placement = 77.5;
+  var pInp = document.getElementById("sep-policies"), rng = document.getElementById("sep-placement");
+  function render() {
+    document.getElementById("sep-place-out").textContent = placement.toFixed(1) + "%";
+    document.getElementById("sep-stats").innerHTML = sepPlans.map(function (p) {
+      var tier = p.tiers.slice().reverse().find(function (t) { return placement >= t.minPlacement; });
+      var perPolicy = p.base + (tier ? tier.bonus : 0);
+      var total = perPolicy * policies;
+      return '<div class="stat"><div class="label">' + esc(p.name) + '</div><div class="v num">' + usd(total) + '</div><div class="s">' +
+        usd(perPolicy) + " per policy &middot; " + (tier ? "tier " + tier.tier + " bonus" : "base only") + "</div></div>";
+    }).join("");
+  }
+  pInp.addEventListener("input", function () {
+    policies = Number(pInp.value.replace(/[^\d]/g, "")) || 0;
+    pInp.value = policies || "";
+    render();
+  });
+  rng.addEventListener("input", function () { placement = +rng.value; render(); });
+  render();
+})();
+
+
+</script>
+</body>
+</html>
