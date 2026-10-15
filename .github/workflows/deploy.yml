@@ -1,5 +1,4 @@
 # Deploys the toolbox to Vercel (production) on every push to main, using Chandler's Vercel token.
-# Deploys made this way count as Chandler's, so pushes from collaborators aren't blocked.
 name: Deploy to Vercel
 
 on:
@@ -17,6 +16,9 @@ env:
 
 jobs:
   deploy:
+    # Vercel's free plan only deploys changes from the account owner. Collaborator pushes are
+    # saved on GitHub and go live when Chandler publishes (see CLAUDE.md, "Publishing collaborator changes").
+    if: github.actor == 'chandlerrust-rgb'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
