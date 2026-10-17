@@ -53,6 +53,30 @@
   .row.start { border-color: rgba(216,199,181,.5); background: var(--gold-soft); }
   .row.start span { color: var(--gold); font-weight: 600; }
   .soon { border: 1px dashed var(--line); border-radius: 12px; padding: 14px; color: var(--dim) !important; font-size: .92rem; text-align: center; }
+  .totals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .totals div { background: #1A1B1A; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: grid; }
+  .totals b { color: var(--gold); font-size: 1.05rem; }
+  .totals span { color: var(--dim); font-size: .78rem; }
+  .round { display: grid; gap: 10px; padding-top: 6px; }
+  .rhead { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+  .rhead b { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .rhead span { color: var(--muted); font-size: .9rem; font-weight: 500; }
+  .rtip { color: var(--muted); font-size: .92rem; }
+  .cc { background: #1A1B1A; border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: grid; gap: 10px; }
+  .cct { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; }
+  .ck { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: .85rem; font-weight: 600; color: var(--gold); border: 1.5px solid var(--gold); }
+  .cct b { display: block; color: var(--text); font-weight: 600; line-height: 1.25; }
+  .cct small { color: var(--dim); font-size: .82rem; }
+  .cc dl { margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .cc dl div { display: grid; gap: 1px; }
+  .cc dl .w { grid-column: 1 / -1; }
+  .cc dt { color: var(--dim); font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+  .cc dd { margin: 0; color: var(--text); font-size: .9rem; font-weight: 500; }
+  .cc > p { color: var(--muted); font-size: .9rem; line-height: 1.5; }
+  .notes { display: grid; gap: 10px; padding-top: 6px; }
+  .notes h3 { margin: 0; font-size: 1.05rem; font-weight: 600; }
+  .notes li { font-size: .92rem; }
+  @media (max-width: 560px) { .totals, .cc dl { grid-template-columns: 1fr 1fr; } }
   .rules li b { color: var(--text); }
   .fine { color: var(--dim); font-size: .82rem; line-height: 1.5; }
   @media (max-width: 480px) { .row { grid-template-columns: 1fr; } .row b { text-align: left; } }
@@ -84,7 +108,7 @@
     <p>Many banks offer business cards with <b>0% interest for about a year</b>. Apply using your LLC. Start with the bank you already have a relationship with (checking, savings or an existing card), because approval is usually easier there.</p>
     <div class="picker">
       <div class="row"><span>Relationship with Chase</span><b>Chase Ink Business</b></div>
-      <div class="row"><span>Relationship with U.S. Bank</span><b>U.S. Bank Shield</b></div>
+      <div class="row"><span>Relationship with U.S. Bank</span><b>U.S. Bank Business Shield</b></div>
       <div class="row"><span>Relationship with Amex</span><b>Amex Blue Business Plus</b></div>
       <div class="row"><span>Relationship with Wells Fargo</span><b>Wells Fargo Signify Business Cash</b></div>
       <div class="row"><span>Relationship with Bank of America</span><b>BofA Business Advantage Travel Rewards</b></div>
@@ -94,8 +118,47 @@
 
   <section class="step">
     <div class="shead"><span class="n">3</span><h2>Stack multiple cards</h2></div>
-    <p>Want more than one? Get multiple cards and <b>stack</b> their 0% periods. Follow this order:</p>
-    <p class="soon">Stacking order coming soon.</p>
+    <p>Want more than one? Follow this order: <b>12 cards from 6 banks over about 60 days</b>, spaced so each bank sees as few recent inquiries as possible and the pulls spread across all three bureaus.</p>
+    <div class="totals"><div><b>12</b><span>cards</span></div><div><b>$57.5K–$280K</b><span>possible limits</span></div><div><b>7–18 mo</b><span>at 0%</span></div><div><b>~$6,000+</b><span>in bonuses</span></div></div>
+    <div class="round"><div class="rhead"><b>Round 1</b><span>Day 1</span></div>
+      <p class="rtip">Apply for both Chase cards the same day.</p>
+      <div class="cc"><div class="cct"><span class="ck">1</span><div><b>Ink Business Cash</b><small>Chase</small></div></div><dl><div><dt>0% APR</dt><dd>12 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$25K</dd></div><div><dt>Credit pull</dt><dd>Experian</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>$750 after $6K in 3 mo</dd></div></dl><p>Chase&#x27;s 5/24 rule is the gatekeeper: apply while you have fewer than 5 new personal cards in 24 months. Ink cards don&#x27;t add to your 5/24 count.</p></div>
+      <div class="cc"><div class="cct"><span class="ck">2</span><div><b>Ink Business Preferred</b><small>Chase</small></div></div><dl><div><dt>0% APR</dt><dd>None</dd></div><div><dt>Annual fee</dt><dd>$95</dd></div><div><dt>Expected limit</dt><dd>$5K–$30K</dd></div><div><dt>Credit pull</dt><dd>Experian</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>100K pts (~$1,250+) after $8K in 3 mo</dd></div></dl><p>No 0% period, but the biggest bonus in the stack, and its bonus is separate from Ink Cash/Unlimited. Often combined into the same Experian pull.</p></div>
+    </div>
+    <div class="round"><div class="rhead"><b>Round 2</b><span>Days 7–14</span></div>
+      <p class="rtip">Apply for both Amex cards the same day.</p>
+      <div class="cc"><div class="cct"><span class="ck">3</span><div><b>Blue Business Plus</b><small>Amex</small></div></div><dl><div><dt>0% APR</dt><dd>12 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$30K</dd></div><div><dt>Credit pull</dt><dd>Soft pull if you already have Amex</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>15K MR pts after $3K in 3 mo</dd></div></dl><p>Existing Amex cardholders usually get a soft pull (no hard inquiry). Amex&#x27;s 2/90 rule allows 2 new cards per 90 days.</p></div>
+      <div class="cc"><div class="cct"><span class="ck">4</span><div><b>Blue Business Cash</b><small>Amex</small></div></div><dl><div><dt>0% APR</dt><dd>12 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$25K</dd></div><div><dt>Credit pull</dt><dd>Soft pull if you already have Amex</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>$750 after $6K in 4 mo</dd></div></dl><p>Pairs with Blue Business Plus in the same 2/90 window. Cash back version. Expanded Buying Power lets you spend past the stated limit.</p></div>
+    </div>
+    <div class="round"><div class="rhead"><b>Round 3</b><span>Days 14–21</span></div>
+      <div class="cc"><div class="cct"><span class="ck">5</span><div><b>Signify Business Cash</b><small>Wells Fargo</small></div></div><dl><div><dt>0% APR</dt><dd>12 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$2.5K–$25K</dd></div><div><dt>Credit pull</dt><dd>Experian</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>$500 after $5K in 3 mo</dd></div></dl><p>Wells Fargo&#x27;s only business card. Unlimited 2% back, the best flat rate in the stack. Experian pull, spaced out from Chase.</p></div>
+    </div>
+    <div class="round"><div class="rhead"><b>Round 4</b><span>Days 21–30</span></div>
+      <p class="rtip">Apply for all three BofA cards together.</p>
+      <div class="cc"><div class="cct"><span class="ck">6</span><div><b>Business Advantage Customized Cash</b><small>Bank of America</small></div></div><dl><div><dt>0% APR</dt><dd>7 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$25K</dd></div><div><dt>Credit pull</dt><dd>TransUnion</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>$500 after $5K in 90 days</dd></div></dl><p>BofA pulls TransUnion for business cards, which spreads you away from Experian. 3% in a category you choose.</p></div>
+      <div class="cc"><div class="cct"><span class="ck">7</span><div><b>Business Advantage Unlimited Cash</b><small>Bank of America</small></div></div><dl><div><dt>0% APR</dt><dd>7 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$25K</dd></div><div><dt>Credit pull</dt><dd>TransUnion</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>$500 after $5K in 90 days</dd></div></dl><p>Unlimited 1.5% back. Short 0% window, but adds a credit line without touching your personal bureaus.</p></div>
+      <div class="cc"><div class="cct"><span class="ck">8</span><div><b>Business Advantage Travel Rewards</b><small>Bank of America</small></div></div><dl><div><dt>0% APR</dt><dd>7 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$25K</dd></div><div><dt>Credit pull</dt><dd>TransUnion</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>30K pts after $3K in 90 days</dd></div></dl><p>1.5x points on everything. The only business travel card with a 0% intro APR.</p></div>
+    </div>
+    <div class="round"><div class="rhead"><b>Round 5</b><span>Days 30–45</span></div>
+      <p class="rtip">U.S. Bank is inquiry-sensitive, so give it distance from earlier pulls.</p>
+      <div class="cc"><div class="cct"><span class="ck">9</span><div><b>Triple Cash Rewards</b><small>U.S. Bank</small></div></div><dl><div><dt>0% APR</dt><dd>12 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$20K</dd></div><div><dt>Credit pull</dt><dd>TransUnion</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>$750 after $6K in 180 days</dd></div></dl><p>3% on gas, dining, office supplies and cell phone. $100/yr software credit.</p></div>
+      <div class="cc"><div class="cct"><span class="ck">10</span><div><b>Business Shield (formerly Platinum)</b><small>U.S. Bank</small></div></div><dl><div><dt>0% APR</dt><dd>12–18 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$20K</dd></div><div><dt>Credit pull</dt><dd>TransUnion</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>None</dd></div></dl><p>The longest 0% window in the stack: 18 months if you apply in a branch (12 online). No rewards, pure financing. Same TransUnion pull as Triple Cash.</p></div>
+    </div>
+    <div class="round"><div class="rhead"><b>Round 6</b><span>Days 45–60</span></div>
+      <p class="rtip">Apply for both PNC cards the same day.</p>
+      <div class="cc"><div class="cct"><span class="ck">11</span><div><b>PNC Visa Business</b><small>PNC</small></div></div><dl><div><dt>0% APR</dt><dd>13 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$15K</dd></div><div><dt>Credit pull</dt><dd>Equifax</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>None</dd></div></dl><p>PNC is the only issuer here that pulls Equifax. 13 months 0% on purchases and balance transfers.</p></div>
+      <div class="cc"><div class="cct"><span class="ck">12</span><div><b>PNC Cash Rewards Visa Signature Business</b><small>PNC</small></div></div><dl><div><dt>0% APR</dt><dd>9 months</dd></div><div><dt>Annual fee</dt><dd>$0</dd></div><div><dt>Expected limit</dt><dd>$5K–$15K</dd></div><div><dt>Credit pull</dt><dd>Equifax</dd></div><div class="w"><dt>Sign-up bonus</dt><dd>Bonus after $3K in 3 mo</dd></div></dl><p>Same Equifax pull as the PNC Visa Business. 9 months 0%, with cash back.</p></div>
+    </div>
+    <div class="notes"><h3>Key notes</h3><ul>
+      <li><b>Pick Ink Cash or Ink Unlimited, not both.</b> Since Nov 2025 they share bonus eligibility. Ink Preferred's bonus is separate.</li>
+      <li><b>Amex soft pull:</b> if you already have an Amex card, the two Amex business cards may cost you zero hard inquiries.</li>
+      <li><b>U.S. Bank in-branch tip:</b> apply for Business Shield at a branch to get 18 months at 0% instead of 12 online.</li>
+      <li><b>BofA's 0% is short:</b> as of Jan 2026 it's 7 billing cycles (down from 9), so use those cards for smaller purchases.</li>
+      <li><b>Bureau spread:</b> Chase and Wells Fargo pull Experian, BofA and U.S. Bank pull TransUnion, PNC pulls Equifax. About 4 hard inquiries total, with Amex likely a soft pull.</li>
+      <li><b>None of these cards report to your personal credit</b> (Chase and Amex only report if you're delinquent).</li>
+      <li><b>Waiting on a mortgage, refinance or other loan?</b> Let it close first so the new inquiries don't affect that approval.</li>
+      <li>Limits depend on your personal credit score, stated business revenue, time in business and existing bank relationships.</li>
+    </ul></div>
   </section>
 
   <section class="step">
