@@ -27,6 +27,7 @@ The recruiting intake form, opt-in page, privacy policy, terms and the `/api/lea
 - `lead-spend-planner.html` — order: Inbound Mortgage Protection ($30) → Inbound Final Expense ($35) → Meta Ad Pool ($20) → aged leads ($1, capped at `agedHr` default 30/hour; unused budget shown, not turned into deals). Links to `/#leads`.
 - `state-licensing.html` — licensing groups: 1 home, 2 high volume (11), 3 override states not in Group 2 (12; MA/NY are override states but sit in the Northeast group), 4 mid volume, 5 AK/HI, 6 Northeast.
 - `recruiting-deck.html` (+ `recruiting-deck/cabo.jpg`) — 12-slide CTLYST deck in the brand-kit palette (Geist, carbon, sand accent; emblem graphic behind each slide); slide 3 = authority/compensation diagram.
+- `credit-stacking.html` — Credit Stacking Guide (LLC + S corp via CPA, first card by bank relationship, stacking order placeholder until Chan shares his spreadsheet). Educational disclaimer at the bottom; keep it.
 - `vision-calculator.html`, `new-agent-roadmap.html` (+ `.pdf`), `mp-appointment-setter.html` (unlinked), `va/*.pdf` (VA scripts & assistant crash course).
 
 ## Corbin's additions (merged 2026-10-14 from his Agent Toolkit)
