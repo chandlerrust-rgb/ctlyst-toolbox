@@ -32,7 +32,7 @@ The recruiting intake form, opt-in page, privacy policy, terms and the `/api/lea
 ## Corbin's additions (merged 2026-10-14 from his Agent Toolkit)
 Corbin (GitHub `gitworkdunn`) added these; keep his wording when editing.
 - How You're Paid (`/#pay` menu): `how-youre-paid.html` (overview + Producer/VP toggle calc), `comp-plan.html`, `producer-bonus.html`, `vp-bonus.html`, `annuity-pay.html`, `medicare-pay.html`. Calculators are inline vanilla JS. Source docs in `everlife/` and `ffl/`. Comp/annuity data is confidential to the agency (site is noindex).
-- `everlife-onboarding.html` — EverLife onboarding checklist (5 phases, steps `#1`–`#18`, progress saved in localStorage).
+- `everlife-onboarding.html` — EverLife onboarding checklist (5 phases, steps `#1`–`#18`, progress saved in localStorage). Hidden from the toolbox for now (commented out in `DRAWERS`); the page still works by direct link.
 - `everlife-recruiting-deck.html` (+ `everlife/deck/slide-*.jpg`), `agent-resources.html` (Weekly Calls & Trainings, + `ctlyst/agent-resources.pdf`).
 - `guides/pitch-flowchart.html` (general call flow), `guides/objections.html`, `guides/lead-sources.html`.
 - `new-agent-roadmap.html`: phase 6 "Add Annuities" (Months 6–12, links `/annuity-pay`); Medicare is 7, taxes 8. Regenerate the PDF after roadmap edits (headless Chrome print-to-pdf; a print rule hides the buttons).
