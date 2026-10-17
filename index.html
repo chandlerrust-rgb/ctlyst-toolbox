@@ -17,111 +17,118 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="CTLYST">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#2B3B38">
+<meta name="theme-color" content="#171717">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
 <style>
   :root {
     color-scheme: dark;
-    --bg: #2B3B38;
-    --text: #F6F4F2;
-    --muted: #B8C3C0;
-    --dim: #8B9A96;
-    --gold: #A3B3AB;
-    --gold-hi: #CFDBD4;
-    --gold-deep: #74867F;
-    /* the chest: brushed graphite steel */
-    --steel-1: #3A4542;
-    --steel-2: #293431;
-    --steel-3: #1F2826;
-    --seam: #141C1A;
-    --tray: #161F1D;
-    --foam: #1E2A27;
-    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
-    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+    /* CTLYST brand kit: carbon / graphite / light grey, warm sand accent */
+    --bg: #171717;
+    --text: #E2E2DF;
+    --muted: #A5A7A4;
+    --dim: #6F726F;
+    --gold: #D8C7B5;      /* soft sand accent */
+    --gold-hi: #DDD8CE;   /* pale sand */
+    --light: #E2E2DF;
+    --graphite: #303331;
+    --steel-1: #353836;
+    --steel-2: #2A2C2B;
+    --steel-3: #202221;
+    --seam: #0F0F0F;
+    --tray: #111111;
+    --foam: #1C1D1D;
+    --display: "Geist", "Helvetica Neue", Arial, sans-serif;
+    --body: "Geist", "Helvetica Neue", Arial, sans-serif;
   }
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
   html, body { margin: 0; min-height: 100%; }
   body {
-    background: radial-gradient(120% 50% at 50% -10%, #445C58 0%, rgba(68,92,88,0) 60%), var(--bg);
+    background: var(--bg);
     color: var(--text);
     font: 400 16px/1.5 var(--body);
     -webkit-font-smoothing: antialiased;
     padding-inline: 16px;
+    overflow-x: hidden;
   }
-  main { max-width: 600px; margin: 0 auto; padding-block: var(--top, 40px) 72px; display: grid; gap: 22px; }
+  /* brand graphic element: the oversized emblem, cropped off the edges */
+  body::before, body::after {
+    content: ""; position: fixed; z-index: -1; pointer-events: none;
+    background: url(/brand/ctlyst-emblem-light.svg) center / contain no-repeat;
+  }
+  body::before { width: 120vmin; height: 145vmin; top: -38vmin; right: -52vmin; opacity: .045; }
+  body::after { width: 70vmin; height: 85vmin; bottom: -30vmin; left: -36vmin; opacity: .03; transform: rotate(180deg); }
+  main { position: relative; max-width: 600px; margin: 0 auto; padding-block: var(--top, 40px) 72px; display: grid; gap: 22px; }
 
-  .head { display: grid; gap: 10px; text-align: center; }
-  h1 { font: 400 clamp(2.4rem, 9vw, 3.4rem)/1 var(--display); margin: 0; letter-spacing: -.01em; }
-  h1 em { color: var(--gold); }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .tip { margin: 0; text-align: center; color: var(--muted); font-size: .92rem; text-wrap: balance; }
+  .tip { margin: 0; text-align: center; color: var(--muted); font-size: .9rem; text-wrap: balance; }
 
   /* ---------- the chest ---------- */
-  .chest { position: relative; margin-top: 8px; filter: drop-shadow(0 30px 40px rgba(0,0,0,.45)); }
+  .chest { position: relative; margin-top: 8px; filter: drop-shadow(0 30px 40px rgba(0,0,0,.6)); }
   .lid {
-    position: relative; height: 68px; border-radius: 18px 18px 6px 6px;
-    background: linear-gradient(180deg, #485753 0%, var(--steel-1) 40%, var(--steel-2) 100%);
-    border: 1px solid #4E5E5A; border-bottom-color: var(--seam);
+    position: relative; height: 72px; border-radius: 20px 20px 6px 6px;
+    background: linear-gradient(180deg, #3D403E 0%, var(--steel-1) 40%, var(--steel-2) 100%);
+    border: 1px solid #464947; border-bottom-color: var(--seam);
     display: grid; place-items: center;
   }
   .lid::before { /* carry handle on top */
     content: ""; position: absolute; top: -16px; left: 50%; width: 120px; height: 20px; transform: translateX(-50%);
-    border: 5px solid #4E5E5A; border-bottom: 0; border-radius: 12px 12px 0 0;
+    border: 5px solid #464947; border-bottom: 0; border-radius: 12px 12px 0 0;
   }
   .plate {
-    display: grid; place-items: center; padding: 9px 18px; border-radius: 6px;
-    background: linear-gradient(180deg, #4D6762, #445C58); border: 1px solid #5E7772;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 2px 4px rgba(0,0,0,.35);
+    display: grid; place-items: center; padding: 11px 24px; border-radius: 999px;
+    background: var(--light);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 3px 8px rgba(0,0,0,.45);
   }
-  .plate img { display: block; height: 22px; width: auto; }
+  .plate img { display: block; height: 19px; width: auto; }
   .body {
-    margin-top: 4px; padding: 12px; border-radius: 6px 6px 12px 12px;
+    margin-top: 4px; padding: 12px; border-radius: 6px 6px 14px 14px;
     background: linear-gradient(90deg, var(--steel-3), var(--steel-2) 8%, var(--steel-2) 92%, var(--steel-3));
-    border: 1px solid #3F4C49; display: grid; gap: 12px;
+    border: 1px solid #3A3D3B; display: grid; gap: 12px;
   }
   .feet { display: flex; justify-content: space-between; padding-inline: 22px; }
-  .feet i { width: 34px; height: 12px; border-radius: 0 0 8px 8px; background: #1D2523; border: 1px solid #35403D; border-top: 0; }
+  .feet i { width: 34px; height: 12px; border-radius: 0 0 8px 8px; background: #1A1B1B; border: 1px solid #333534; border-top: 0; }
 
   /* ---------- a drawer ---------- */
   .drawer { position: relative; }
   .face {
     position: relative; z-index: 2; width: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px;
-    padding: 18px 18px; border: 0; border-radius: 8px; cursor: pointer; text-align: left; color: var(--text); font: inherit;
+    padding: 18px 18px; border: 0; border-radius: 10px; cursor: pointer; text-align: left; color: var(--text); font: inherit;
     background:
-      repeating-linear-gradient(90deg, rgba(255,255,255,.018) 0 2px, rgba(0,0,0,0) 2px 5px),
-      linear-gradient(180deg, #45524F 0%, #35403D 55%, #2B3533 100%);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.09), inset 0 -2px 0 rgba(0,0,0,.35), 0 2px 0 var(--seam);
+      repeating-linear-gradient(90deg, rgba(255,255,255,.014) 0 2px, rgba(0,0,0,0) 2px 5px),
+      linear-gradient(180deg, #3B3E3C 0%, var(--graphite) 55%, #282A29 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -2px 0 rgba(0,0,0,.35), 0 2px 0 var(--seam);
     transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s;
   }
   .face:hover { background:
-      repeating-linear-gradient(90deg, rgba(255,255,255,.022) 0 2px, rgba(0,0,0,0) 2px 5px),
-      linear-gradient(180deg, #4D5B58 0%, #3A4643 55%, #2F3A37 100%); }
+      repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 2px, rgba(0,0,0,0) 2px 5px),
+      linear-gradient(180deg, #424543 0%, #363937 55%, #2C2E2D 100%); }
   .face:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-  .num { font: 400 1.6rem/1 var(--display); color: var(--gold); width: 26px; text-align: center; }
+  .num { font: 500 1.05rem/1 var(--display); color: var(--gold); width: 26px; text-align: center; font-variant-numeric: tabular-nums; }
+  .num::before { content: "0"; }
   .label { display: grid; gap: 2px; }
-  .label b { font-size: 1.12rem; font-weight: 800; letter-spacing: .01em; }
+  .label b { font-size: 1.12rem; font-weight: 600; letter-spacing: -.01em; }
   .label small { color: var(--muted); font-size: .8rem; }
-  .handle {
-    width: 74px; height: 14px; border-radius: 8px; position: relative;
-    background: linear-gradient(180deg, var(--gold-hi), var(--gold) 55%, var(--gold-deep));
-    box-shadow: 0 2px 3px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.35);
+  .handle { /* pill handle, like the brand's buttons */
+    width: 74px; height: 16px; border-radius: 999px; position: relative;
+    background: linear-gradient(180deg, #F0F0EE, var(--light) 50%, #BDBDB9);
+    box-shadow: 0 2px 4px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.7);
   }
-  .handle::before, .handle::after { content: ""; position: absolute; top: 3px; width: 6px; height: 8px; background: rgba(0,0,0,.35); border-radius: 2px; }
-  .handle::before { left: 7px; } .handle::after { right: 7px; }
+  .handle::before, .handle::after { content: ""; position: absolute; top: 4px; width: 6px; height: 8px; background: rgba(0,0,0,.3); border-radius: 3px; }
+  .handle::before { left: 8px; } .handle::after { right: 8px; }
 
   /* open state: face pulls toward you, tray slides out underneath */
-  .drawer.open .face { transform: translateY(-2px) scale(1.025); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 14px 22px rgba(0,0,0,.55); }
+  .drawer.open .face { transform: translateY(-2px) scale(1.025); box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 14px 22px rgba(0,0,0,.6); }
   .tray-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s cubic-bezier(.2,.8,.2,1); }
   .drawer.open .tray-wrap { grid-template-rows: 1fr; }
   .tray-wrap > div { overflow: hidden; }
   .tray {
-    margin: -6px 10px 0; padding: 20px 12px 12px; border-radius: 0 0 10px 10px;
-    background: linear-gradient(180deg, #0E1413 0, var(--tray) 22px);
-    border: 1px solid #2B3734; border-top: 0;
-    box-shadow: inset 0 10px 14px -8px rgba(0,0,0,.8);
+    margin: -6px 10px 0; padding: 20px 12px 12px; border-radius: 0 0 12px 12px;
+    background: linear-gradient(180deg, #080808 0, var(--tray) 22px);
+    border: 1px solid #2A2B2B; border-top: 0;
+    box-shadow: inset 0 10px 14px -8px rgba(0,0,0,.85);
     display: grid; gap: 8px;
     transform: translateY(-14px); opacity: 0; transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .35s;
   }
@@ -130,43 +137,43 @@
   /* each tool sits in a foam cut-out */
   .tool {
     display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 12px;
-    padding: 12px 12px; border-radius: 10px; text-decoration: none; color: var(--text);
-    background: var(--foam); border: 1px solid #2B3936;
+    padding: 12px 12px; border-radius: 12px; text-decoration: none; color: var(--text);
+    background: var(--foam); border: 1px solid #2A2C2B;
     box-shadow: inset 0 2px 6px rgba(0,0,0,.55);
-    font-weight: 700; font-size: 1rem; line-height: 1.3;
+    font-weight: 500; font-size: 1rem; line-height: 1.3;
     transition: background .15s, border-color .15s, transform .15s;
   }
-  a.tool:hover { background: #243631; border-color: rgba(163,179,171,.55); transform: translateX(3px); }
+  a.tool:hover { background: #222423; border-color: rgba(216,199,181,.45); transform: translateX(3px); }
   a.tool:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-  .ico { width: 38px; height: 38px; border-radius: 9px; display: grid; place-items: center; background: rgba(163,179,171,.12); color: var(--gold); }
+  .ico { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: rgba(216,199,181,.1); color: var(--gold); }
   .ico svg { width: 20px; height: 20px; }
-  .stepn { font: 400 1.25rem/1 var(--display); color: inherit; }
+  .stepn { font: 600 1.05rem/1 var(--display); color: inherit; font-variant-numeric: tabular-nums; }
   .go { width: 18px; height: 18px; color: var(--gold); }
   .tool.soon { color: var(--muted); }
-  .tool.soon .ico { background: rgba(255,255,255,.05); color: var(--dim); }
-  .tool.soon small { font-weight: 700; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
+  .tool.soon .ico { background: rgba(255,255,255,.04); color: var(--dim); }
+  .tool.soon small { font-weight: 600; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
 
   .otext { display: grid; gap: 4px; }
-  .otext em { font-style: normal; font-weight: 500; font-size: .86rem; line-height: 1.4; color: var(--muted); }
+  .otext em { font-style: normal; font-weight: 400; font-size: .86rem; line-height: 1.45; color: var(--muted); }
   .tool.soon .otext > span { color: var(--text); }
   .tool.tall { align-items: start; }
   .tool.tall .ico, .tool.tall .go { margin-top: 2px; }
   .tool.soon.tall { grid-template-columns: 38px 1fr; }
   .tool.soon.tall small { grid-column: 2; justify-self: start; margin-top: -2px; color: var(--gold); opacity: .8; }
-  button.tool { width: 100%; font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
-  button.tool:hover { background: #243631; border-color: rgba(163,179,171,.55); transform: translateX(3px); }
+  button.tool { width: 100%; font: inherit; font-weight: 500; text-align: left; cursor: pointer; }
+  button.tool:hover { background: #222423; border-color: rgba(216,199,181,.45); transform: translateX(3px); }
   button.tool:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   dialog { border: 0; padding: 0; background: transparent; color: var(--text); width: min(440px, calc(100vw - 32px)); max-width: none; }
-  dialog::backdrop { background: rgba(11,18,17,.72); backdrop-filter: blur(3px); }
+  dialog::backdrop { background: rgba(8,8,8,.75); backdrop-filter: blur(3px); }
   dialog[open] .pick-in { animation: pop .28s cubic-bezier(.2,.8,.2,1); }
   @keyframes pop { from { transform: translateY(12px) scale(.97); opacity: 0; } }
-  .pick-in { background: linear-gradient(180deg, #3A4542, #293431); border: 1px solid #4E5E5A; border-radius: 16px; padding: 18px; display: grid; gap: 14px; box-shadow: 0 30px 60px rgba(0,0,0,.6); }
+  .pick-in { background: linear-gradient(180deg, #353836, #2A2C2B); border: 1px solid #464947; border-radius: 18px; padding: 18px; display: grid; gap: 14px; box-shadow: 0 30px 60px rgba(0,0,0,.7); }
   .pick-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .pick-head h2 { margin: 0; font: 400 1.6rem/1.1 var(--display); }
-  .x { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #4E5E5A; background: transparent; color: var(--muted); font-size: 1.4rem; line-height: 1; cursor: pointer; }
+  .pick-head h2 { margin: 0; font: 600 1.4rem/1.15 var(--display); letter-spacing: -.02em; }
+  .x { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #464947; background: transparent; color: var(--muted); font-size: 1.4rem; line-height: 1; cursor: pointer; }
   .x:hover { color: var(--gold); border-color: var(--gold); }
-  .pick-list { display: grid; gap: 8px; padding: 10px; border-radius: 12px; background: var(--tray); box-shadow: inset 0 6px 12px -6px rgba(0,0,0,.8); }
-  .empty { margin: 0; padding: 14px; text-align: center; color: var(--dim); font-size: .9rem; font-weight: 600; }
+  .pick-list { display: grid; gap: 8px; padding: 10px; border-radius: 14px; background: var(--tray); box-shadow: inset 0 6px 12px -6px rgba(0,0,0,.85); }
+  .empty { margin: 0; padding: 14px; text-align: center; color: var(--dim); font-size: .9rem; font-weight: 500; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -175,7 +182,7 @@
   <h1 class="sr">CTLYST Toolbox</h1>
 
   <div class="chest">
-    <div class="lid"><span class="plate"><img src="/brand/ctlyst-logo.png" alt="CTLYST"></span></div>
+    <div class="lid"><span class="plate"><img src="/brand/ctlyst-wordmark-dark.svg" alt="CTLYST"></span></div>
     <div class="body" id="drawers"></div>
     <div class="feet" aria-hidden="true"><i></i><i></i></div>
   </div>

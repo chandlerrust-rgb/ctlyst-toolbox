@@ -4,8 +4,8 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#2B3B38",
-  "theme_color": "#2B3B38",
+  "background_color": "#171717",
+  "theme_color": "#171717",
   "icons": [
     {
       "src": "/brand/ctlyst-icon-180.png",

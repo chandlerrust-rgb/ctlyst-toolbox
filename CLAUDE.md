@@ -39,9 +39,10 @@ Corbin (GitHub `gitworkdunn`) added these; keep his wording when editing.
 - Corbin's call scripts are not included yet (pending a compliance rewrite against the rules below).
 
 ## Brand (CTLYST)
-- `brand/`: `ctlyst-logo.png` (transparent), `ctlyst-mark.png`, icons, `ctlyst-og.png` (link preview).
-- Colors: bg `#2B3B38`, brand green `#445C58`, cards `#344743`, lines `#4C625E`, text `#F6F4F2`, muted `#B3C1BA`, sage accent `#A3B3AB` / `#B9CBC2` / `#C4D1CA`, dark text on sage `#1C2826`.
-- Fonts: Manrope (UI), DM Serif Display (titles). Dark theme.
+- Source: the CTLYST brand kit (Google Drive folder from Chandler; guidelines PDF + logo SVGs).
+- `brand/`: `ctlyst-wordmark-dark.svg` / `ctlyst-wordmark-light.svg` (cropped from the kit's logo SVGs), `ctlyst-emblem-light.svg` (the C mark), icons `ctlyst-icon-*.png` (emblem on carbon), `ctlyst-og.png` (link preview). `ctlyst-logo.png` / `ctlyst-mark.png` are the older green-era files still used by inner pages.
+- Toolbox main page (`index.html`) uses the brand-kit palette: Carbon Black `#171717` (bg), Deep Graphite `#303331` (drawers), Light Grey `#E2E2DF` (text, pill nameplate/handles), Soft Sand `#D8C7B5` / Pale Sand `#DDD8CE` (accent), Deep Espresso `#362B26` (unused so far). Font: **Geist**. Graphic element: oversized emblem cropped off the page edges.
+- Inner pages still use the older green theme (bg `#2B3B38`, brand green `#445C58`, Manrope + DM Serif Display) until they're restyled.
 
 ## Compliance rules (keep these)
 - Never say or imply affiliation with the VA, government, a bank/lender, or a "benefits office"; don't call Chandler an "underwriter".
