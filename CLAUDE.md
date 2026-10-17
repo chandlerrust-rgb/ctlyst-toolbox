@@ -26,7 +26,7 @@ The recruiting intake form, opt-in page, privacy policy, terms and the `/api/lea
   - Carriers: Americo, Aflac, Instabrain (GIWL), plus Ethos Term (>$450K, <65) and Americo Instant IUL in the all-clear recommendations.
 - `lead-spend-planner.html` — order: Inbound Mortgage Protection ($30) → Inbound Final Expense ($35) → Meta Ad Pool ($20) → aged leads ($1, capped at `agedHr` default 30/hour; unused budget shown, not turned into deals). Links to `/#leads`.
 - `state-licensing.html` — licensing groups (Group 2 = high-volume/override states).
-- `recruiting-deck.html` (+ `recruiting-deck/cabo.jpg`) — 12-slide CTLYST deck; slide 3 = authority/compensation diagram.
+- `recruiting-deck.html` (+ `recruiting-deck/cabo.jpg`) — 12-slide CTLYST deck in the brand-kit palette (Geist, carbon, sand accent; emblem graphic behind each slide); slide 3 = authority/compensation diagram.
 - `vision-calculator.html`, `new-agent-roadmap.html` (+ `.pdf`), `mp-appointment-setter.html` (unlinked), `va/*.pdf` (VA scripts & assistant crash course).
 
 ## Corbin's additions (merged 2026-10-14 from his Agent Toolkit)
@@ -42,7 +42,7 @@ Corbin (GitHub `gitworkdunn`) added these; keep his wording when editing.
 - Source: the CTLYST brand kit (Google Drive folder from Chandler; guidelines PDF + logo SVGs).
 - `brand/`: `ctlyst-wordmark-dark.svg` / `ctlyst-wordmark-light.svg` (cropped from the kit's logo SVGs), `ctlyst-emblem-light.svg` (the C mark), icons `ctlyst-icon-*.png` (emblem on carbon), `ctlyst-og.png` (link preview). `ctlyst-logo.png` / `ctlyst-mark.png` are the older green-era files still used by inner pages.
 - Toolbox main page (`index.html`) uses the brand-kit palette: Carbon Black `#171717` (bg), Deep Graphite `#303331` (drawers), Light Grey `#E2E2DF` (text, pill nameplate/handles), Soft Sand `#D8C7B5` / Pale Sand `#DDD8CE` (accent), Deep Espresso `#362B26` (unused so far). Font: **Geist**. Graphic element: oversized emblem cropped off the page edges.
-- Inner pages still use the older green theme (bg `#2B3B38`, brand green `#445C58`, Manrope + DM Serif Display) until they're restyled.
+- Inner pages (except the recruiting deck) still use the older green theme (bg `#2B3B38`, brand green `#445C58`, Manrope + DM Serif Display) until they're restyled.
 
 ## Compliance rules (keep these)
 - Never say or imply affiliation with the VA, government, a bank/lender, or a "benefits office"; don't call Chandler an "underwriter".
